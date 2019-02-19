@@ -33,11 +33,11 @@
                     <DynamicMenuStyle BackColor="#FFFBD6" />
                     <DynamicSelectedStyle BackColor="#FFCC66" />
                     <Items>
-                        <asp:MenuItem Text="Dashboard" Value="Dashboard"></asp:MenuItem>
-                        <asp:MenuItem Text="Employee Info" Value="Employee Info"></asp:MenuItem>
+                        <asp:MenuItem Text="Dashboard" Value="Dashboard" NavigateUrl="~/HRDashboard.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Employee Info" Value="Employee Info" ></asp:MenuItem>
                         <asp:MenuItem Text="Tasks" Value="Tasks"></asp:MenuItem>
                         <asp:MenuItem Text="Leaves" Value="Leaves" NavigateUrl="~/LeaveList.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Performance" Value="Performance"></asp:MenuItem>
+                        <asp:MenuItem Text="Performance" Value="Performance" NavigateUrl="~/CompletedReviews.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Complains" Value="Complains"></asp:MenuItem> 
                         <asp:MenuItem Text="Payroll" Value="Payroll"></asp:MenuItem>
                         <asp:MenuItem Text="Reports" Value="Reports">
