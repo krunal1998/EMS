@@ -15,6 +15,10 @@
             height: 100px;
             width: 106px;
         }
+        .auto-style1 {
+            width: 249px;
+            height: 177px;
+        }
     </style>
 </head>
 <body style="height: 768px; width: 1281px; background-color:azure">
@@ -22,7 +26,7 @@
     <div style="align-content:center">
     
     
-        <table id="Table1" runat="server">
+        <table id="Table1" runat="server" class="auto-style1">
             <tr>
                 <td>
                     <img id="logo" runat="server" src="Images/Navkar%20Enterprise%20Logo.png" />
