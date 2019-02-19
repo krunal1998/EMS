@@ -13,5 +13,18 @@ namespace EMS
         {
 
         }
+
+        protected void Add_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/HolidayList.aspx");
+        }
+
+        protected void Reset_Click(object sender, EventArgs e)
+        {
+            NameTextBox.Text = null;
+            DateTextBox.Text = null;
+            DropDownList1.SelectedIndex = 0;
+            CheckBox1.Checked = true;
+        }
     }
 }

@@ -41,6 +41,9 @@
             <td>
                 <asp:TextBox ID="FromDateTextBox" runat="server" TextMode="Date"></asp:TextBox>
             </td>
+            <td>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="From Date must be less than To date" Operator="LessThanEqual" ValidationGroup="validationgroup1" Type="Date" ControlToCompare="ToDateTextBox" ControlToValidate="FromDateTextBox" ForeColor="Red"></asp:CompareValidator>
+            </td>
         </tr>
         <tr>
             <td style="width:150px;">To</td>
@@ -52,7 +55,7 @@
              <td style="width:150px;">Leave Status</td>
             <td>
                 <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatDirection="Horizontal" CellPadding="2" CellSpacing="10">
-                    <asp:ListItem>All</asp:ListItem>
+                    <asp:ListItem Selected="True">All</asp:ListItem>
                     <asp:ListItem>Rejected</asp:ListItem>
                     <asp:ListItem>Cancelled</asp:ListItem>
                     <asp:ListItem>Scheduled</asp:ListItem>
@@ -70,7 +73,7 @@
     </table>
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Search" runat="server" Text="Search" Width="78px" />
+    <asp:Button ID="Search" runat="server" Text="Search" Width="78px" ValidationGroup="validationgroup1" />
     
     <cc1:AutoCompleteExtender ID="TextBox1_AutoCompleteExtender" runat="server" DelimiterCharacters=""
 

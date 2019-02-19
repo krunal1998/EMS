@@ -9,11 +9,17 @@
             <td style="width:100px;">Holiday Name</td>
             <td>
             <asp:textbox id="NameTextBox" runat="server" placeholder="holiday name" /></td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter Holiday Name" ValidationGroup="validationgroup" ControlToValidate="NameTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width:100px;">Date</td>
             <td>
                 <asp:TextBox ID="DateTextBox" runat="server" TextMode="Date"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="select Holiday Date" ValidationGroup="validationgroup" ControlToValidate="DateTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -26,11 +32,13 @@
             </td>
         </tr>
     </table>
-    <asp:CheckBox ID="CheckBox1" runat="server" Text="Repeated Annually" />
+    <asp:CheckBox ID="CheckBox1" runat="server" Text="Repeated Annually" Checked="true"/>
     <hr />
-    <asp:Button ID="Add" runat="server" Text="Add" Width="78px" />
+    <asp:Button ID="Add" runat="server" Text="Add" Width="78px" ValidationGroup="validationgroup" OnClick="Add_Click" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Reset" runat="server" Text="Reset" Width="78px" />
+    <asp:Button ID="Reset" runat="server" Text="Reset" Width="78px" OnClick="Reset_Click" />
 </asp:Content>
+
+
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>

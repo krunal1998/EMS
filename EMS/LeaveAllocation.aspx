@@ -39,15 +39,26 @@
                     <asp:ListItem  Value="0" Text="Select Leave Type" />
                 </asp:DropDownList>
             </td>
-            <td class="auto-style5">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of days: </td>
+            <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of days: </td>
             <td class="auto-style4">
                 <asp:TextBox ID="DaysTextBox" runat="server" placeholder="Type number of days" Height="16px" Width="162px" ></asp:TextBox>
             </td>
-            <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="enter number of days" ControlToValidate="DaysTextBox" ForeColor="Red" ></asp:RequiredFieldValidator>
-            </td>
-            <td class="auto-style4"><asp:Button ID="Add" runat="server" Text="Add" width="78px"/></td>
+            <td class="auto-style4"><asp:Button ID="Add" runat="server" Text="Add" width="78px" ValidationGroup="validationgroup"/></td>
             
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Select Job Title" ControlToValidate="DropDownList1" ForeColor="Red" ValidationGroup="validationgroup" InitialValue="0" ></asp:RequiredFieldValidator>
+            </td>
+            <td></td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Select Leave Type" ControlToValidate="DropDownList2" ForeColor="Red" ValidationGroup="validationgroup" InitialValue="0" ></asp:RequiredFieldValidator>
+            </td>
+            <td></td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Enter number of days" ControlToValidate="DaysTextBox" ForeColor="Red" ValidationGroup="validationgroup" ></asp:RequiredFieldValidator>
+            </td>
         </tr>
     </table>
     <br />

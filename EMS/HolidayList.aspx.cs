@@ -67,6 +67,22 @@ namespace EMS
             GridView1.EditIndex = -1;
             gvbind();
         }
+
+        protected void AddButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AddHoliday.aspx");
+        }
+
+        protected void Search_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AddHoliday.aspx");
+        }
+
+        protected void Reset_Click(object sender, EventArgs e)
+        {
+            ToDateTextBox.Text = null;
+            FromDateTextBox.Text = null;
+        }
     }
 
 }

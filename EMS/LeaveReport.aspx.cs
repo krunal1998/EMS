@@ -67,7 +67,7 @@ namespace EMS
             row["State"] = "UP";
             row["Education"] = 1500;
             table.Rows.Add(row);
-            Chart1.Series[0].Enabled = true;
+            //Chart1.Series[0].Enabled = true;
             Chart1.DataSource = table;
             Chart1.DataBind();
             Chart2.DataSource = table;
@@ -83,11 +83,11 @@ namespace EMS
 
         {
             List<string> list = new List<string>();
-            list.Add("abc");
-            list.Add("abb");
-            list.Add("acb");
-            list.Add("bca");
-            list.Add("edfg");
+            list.Add("Pratik Joshi");
+            list.Add("Chintan Joshi");
+            list.Add("Krunal Katrodiya");
+            list.Add("Rohan Rudani");
+            list.Add("Yash Changrani");
             List<string> temp = new List<string>();
             foreach (string v in list)
             {

@@ -43,6 +43,9 @@
                 <asp:TextBox ID="EnameTextBox" runat="server" placeholder="Employee Name"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="JobTitleTextBox" runat="server" placeholder="Job Title"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
+            <td>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="From Date must be less than To date" Operator="LessThanEqual" Type="Date" ControlToCompare="ToDateTextBox" ControlToValidate="FromDateTextBox" ForeColor="Red" ValidationGroup="validationgroup"></asp:CompareValidator>
+            </td>
             
          </tr>   
     </table>
@@ -50,7 +53,7 @@
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <asp:Button ID="View" runat="server" Text="View" Width="78px" />
+    <asp:Button ID="View" runat="server" Text="View" Width="78px" ValidationGroup="validationgroup" />
     <br />
     
     <cc1:AutoCompleteExtender ID="TextBox1_AutoCompleteExtender" runat="server" DelimiterCharacters=""
@@ -87,7 +90,7 @@
             Palette="SemiTransparent" >
         <Series>
                 <asp:Series Name="Education" XValueMember="State" YValueMembers="Education" IsVisibleInLegend="true"
-                    ChartType="Line" IsValueShownAsLabel="true" Enabled="false"  >
+                    ChartType="Column" IsValueShownAsLabel="true" Enabled="false"  >
                 </asp:Series>
                 
             </Series>
