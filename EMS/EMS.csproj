@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B52447FC-D712-47F1-B004-E43C16BDE637}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EMS</RootNamespace>
+    <AssemblyName>EMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.1\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.1.0.3, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.2.1.0.3\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddHoliday.aspx" />
+    <Content Include="AssignTask.aspx" />
+    <Content Include="AttendanceReport.aspx" />
+    <Content Include="CompletedReviews.aspx" />
+    <Content Include="CreateProject.aspx" />
+    <Content Include="GenerateReview.aspx" />
+    <Content Include="HolidayList.aspx" />
+    <Content Include="Images\Navkar Enterprise Logo.png" />
+    <Content Include="LeaveAllocation.aspx" />
+    <Content Include="LeaveList.aspx" />
+    <Content Include="LeaveReport.aspx" />
+    <Content Include="LeaveType.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="NewParameter.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="MasterPage.Master" />
+    <Content Include="PendingReviews.aspx" />
+    <Content Include="ViewProjects.aspx" />
+    <Content Include="ViewTasks.aspx" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="AssessReview.aspx" />
+    <Content Include="WorkWeek.aspx" />
+    <Content Include="MasterPageSupervisor.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sample.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddHoliday.aspx.cs">
+      <DependentUpon>AddHoliday.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddHoliday.aspx.designer.cs">
+      <DependentUpon>AddHoliday.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssignTask.aspx.cs">
+      <DependentUpon>AssignTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssignTask.aspx.designer.cs">
+      <DependentUpon>AssignTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceReport.aspx.cs">
+      <DependentUpon>AttendanceReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceReport.aspx.designer.cs">
+      <DependentUpon>AttendanceReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompletedReviews.aspx.cs">
+      <DependentUpon>CompletedReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompletedReviews.aspx.designer.cs">
+      <DependentUpon>CompletedReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject.aspx.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject.aspx.designer.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateReview.aspx.cs">
+      <DependentUpon>GenerateReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateReview.aspx.designer.cs">
+      <DependentUpon>GenerateReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayList.aspx.cs">
+      <DependentUpon>HolidayList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayList.aspx.designer.cs">
+      <DependentUpon>HolidayList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveAllocation.aspx.cs">
+      <DependentUpon>LeaveAllocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveAllocation.aspx.designer.cs">
+      <DependentUpon>LeaveAllocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveList.aspx.cs">
+      <DependentUpon>LeaveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveList.aspx.designer.cs">
+      <DependentUpon>LeaveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveReport.aspx.cs">
+      <DependentUpon>LeaveReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveReport.aspx.designer.cs">
+      <DependentUpon>LeaveReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveType.aspx.cs">
+      <DependentUpon>LeaveType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveType.aspx.designer.cs">
+      <DependentUpon>LeaveType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LEAVETYPE.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPageSupervisor.Master.cs">
+      <DependentUpon>MasterPageSupervisor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPageSupervisor.Master.designer.cs">
+      <DependentUpon>MasterPageSupervisor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="NewParameter.aspx.cs">
+      <DependentUpon>NewParameter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewParameter.aspx.designer.cs">
+      <DependentUpon>NewParameter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sample.aspx.cs">
+      <DependentUpon>sample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sample.aspx.designer.cs">
+      <DependentUpon>sample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PendingReviews.aspx.cs">
+      <DependentUpon>PendingReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PendingReviews.aspx.designer.cs">
+      <DependentUpon>PendingReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewProjects.aspx.cs">
+      <DependentUpon>ViewProjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewProjects.aspx.designer.cs">
+      <DependentUpon>ViewProjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTasks.aspx.cs">
+      <DependentUpon>ViewTasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTasks.aspx.designer.cs">
+      <DependentUpon>ViewTasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssessReview.aspx.cs">
+      <DependentUpon>AssessReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssessReview.aspx.designer.cs">
+      <DependentUpon>AssessReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkWeek.aspx.cs">
+      <DependentUpon>WorkWeek.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkWeek.aspx.designer.cs">
+      <DependentUpon>WorkWeek.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62013</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62013/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
