@@ -58,7 +58,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:Table ID="Table1" runat="server" GridLines="Both">
             <asp:TableRow runat="server">
-                <asp:TableHeaderCell runat="server">Task Name</asp:TableHeaderCell>
                 <asp:TableHeaderCell runat="server">Employee</asp:TableHeaderCell>
                 <asp:TableHeaderCell runat="server">Start Date</asp:TableHeaderCell>
                 <asp:TableHeaderCell runat="server">End Date</asp:TableHeaderCell>
@@ -67,13 +66,6 @@
                 <asp:TableHeaderCell runat="server">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </asp:TableHeaderCell>
             </asp:TableRow>
 
-            <asp:TableRow runat="server">
-                <asp:TableCell runat="server">Pratik Joshi</asp:TableCell>
-                <asp:TableCell runat="server">10-12-2018</asp:TableCell>
-                <asp:TableCell runat="server">10-01-2019</asp:TableCell>
-                <asp:TableCell runat="server">25-01-2019</asp:TableCell>
-                <asp:TableCell runat="server">Pending</asp:TableCell>
-                <asp:TableCell runat="server"> <asp:Button runat="server" Text ="Edit"/> </asp:TableCell>
-            </asp:TableRow>
+            
     </asp:Table>
 </asp:Content>

@@ -109,6 +109,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddEmployee.aspx" />
     <Content Include="AddHoliday.aspx" />
     <Content Include="AssignTask.aspx" />
     <Content Include="AttendanceReport.aspx" />
@@ -137,7 +138,6 @@
     <Content Include="LeaveType.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ManageAllowances.aspx" />
-    <Content Include="ManageAppraisals - Copy.aspx" />
     <Content Include="ManageAppraisals.aspx" />
     <Content Include="NewParameter.aspx" />
     <Content Include="packages.config" />
@@ -151,7 +151,6 @@
     <Content Include="AssessReview.aspx" />
     <Content Include="WorkWeek.aspx" />
     <Content Include="MasterPageSupervisor.Master" />
-    <Content Include="MasterPage - Copy.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -165,6 +164,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEmployee.aspx.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddEmployee.aspx.designer.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddHoliday.aspx.cs">
       <DependentUpon>AddHoliday.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,7 +312,6 @@
     <Compile Include="LeaveType.aspx.designer.cs">
       <DependentUpon>LeaveType.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LEAVETYPE.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -321,26 +326,12 @@
     <Compile Include="ManageAllowances.aspx.designer.cs">
       <DependentUpon>ManageAllowances.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManageAppraisals - Copy.aspx.cs">
-      <DependentUpon>ManageAppraisals - Copy.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ManageAppraisals - Copy.aspx.designer.cs">
-      <DependentUpon>ManageAppraisals - Copy.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ManageAppraisals.aspx.cs">
       <DependentUpon>ManageAppraisals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManageAppraisals.aspx.designer.cs">
       <DependentUpon>ManageAppraisals.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MasterPage - Copy.Master.cs">
-      <DependentUpon>MasterPage - Copy.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MasterPage - Copy.Master.designer.cs">
-      <DependentUpon>MasterPage - Copy.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -356,6 +347,32 @@
     <Compile Include="MasterPageSupervisor.Master.designer.cs">
       <DependentUpon>MasterPageSupervisor.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\ALLOCATEDALLOWANCES.cs" />
+    <Compile Include="Models\ALLOWANCES.cs" />
+    <Compile Include="Models\ATTENDANCE.cs" />
+    <Compile Include="Models\COMPLAINS.cs" />
+    <Compile Include="Models\COMPLAINTYPES.cs" />
+    <Compile Include="Models\CONTACTDETAILS.cs" />
+    <Compile Include="Models\DEDUCTIONS.cs" />
+    <Compile Include="Models\DEDUCTIONSTRUCTURE.cs" />
+    <Compile Include="Models\DOCUMENTS.cs" />
+    <Compile Include="Models\EMERGENCYCONTACT.cs" />
+    <Compile Include="Models\EMPLOYEE.cs" />
+    <Compile Include="Models\EMPLOYEELEAVES.cs" />
+    <Compile Include="Models\GENERATEREVIEW.cs" />
+    <Compile Include="Models\HOLIDAYS.cs" />
+    <Compile Include="Models\JOBTITLE.cs" />
+    <Compile Include="Models\LEAVEALLOCATION.cs" />
+    <Compile Include="Models\LEAVES.cs" />
+    <Compile Include="Models\LeaveType.cs" />
+    <Compile Include="Models\LOGINDETAILS.cs" />
+    <Compile Include="Models\PERFORMANCEPARAMETER.cs" />
+    <Compile Include="Models\PERSONALDETAILS.cs" />
+    <Compile Include="Models\PROJECT.cs" />
+    <Compile Include="Models\REVIEW.cs" />
+    <Compile Include="Models\SUPERVISOR.cs" />
+    <Compile Include="Models\TASK.cs" />
+    <Compile Include="Models\WEEKDAY.cs" />
     <Compile Include="NewParameter.aspx.cs">
       <DependentUpon>NewParameter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
