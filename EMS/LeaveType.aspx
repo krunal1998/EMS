@@ -10,11 +10,11 @@
         <asp:textbox id="AddNewLeaveTypeBox" runat="server" placeholder="new leave type name" Width="245px" ></asp:textbox>
         
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="AddButton" runat="server" Text="Add" Width="77px" />
+        <asp:Button ID="AddButton" runat="server" Text="Add" Width="77px" ValidationGroup="group" OnClick="AddLeaveType" />
         
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="AddNewLeaveTypeBox" ErrorMessage="Enter leave type" ForeColor="Red" Font-Size="Large"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="AddNewLeaveTypeBox" ErrorMessage="Enter leave type" ForeColor="Red" Font-Size="Large" ValidationGroup="group"></asp:RequiredFieldValidator>
         
     </div>
     <hr />
@@ -22,11 +22,11 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
     <br />
-    <asp:placeholder runat="server" id="PlaceHolder1">
-
-    </asp:placeholder>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:CheckBoxList ID="CheckBoxList1" runat="server"></asp:CheckBoxList>
     
     <br />
     <br />
-    <asp:button runat="server" text="Delete" id="DeleteButton"/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:button runat="server" text="Delete" id="DeleteButton" OnClick="DeleteLeaveType"/>
 </asp:Content>
