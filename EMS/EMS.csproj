@@ -124,7 +124,12 @@
     <Content Include="GenerateReview.aspx" />
     <Content Include="HolidayList.aspx" />
     <Content Include="HRDashboard.aspx" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\list.png" />
     <Content Include="Images\Navkar Enterprise Logo.png" />
+    <Content Include="Images\person.jpg" />
+    <Content Include="Images\remove.png" />
+    <Content Include="Images\sheet.png" />
     <Content Include="JobTitle.aspx" />
     <Content Include="LeaveAllocation.aspx" />
     <Content Include="LeaveList.aspx" />
