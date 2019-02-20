@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EMS
+namespace EMSClassLibrary
 {
     using System;
     using System.Collections.Generic;

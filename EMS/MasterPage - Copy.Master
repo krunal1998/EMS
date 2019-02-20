@@ -41,8 +41,8 @@
                         <asp:MenuItem Text="Complains" Value="Complains" NavigateUrl="~/ComplainList.aspx"></asp:MenuItem> 
                         <asp:MenuItem Text="Payroll" Value="Payroll">
                             <asp:MenuItem Text="Manage Allowances" Value="Manage Allowances" NavigateUrl="~/ManageAllowances.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Manage Appraisals" Value="Manage Appraisals" NavigateUrl="~/ManageAppraisals.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Generate Payslip" Value="Generate Payslip" NavigateUrl="~/GeneratePayslip.aspx"></asp:MenuItem>                            
+                            <asp:MenuItem Text="Manage Allowances" Value="Manage Appraisals" NavigateUrl="~/ManageAppraisals.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Manage Allowances" Value="Generate Payslip" NavigateUrl="~/GeneratePayslip.aspx"></asp:MenuItem>                            
                          </asp:MenuItem>
                         <asp:MenuItem Text="Reports" Value="Reports">
                             <asp:MenuItem Text="Based on Leave" Value="Based on Leave" NavigateUrl="~/LeaveReport.aspx"></asp:MenuItem>
