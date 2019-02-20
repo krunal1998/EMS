@@ -109,9 +109,69 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddEmployee.aspx" />
     <Content Include="AddHoliday.aspx" />
     <Content Include="AssignTask.aspx" />
     <Content Include="AttendanceReport.aspx" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\AjaxMin.dll" />
+    <Content Include="bin\de\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\de\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\de\System.Spatial.resources.dll" />
+    <Content Include="bin\EMS.dll" />
+    <Content Include="bin\EMS.pdb" />
+    <Content Include="bin\es\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\es\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\es\System.Spatial.resources.dll" />
+    <Content Include="bin\fr\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\fr\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\fr\System.Spatial.resources.dll" />
+    <Content Include="bin\HtmlAgilityPack.dll" />
+    <Content Include="bin\HtmlAgilityPack.pdb" />
+    <Content Include="bin\HtmlAgilityPack.xml" />
+    <Content Include="bin\it\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\it\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\it\System.Spatial.resources.dll" />
+    <Content Include="bin\ja\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\ja\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\ja\System.Spatial.resources.dll" />
+    <Content Include="bin\ko\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\ko\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\ko\System.Spatial.resources.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Data.Edm.dll" />
+    <Content Include="bin\Microsoft.Data.Edm.xml" />
+    <Content Include="bin\Microsoft.Data.OData.dll" />
+    <Content Include="bin\Microsoft.Data.OData.xml" />
+    <Content Include="bin\Microsoft.WindowsAzure.Configuration.dll" />
+    <Content Include="bin\Microsoft.WindowsAzure.Storage.dll" />
+    <Content Include="bin\Microsoft.WindowsAzure.Storage.pdb" />
+    <Content Include="bin\Microsoft.WindowsAzure.Storage.xml" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\ru\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\ru\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\ru\System.Spatial.resources.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Spatial.dll" />
+    <Content Include="bin\System.Spatial.xml" />
+    <Content Include="bin\zh-Hans\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\zh-Hans\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\zh-Hans\System.Spatial.resources.dll" />
+    <Content Include="bin\zh-Hant\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\zh-Hant\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Spatial.resources.dll" />
     <Content Include="Complain.aspx" />
     <Content Include="ComplainList.aspx" />
     <Content Include="CompletedReviews.aspx" />
@@ -124,12 +184,7 @@
     <Content Include="GenerateReview.aspx" />
     <Content Include="HolidayList.aspx" />
     <Content Include="HRDashboard.aspx" />
-    <Content Include="Images\add.png" />
-    <Content Include="Images\list.png" />
     <Content Include="Images\Navkar Enterprise Logo.png" />
-    <Content Include="Images\person.jpg" />
-    <Content Include="Images\remove.png" />
-    <Content Include="Images\sheet.png" />
     <Content Include="JobTitle.aspx" />
     <Content Include="LeaveAllocation.aspx" />
     <Content Include="LeaveList.aspx" />
@@ -139,6 +194,9 @@
     <Content Include="ManageAllowances.aspx" />
     <Content Include="ManageAppraisals.aspx" />
     <Content Include="NewParameter.aspx" />
+    <Content Include="obj\Debug\EMS.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\EMS.dll" />
+    <Content Include="obj\Debug\EMS.pdb" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
     <Content Include="Payslip.aspx" />
@@ -150,6 +208,12 @@
     <Content Include="AssessReview.aspx" />
     <Content Include="WorkWeek.aspx" />
     <Content Include="MasterPageSupervisor.Master" />
+    <Content Include="bin\EMS.dll.config" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\EMS.csprojResolveAssemblyReference.cache" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -158,11 +222,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEmployee.aspx.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddEmployee.aspx.designer.cs">
+      <DependentUpon>AddEmployee.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddHoliday.aspx.cs">
       <DependentUpon>AddHoliday.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,7 +373,6 @@
     <Compile Include="LeaveType.aspx.designer.cs">
       <DependentUpon>LeaveType.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LEAVETYPE.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -340,6 +408,32 @@
     <Compile Include="MasterPageSupervisor.Master.designer.cs">
       <DependentUpon>MasterPageSupervisor.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\ALLOCATEDALLOWANCES.cs" />
+    <Compile Include="Models\ALLOWANCES.cs" />
+    <Compile Include="Models\ATTENDANCE.cs" />
+    <Compile Include="Models\COMPLAINS.cs" />
+    <Compile Include="Models\COMPLAINTYPES.cs" />
+    <Compile Include="Models\CONTACTDETAILS.cs" />
+    <Compile Include="Models\DEDUCTIONS.cs" />
+    <Compile Include="Models\DEDUCTIONSTRUCTURE.cs" />
+    <Compile Include="Models\DOCUMENTS.cs" />
+    <Compile Include="Models\EMERGENCYCONTACT.cs" />
+    <Compile Include="Models\EMPLOYEE.cs" />
+    <Compile Include="Models\EMPLOYEELEAVES.cs" />
+    <Compile Include="Models\GENERATEREVIEW.cs" />
+    <Compile Include="Models\HOLIDAYS.cs" />
+    <Compile Include="Models\JOBTITLE.cs" />
+    <Compile Include="Models\LEAVEALLOCATION.cs" />
+    <Compile Include="Models\LEAVES.cs" />
+    <Compile Include="Models\LeaveType.cs" />
+    <Compile Include="Models\LOGINDETAILS.cs" />
+    <Compile Include="Models\PERFORMANCEPARAMETER.cs" />
+    <Compile Include="Models\PERSONALDETAILS.cs" />
+    <Compile Include="Models\PROJECT.cs" />
+    <Compile Include="Models\REVIEW.cs" />
+    <Compile Include="Models\SUPERVISOR.cs" />
+    <Compile Include="Models\TASK.cs" />
+    <Compile Include="Models\WEEKDAY.cs" />
     <Compile Include="NewParameter.aspx.cs">
       <DependentUpon>NewParameter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -347,6 +441,9 @@
     <Compile Include="NewParameter.aspx.designer.cs">
       <DependentUpon>NewParameter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Payslip.aspx.cs">
       <DependentUpon>Payslip.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,6 +501,9 @@
     <Compile Include="WorkWeek.aspx.designer.cs">
       <DependentUpon>WorkWeek.aspx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

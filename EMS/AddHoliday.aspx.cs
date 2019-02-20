@@ -16,7 +16,9 @@ namespace EMS
 
         protected void Add_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/HolidayList.aspx");
+            Response.Write(DateTextBox.Text);
+            Response.Write(NameTextBox.Text);
+            //Response.Redirect("~/HolidayList.aspx");
         }
 
         protected void Reset_Click(object sender, EventArgs e)
