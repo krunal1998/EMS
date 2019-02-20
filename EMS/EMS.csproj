@@ -425,7 +425,7 @@
     <Compile Include="Models\JOBTITLE.cs" />
     <Compile Include="Models\LEAVEALLOCATION.cs" />
     <Compile Include="Models\LEAVES.cs" />
-    <Compile Include="Models\LeaveType.cs" />
+    <Compile Include="Models\LEAVETYPE.cs" />
     <Compile Include="Models\LOGINDETAILS.cs" />
     <Compile Include="Models\PERFORMANCEPARAMETER.cs" />
     <Compile Include="Models\PERSONALDETAILS.cs" />
