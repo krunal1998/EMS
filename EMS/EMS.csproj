@@ -132,6 +132,7 @@
     <Content Include="LeaveType.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ManageAllowances.aspx" />
+    <Content Include="ManageAppraisals - Copy.aspx" />
     <Content Include="ManageAppraisals.aspx" />
     <Content Include="NewParameter.aspx" />
     <Content Include="packages.config" />
@@ -145,6 +146,7 @@
     <Content Include="AssessReview.aspx" />
     <Content Include="WorkWeek.aspx" />
     <Content Include="MasterPageSupervisor.Master" />
+    <Content Include="MasterPage - Copy.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -153,9 +155,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddHoliday.aspx.cs">
@@ -249,7 +249,6 @@
     <Compile Include="GenerateReview.aspx.designer.cs">
       <DependentUpon>GenerateReview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Global.cs" />
     <Compile Include="HolidayList.aspx.cs">
       <DependentUpon>HolidayList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -314,12 +313,26 @@
     <Compile Include="ManageAllowances.aspx.designer.cs">
       <DependentUpon>ManageAllowances.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageAppraisals - Copy.aspx.cs">
+      <DependentUpon>ManageAppraisals - Copy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageAppraisals - Copy.aspx.designer.cs">
+      <DependentUpon>ManageAppraisals - Copy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageAppraisals.aspx.cs">
       <DependentUpon>ManageAppraisals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManageAppraisals.aspx.designer.cs">
       <DependentUpon>ManageAppraisals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage - Copy.Master.cs">
+      <DependentUpon>MasterPage - Copy.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage - Copy.Master.designer.cs">
+      <DependentUpon>MasterPage - Copy.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
