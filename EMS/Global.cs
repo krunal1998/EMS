@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace EMS
 {
-    public partial class ManageAppraisals : System.Web.UI.Page
+    public class Global
     {
-
+        public static string URIstring = "http://localhost:62255/api/";
     }
 }

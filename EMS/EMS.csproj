@@ -159,7 +159,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddEmployee.aspx.cs">
@@ -260,6 +262,7 @@
     <Compile Include="GenerateReview.aspx.designer.cs">
       <DependentUpon>GenerateReview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="HolidayList.aspx.cs">
       <DependentUpon>HolidayList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
