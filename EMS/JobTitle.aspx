@@ -11,11 +11,11 @@
         <asp:textbox id="JobTitleTextBox" runat="server" placeholder="new Job Title" Width="245px" ></asp:textbox>
         
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="AddButton" runat="server" Text="Add" Width="77px" />
+        <asp:Button ID="AddButton" runat="server" Text="Add" Width="77px" ValidationGroup="Group" />
         
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="JobTitleTextBox" ErrorMessage="Enter Job Title" ForeColor="Red" Font-Size="Large"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="JobTitleTextBox" ErrorMessage="Enter Job Title" ForeColor="Red" Font-Size="Large" ValidationGroup="Group"></asp:RequiredFieldValidator>
         
     </div>
     <hr />
