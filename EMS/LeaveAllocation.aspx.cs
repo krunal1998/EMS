@@ -21,7 +21,9 @@ namespace EMS
             {
                 loadjobtitle();
                 loadleavetype();
-                gvbind();
+                loadleaveallocation();
+                filterdata();
+                //gvbind();
             }
         }
 
@@ -98,7 +100,29 @@ namespace EMS
                 }
             }
         }
-        protected void gvbind()
+
+        //load data in leave allocations
+        protected void loadleaveallocation()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("LeaveAllocation");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<LEAVEALLOCATION[]>();
+                    readTask.Wait();
+
+                    leaveallocations = readTask.Result;
+                }
+            }
+        }
+ /*       protected void gvbind()
         {
             DataTable dt = new DataTable();
             DataColumn dc1 = new DataColumn("JobTitle");
@@ -148,12 +172,13 @@ namespace EMS
             GridView1.DataSource = dt;
             GridView1.DataBind();
 
-        }
+        }*/
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
-            gvbind();
+            filterdata();
+           // gvbind();
         }
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
@@ -194,14 +219,16 @@ namespace EMS
                 var result = updateTask.Result;
             }
 
-
-            gvbind();
+            loadleaveallocation();
+            filterdata();
+           // gvbind();
             
         }
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridView1.EditIndex = -1;
-            gvbind();
+            filterdata();
+            //gvbind();
         }
 
         //Add new record
@@ -246,23 +273,36 @@ namespace EMS
                 }
 
             }
-            gvbind();
+            DropDownList3.SelectedIndex = 0;
+            DropDownList4.SelectedIndex = 0;
+            loadleaveallocation();
+            filterdata();
+            //gvbind();
         }
 
         
         //search records
         protected void Search_Click(object sender, EventArgs e)
         {
-            if((DropDownList3.SelectedIndex != 0) || (DropDownList4.SelectedIndex != 0))
-            {
-                DataTable dt = new DataTable();
-                DataColumn dc1 = new DataColumn("JobTitle");
-                DataColumn dc2 = new DataColumn("LeaveType");
-                DataColumn dc3 = new DataColumn("numberofLeaves");
-                dt.Columns.Add("JobTitle", Type.GetType("System.String"));
-                dt.Columns.Add("LeaveType", Type.GetType("System.String"));
-                dt.Columns.Add("numberofLeaves", Type.GetType("System.Int32"));
+            filterdata();   
+        }
 
+        public void filterdata()
+        {
+            //get latest updated data in leaveallocations array
+            //gvbind();
+            DataTable dt = new DataTable();
+            DataColumn dc1 = new DataColumn("JobTitle");
+            DataColumn dc2 = new DataColumn("LeaveType");
+            DataColumn dc3 = new DataColumn("numberofLeaves");
+            dt.Columns.Add("JobTitle", Type.GetType("System.String"));
+            dt.Columns.Add("LeaveType", Type.GetType("System.String"));
+            dt.Columns.Add("numberofLeaves", Type.GetType("System.Int32"));
+            
+            //if job title or leave type as filter is choosen 
+            if ((DropDownList3.SelectedIndex != 0) || (DropDownList4.SelectedIndex != 0))
+            {
+                //if only job title is choosen as filter
                 if ((DropDownList3.SelectedIndex != 0) && (DropDownList4.SelectedIndex == 0))
                 {
                     foreach (var leaveallocation in leaveallocations)
@@ -270,7 +310,7 @@ namespace EMS
                         int flag = 0;
                         DataRow row = dt.NewRow();
 
-                        
+
                         foreach (var jobtitle in jobtitles)
                         {
                             if ((jobtitle.JobTitleId == leaveallocation.JobTitleId) && jobtitle.JobTitleName.Equals(DropDownList3.SelectedValue))
@@ -279,7 +319,7 @@ namespace EMS
                                 row["JobTitle"] = jobtitle.JobTitleName;
                             }
                         }
-                        if(flag==1)
+                        if (flag == 1)
                         {
                             foreach (var leavetype in leavetypes)
                             {
@@ -291,6 +331,7 @@ namespace EMS
                         }
                     }
                 }
+                //if only leave type is choosen as filter parameter
                 else if ((DropDownList3.SelectedIndex == 0) && (DropDownList4.SelectedIndex != 0))
                 {
                     foreach (var leaveallocation in leaveallocations)
@@ -318,12 +359,13 @@ namespace EMS
                         }
                     }
                 }
+                //if job title and leave type both choosen as filter parameter
                 else if ((DropDownList3.SelectedIndex != 0) && (DropDownList4.SelectedIndex != 0))
                 {
                     foreach (var leaveallocation in leaveallocations)
                     {
                         int flag = 0;
-                        var temp="";
+                        var temp = "";
                         DataRow row = dt.NewRow();
 
                         foreach (var jobtitle in jobtitles)
@@ -349,10 +391,32 @@ namespace EMS
                         }
                     }
                 }
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
             }
-            
+            //if no filter is choosen
+            else
+            {
+                foreach (var leaveallocation in leaveallocations)
+                {
+                    DataRow row = dt.NewRow();
+
+                    row["numberofLeaves"] = leaveallocation.NumberOfLeave;
+                    foreach (var jobtitle in jobtitles)
+                    {
+                        if (jobtitle.JobTitleId == leaveallocation.JobTitleId)
+                            row["JobTitle"] = jobtitle.JobTitleName;
+                    }
+                    foreach (var leavetype in leavetypes)
+                    {
+                        if (leavetype.LeaveTypeId == leaveallocation.LeaveTypeId)
+                            row["LeaveType"] = leavetype.LeaveTypeName;
+                    }
+                    dt.Rows.Add(row);
+                }
+            }
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+
+
         }
 
         protected void DeleteButton_Click(object sender, EventArgs e)
@@ -370,7 +434,9 @@ namespace EMS
                     }
                 }
             }
-            gvbind();
+            loadleaveallocation();
+            filterdata();
+            //gvbind();
         }
 
         public void deleterecord(string title,string type)
