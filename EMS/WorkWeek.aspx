@@ -48,17 +48,17 @@
         <tr>
             <td style="width:100px;color:dodgerblue;">Saturday </td>
             <td><asp:DropDownList ID="DropDownList6" runat="server" Enabled="false">
-                    <asp:ListItem  Value="8" Text="Full day" />
+                    <asp:ListItem  Value="8" Text="Full day"  Selected="True"/>
                     <asp:ListItem  Value="4" Text="Half day" />
-                    <asp:ListItem  Value="0" Text="Non-working day" Selected="True"/>
+                    <asp:ListItem  Value="0" Text="Non-working day"/>
                 </asp:DropDownList> </td>
         </tr>
         <tr>
             <td style="width:100px;color:dodgerblue;">Sunday </td>
             <td><asp:DropDownList ID="DropDownList7" runat="server" Enabled="false">
-                    <asp:ListItem  Value="8" Text="Full day" />
+                    <asp:ListItem  Value="8" Text="Full day" Selected="True"/>
                     <asp:ListItem  Value="4" Text="Half day" />
-                    <asp:ListItem  Value="0" Text="Non-working day" Selected="True"/>
+                    <asp:ListItem  Value="0" Text="Non-working day" />
                 </asp:DropDownList> </td>
         </tr>
     </table>
