@@ -106,11 +106,84 @@ namespace EMS
             DropDownList7.Enabled = true;
         }
 
-        protected void UpdateButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         
+        protected void UpdateButton_Click1(object sender, EventArgs e)
+        {
+            if(DropDownList1.Enabled)
+            {
+                WEEKDAY weekday = new WEEKDAY();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(Global.URIstring);
+
+                    weekday.WeekDayId = 1;
+                    weekday.WeekDayName = "Monday";
+                    weekday.WeekDayDuration = Convert.ToInt32(DropDownList1.SelectedValue);
+                    //HTTP PUT
+                    string str = "WeekDay/1";
+                    var updateTask = client.PutAsJsonAsync(str, weekday);
+                    updateTask.Wait();
+
+                    weekday.WeekDayId = 2;
+                    weekday.WeekDayName = "Tuesday";
+                    weekday.WeekDayDuration = Convert.ToInt32(DropDownList2.SelectedValue);
+                    //HTTP PUT
+                    str = "WeekDay/2";
+                    updateTask = client.PutAsJsonAsync(str, weekday);
+                    updateTask.Wait();
+
+                    weekday.WeekDayId = 3;
+                    weekday.WeekDayName = "Wednesday";
+                    weekday.WeekDayDuration = Convert.ToInt32(DropDownList3.SelectedValue);
+                    //HTTP PUT
+                    str = "WeekDay/3";
+                    updateTask = client.PutAsJsonAsync(str, weekday);
+                    updateTask.Wait();
+
+                    weekday.WeekDayId = 4;
+                    weekday.WeekDayName = "Thursday";
+                    weekday.WeekDayDuration = Convert.ToInt32(DropDownList4.SelectedValue);
+                    //HTTP PUT
+                    str = "WeekDay/4";
+                    updateTask = client.PutAsJsonAsync(str, weekday);
+                    updateTask.Wait();
+
+                    weekday.WeekDayId = 5;
+                    weekday.WeekDayName = "Friday";
+                    weekday.WeekDayDuration = Convert.ToInt32(DropDownList5.SelectedValue);
+                    //HTTP PUT
+                    str = "WeekDay/5";
+                    updateTask = client.PutAsJsonAsync(str, weekday);
+                    updateTask.Wait();
+
+                    weekday.WeekDayId = 6;
+                    weekday.WeekDayName = "Saturday";
+                    weekday.WeekDayDuration = Convert.ToInt32(DropDownList6.SelectedValue);
+                    //HTTP PUT
+                    str = "WeekDay/6";
+                    updateTask = client.PutAsJsonAsync(str, weekday);
+                    updateTask.Wait();
+
+                    weekday.WeekDayId = 7;
+                    weekday.WeekDayName = "Sunday";
+                    weekday.WeekDayDuration = Convert.ToInt32(DropDownList7.SelectedValue);
+                    //HTTP PUT
+                    str = "WeekDay/7";
+                    updateTask = client.PutAsJsonAsync(str, weekday);
+                    updateTask.Wait();
+
+
+                    DropDownList1.Enabled = false;
+                    DropDownList2.Enabled = false;
+                    DropDownList3.Enabled = false;
+                    DropDownList4.Enabled = false;
+                    DropDownList5.Enabled = false;
+                    DropDownList6.Enabled = false;
+                    DropDownList7.Enabled = false;
+
+                }
+
+            }
+        }
     }
 }

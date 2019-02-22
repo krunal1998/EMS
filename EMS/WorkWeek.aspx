@@ -65,7 +65,7 @@
     <hr />
     <asp:Button ID="EditButton" runat="server" Text="Edit" Width="78px" OnClick="EditButton_Click" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="UpdateButton" runat="server" Text="Update" style="margin-left: 0px" Width="78px" />
+    <asp:Button ID="UpdateButton" runat="server" Text="Update" style="margin-left: 0px" Width="78px" OnClick="UpdateButton_Click1" />
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">

@@ -211,7 +211,7 @@ namespace EMS
                 }
                 leaveallocation.NumberOfLeave = Convert.ToInt32( leavedays.Text);
                 client.BaseAddress = new Uri(Global.URIstring);
-                //HTTP DELETE
+                //HTTP PUT
                 string str = "LeaveAllocation?jobtitleid=" + titleid + "&leavetypeid=" + typeid;
                 var updateTask = client.PutAsJsonAsync(str,leaveallocation);
                 updateTask.Wait();
