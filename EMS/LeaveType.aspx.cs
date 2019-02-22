@@ -16,7 +16,6 @@ namespace EMS
         {
             if (!IsPostBack)
             {
-                //               Response.Write("In page load");
                 displayrecord();
             }
         }

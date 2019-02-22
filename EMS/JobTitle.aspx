@@ -11,7 +11,7 @@
         <asp:textbox id="JobTitleTextBox" runat="server" placeholder="new Job Title" Width="245px" ></asp:textbox>
         
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="AddButton" runat="server" Text="Add" Width="77px" ValidationGroup="Group" />
+        <asp:Button ID="AddButton" runat="server" Text="Add" Width="77px" ValidationGroup="Group" OnClick="AddButton_Click" />
         
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
@@ -24,11 +24,8 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
     <br />
-    <asp:placeholder runat="server" id="PlaceHolder1">
-
-    </asp:placeholder>
-    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:CheckBoxList ID="CheckBoxList1" runat="server"></asp:CheckBoxList>
     <br />
     <br />
-    <asp:button runat="server" text="Delete" id="DeleteButton"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:button runat="server" text="Delete" id="DeleteButton" OnClick="DeleteButton_Click"/>
 </asp:Content>

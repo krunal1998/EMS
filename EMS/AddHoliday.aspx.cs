@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Http;
 
 namespace EMS
 {
@@ -18,9 +19,32 @@ namespace EMS
         {
             HOLIDAYS holiday = new HOLIDAYS();
             holiday.HolidayName= NameTextBox.Text.Trim();
-            Response.Write(DateTextBox.Text);
-            Response.Write(NameTextBox.Text);
-            //Response.Redirect("~/HolidayList.aspx");
+            holiday.HolidayDate = Convert.ToDateTime(DateTextBox.Text);
+            if (DropDownList1.SelectedItem.Text.Equals("Half day"))
+            {
+                holiday.WorkDuration = 4;
+            }
+            else
+                holiday.WorkDuration = 0;
+            if (CheckBox1.Checked)
+            {
+                holiday.RepeatedAnnually = 1;
+            }
+            else
+                holiday.RepeatedAnnually = 0;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                var postTask = client.PostAsJsonAsync("Holiday", holiday);
+                postTask.Wait();
+
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    Response.Redirect("~/HolidayList.aspx");
+                }
+            }
         }
 
         protected void Reset_Click(object sender, EventArgs e)
