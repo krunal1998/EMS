@@ -13,6 +13,15 @@ namespace EMS {
     public partial class HolidayList {
         
         /// <summary>
+        /// AddButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddButton;
+        
+        /// <summary>
         /// FromDateTextBox control.
         /// </summary>
         /// <remarks>
@@ -74,14 +83,5 @@ namespace EMS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button DeleteButton;
-        
-        /// <summary>
-        /// AddButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddButton;
     }
 }

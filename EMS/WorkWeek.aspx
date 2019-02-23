@@ -8,7 +8,7 @@
         <tr>
             <td style="width:100px;color:dodgerblue;">Monday </td>
             <td><asp:DropDownList ID="DropDownList1" runat="server" Enabled="false">
-                    <asp:ListItem  Value="8" Text="Full day" Selected="True"/>
+                    <asp:ListItem  Value="8" Text="Full day" />
                     <asp:ListItem  Value="4" Text="Half day" />
                     <asp:ListItem  Value="0" Text="Non-working day" />
                 </asp:DropDownList> </td>

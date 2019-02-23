@@ -122,183 +122,17 @@ namespace EMS
                 }
             }
         }
- /*       protected void gvbind()
-        {
-            DataTable dt = new DataTable();
-            DataColumn dc1 = new DataColumn("JobTitle");
-            DataColumn dc2 = new DataColumn("LeaveType");
-            DataColumn dc3 = new DataColumn("numberofLeaves");
-            dt.Columns.Add("JobTitle",Type.GetType("System.String"));
-            dt.Columns.Add("LeaveType", Type.GetType("System.String"));
-            dt.Columns.Add("numberofLeaves", Type.GetType("System.Int32"));
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(Global.URIstring);
-                //HTTP GET
-                var responseTask = client.GetAsync("LeaveAllocation");
-                responseTask.Wait();
-
-                var result = responseTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-
-                    var readTask = result.Content.ReadAsAsync<LEAVEALLOCATION[]>();
-                    readTask.Wait();
-
-                    leaveallocations = readTask.Result;
-
-                    foreach (var leaveallocation in leaveallocations )
-                    {
-                        DataRow row = dt.NewRow();
-                        
-                        row["numberofLeaves"] = leaveallocation.NumberOfLeave;
-                        foreach(var jobtitle in jobtitles)
-                        {
-                            if(jobtitle.JobTitleId==leaveallocation.JobTitleId)
-                                row["JobTitle"] = jobtitle.JobTitleName;
-                        }
-                        foreach (var leavetype in leavetypes)
-                        {
-                            if (leavetype.LeaveTypeId == leaveallocation.LeaveTypeId)
-                                row["LeaveType"] = leavetype.LeaveTypeName;
-                        }
-                        dt.Rows.Add(row);
-                    }
-                }
-            }
-
-            
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-
-        }*/
-
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GridView1.EditIndex = e.NewEditIndex;
-            filterdata();
-           // gvbind();
-        }
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
-            TextBox leavedays = row.Cells[3].Controls[0] as TextBox;
-            string title = row.Cells[1].Text;
-            string type = row.Cells[2].Text;
-            LEAVEALLOCATION leaveallocation = new LEAVEALLOCATION();
-            GridView1.EditIndex = -1;
-
-            using (var client = new HttpClient())
-            {
-                string titleid = null, typeid = null;
-                //assign new value to leave allocation oject
-                foreach (var jobtitle in jobtitles)
-                {
-                    if (jobtitle.JobTitleName.Equals(title))
-                    {
-                        leaveallocation.JobTitleId = jobtitle.JobTitleId;
-                        titleid = jobtitle.JobTitleId.ToString();
-                    }
-                }
-                foreach (var leavetype in leavetypes)
-                {
-                    if (leavetype.LeaveTypeName.Equals(type))
-                    {
-                        leaveallocation.LeaveTypeId = leavetype.LeaveTypeId;
-                        typeid = leavetype.LeaveTypeId.ToString();
-                    }
-                }
-                leaveallocation.NumberOfLeave = Convert.ToInt32( leavedays.Text);
-                client.BaseAddress = new Uri(Global.URIstring);
-                //HTTP PUT
-                string str = "LeaveAllocation?jobtitleid=" + titleid + "&leavetypeid=" + typeid;
-                var updateTask = client.PutAsJsonAsync(str,leaveallocation);
-                updateTask.Wait();
-
-                var result = updateTask.Result;
-            }
-
-            loadleaveallocation();
-            filterdata();
-           // gvbind();
-            
-        }
-        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            GridView1.EditIndex = -1;
-            filterdata();
-            //gvbind();
-        }
-
-        //Add new record
-        protected void Add_Click(object sender, EventArgs e)
-        {
-            LEAVEALLOCATION new_leaveallocation = new LEAVEALLOCATION();
-            
-            //get job title id
-            foreach (var jobtitle in jobtitles)
-            {
-                if(DropDownList1.SelectedValue.Equals(jobtitle.JobTitleName))
-                {
-                    new_leaveallocation.JobTitleId = jobtitle.JobTitleId;
-                    break;
-                }
-            }
-            
-            //get leave type id
-            foreach (var leavetype in leavetypes)
-            {
-                if (DropDownList2.SelectedValue.Equals(leavetype.LeaveTypeName))
-                {
-                    new_leaveallocation.LeaveTypeId = leavetype.LeaveTypeId;
-                    break;
-                }
-            }
-
-            new_leaveallocation.NumberOfLeave = Convert.ToInt32(DaysTextBox.Text);
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(Global.URIstring);
-                var postTask = client.PostAsJsonAsync("LeaveAllocation", new_leaveallocation);
-                postTask.Wait();
-
-                var result = postTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    DaysTextBox.Text = null;
-                    DropDownList1.SelectedIndex = 0;
-                    DropDownList2.SelectedIndex = 0;
-                }
-
-            }
-            DropDownList3.SelectedIndex = 0;
-            DropDownList4.SelectedIndex = 0;
-            loadleaveallocation();
-            filterdata();
-            //gvbind();
-        }
-
         
-        //search records
-        protected void Search_Click(object sender, EventArgs e)
-        {
-            filterdata();   
-        }
-
+        //filter data based on filter parameter and display in gridview
         public void filterdata()
         {
             //get latest updated data in leaveallocations array
             //gvbind();
             DataTable dt = new DataTable();
-            DataColumn dc1 = new DataColumn("JobTitle");
-            DataColumn dc2 = new DataColumn("LeaveType");
-            DataColumn dc3 = new DataColumn("numberofLeaves");
             dt.Columns.Add("JobTitle", Type.GetType("System.String"));
             dt.Columns.Add("LeaveType", Type.GetType("System.String"));
             dt.Columns.Add("numberofLeaves", Type.GetType("System.Int32"));
-            
+
             //if job title or leave type as filter is choosen 
             if ((DropDownList3.SelectedIndex != 0) || (DropDownList4.SelectedIndex != 0))
             {
@@ -419,6 +253,172 @@ namespace EMS
 
         }
 
+        /*       protected void gvbind()
+               {
+                   DataTable dt = new DataTable();
+                   DataColumn dc1 = new DataColumn("JobTitle");
+                   DataColumn dc2 = new DataColumn("LeaveType");
+                   DataColumn dc3 = new DataColumn("numberofLeaves");
+                   dt.Columns.Add("JobTitle",Type.GetType("System.String"));
+                   dt.Columns.Add("LeaveType", Type.GetType("System.String"));
+                   dt.Columns.Add("numberofLeaves", Type.GetType("System.Int32"));
+
+                   using (var client = new HttpClient())
+                   {
+                       client.BaseAddress = new Uri(Global.URIstring);
+                       //HTTP GET
+                       var responseTask = client.GetAsync("LeaveAllocation");
+                       responseTask.Wait();
+
+                       var result = responseTask.Result;
+                       if (result.IsSuccessStatusCode)
+                       {
+
+                           var readTask = result.Content.ReadAsAsync<LEAVEALLOCATION[]>();
+                           readTask.Wait();
+
+                           leaveallocations = readTask.Result;
+
+                           foreach (var leaveallocation in leaveallocations )
+                           {
+                               DataRow row = dt.NewRow();
+
+                               row["numberofLeaves"] = leaveallocation.NumberOfLeave;
+                               foreach(var jobtitle in jobtitles)
+                               {
+                                   if(jobtitle.JobTitleId==leaveallocation.JobTitleId)
+                                       row["JobTitle"] = jobtitle.JobTitleName;
+                               }
+                               foreach (var leavetype in leavetypes)
+                               {
+                                   if (leavetype.LeaveTypeId == leaveallocation.LeaveTypeId)
+                                       row["LeaveType"] = leavetype.LeaveTypeName;
+                               }
+                               dt.Rows.Add(row);
+                           }
+                       }
+                   }
+
+
+                   GridView1.DataSource = dt;
+                   GridView1.DataBind();
+
+               }*/
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            filterdata();
+           // gvbind();
+        }
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
+            TextBox leavedays = row.Cells[3].Controls[0] as TextBox;
+            string title = row.Cells[1].Text;
+            string type = row.Cells[2].Text;
+            LEAVEALLOCATION leaveallocation = new LEAVEALLOCATION();
+            GridView1.EditIndex = -1;
+
+            using (var client = new HttpClient())
+            {
+                string titleid = null, typeid = null;
+                //assign new value to leave allocation oject
+                foreach (var jobtitle in jobtitles)
+                {
+                    if (jobtitle.JobTitleName.Equals(title))
+                    {
+                        leaveallocation.JobTitleId = jobtitle.JobTitleId;
+                        titleid = jobtitle.JobTitleId.ToString();
+                    }
+                }
+                foreach (var leavetype in leavetypes)
+                {
+                    if (leavetype.LeaveTypeName.Equals(type))
+                    {
+                        leaveallocation.LeaveTypeId = leavetype.LeaveTypeId;
+                        typeid = leavetype.LeaveTypeId.ToString();
+                    }
+                }
+                leaveallocation.NumberOfLeave = Convert.ToInt32( leavedays.Text);
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP PUT
+                string str = "LeaveAllocation?jobtitleid=" + titleid + "&leavetypeid=" + typeid;
+                var updateTask = client.PutAsJsonAsync(str,leaveallocation);
+                updateTask.Wait();
+
+                var result = updateTask.Result;
+            }
+
+            loadleaveallocation();
+            filterdata();
+           // gvbind();
+            
+        }
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            filterdata();
+            //gvbind();
+        }
+
+        //Add new record
+        protected void Add_Click(object sender, EventArgs e)
+        {
+            LEAVEALLOCATION new_leaveallocation = new LEAVEALLOCATION();
+            
+            //get job title id
+            foreach (var jobtitle in jobtitles)
+            {
+                if(DropDownList1.SelectedValue.Equals(jobtitle.JobTitleName))
+                {
+                    new_leaveallocation.JobTitleId = jobtitle.JobTitleId;
+                    break;
+                }
+            }
+            
+            //get leave type id
+            foreach (var leavetype in leavetypes)
+            {
+                if (DropDownList2.SelectedValue.Equals(leavetype.LeaveTypeName))
+                {
+                    new_leaveallocation.LeaveTypeId = leavetype.LeaveTypeId;
+                    break;
+                }
+            }
+
+            new_leaveallocation.NumberOfLeave = Convert.ToInt32(DaysTextBox.Text);
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                var postTask = client.PostAsJsonAsync("LeaveAllocation", new_leaveallocation);
+                postTask.Wait();
+
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    DaysTextBox.Text = null;
+                    DropDownList1.SelectedIndex = 0;
+                    DropDownList2.SelectedIndex = 0;
+                }
+
+            }
+            DropDownList3.SelectedIndex = 0;
+            DropDownList4.SelectedIndex = 0;
+            loadleaveallocation();
+            filterdata();
+            //gvbind();
+        }
+
+        
+        //search records
+        protected void Search_Click(object sender, EventArgs e)
+        {
+            filterdata();   
+        }
+
+        
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
             for(int i=0; i< GridView1.Rows.Count;i++)
