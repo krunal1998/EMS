@@ -37,7 +37,7 @@
                     Employee ID:
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="Username" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -45,14 +45,17 @@
                     Password:
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             
         </table>
+        <br />
+&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="ErrorMessage" runat="server" ForeColor="Red"></asp:Label>
         <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="LoginButton" runat="server" Text="Login" Width="105px" />
+            <asp:Button ID="LoginButton" runat="server" Text="Login" Width="105px" OnClick="LoginButton_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        
         </p>
@@ -62,8 +65,7 @@
                        
         </p>
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                       
         </p>
         </div>
     </form>

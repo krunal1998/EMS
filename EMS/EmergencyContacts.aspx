@@ -11,6 +11,8 @@
            <asp:MenuItem Text="Personal Details" Value="Personal Details" ></asp:MenuItem>
             <asp:MenuItem Text="Contact Details" Value="Contact Details" ></asp:MenuItem>
             <asp:MenuItem Text="Emergency Contacts" Value="Emergency Contacts" Selected="true"></asp:MenuItem>
+             <asp:MenuItem Text="Qualifications" Value="Qualifications"></asp:MenuItem>
+             <asp:MenuItem Text="Documents" Value="Documents"></asp:MenuItem>
         </Items>
         <StaticHoverStyle BackColor="#990000" ForeColor="White" />
         <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
@@ -23,35 +25,35 @@
                 <table>
                     <tr style="padding-bottom:20px">
                         <td>
-                           <h3><asp:Label ID="Label1" runat="server" Text="Name:" ></asp:Label></h3>
+                           <h3><asp:Label ID="Name" runat="server" Text="Name:" ></asp:Label></h3>
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label2" runat="server" Text="Chirag Joshi"></asp:Label>
+                            <asp:Label ID="NameValue" runat="server"></asp:Label>
                         </td>
                     </tr>
         
                      <tr style="padding-bottom:20px">
                         <td>
-                          <h3><asp:Label ID="Label5" runat="server" Text="Relation:"></asp:Label></h3>
+                          <h3><asp:Label ID="Relation" runat="server" Text="Relation:"></asp:Label></h3>
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label6" runat="server" Text="Father"></asp:Label>
+                            <asp:Label ID="RelationValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr style="padding-bottom:20px">
                         <td style="padding-bottom:20px">
-                         <h3><asp:Label ID="Label7" runat="server" Text="Telephone No.:"></asp:Label></h3> 
+                         <h3><asp:Label ID="TelephoneNo" runat="server" Text="Telephone No.:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label8" runat="server" Text="2546456"></asp:Label>
+                            <asp:Label ID="TelephoneNoValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                      <tr style="padding-bottom:20px">
                         <td>
-                          <h3><asp:Label ID="Label9" runat="server" Text="Mobile No.:"></asp:Label></h3> 
+                          <h3><asp:Label ID="MobileNo" runat="server" Text="Mobile No.:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label3" runat="server" Text="8866556644"></asp:Label>
+                            <asp:Label ID="MobileNoValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                 </table>

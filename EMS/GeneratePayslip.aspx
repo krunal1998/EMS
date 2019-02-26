@@ -12,10 +12,10 @@
     <table ID="Table1" runat="server">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="Employee: "></asp:Label>
+                <asp:Label ID="Employee" runat="server" Text="Employee: "></asp:Label>
             </td>    
             <td>
-                <asp:DropDownList ID="DropDownList1" runat="server" Height="32px" Width="175px"></asp:DropDownList>
+                <asp:DropDownList ID="EmployeeValue" runat="server" Height="32px" Width="175px"></asp:DropDownList>
             </td>    
         </tr>
         <tr>
@@ -28,10 +28,10 @@
         </tr>
         <tr>
             <td>
-                <asp:Label ID="Label2" runat="server" Text="Payment Date: "></asp:Label>
+                <asp:Label ID="PaymentDate" runat="server" Text="Payment Date: "></asp:Label>
             </td>    
             <td>
-                <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" placeholder="from date" Height="23px" Width="153px"></asp:TextBox>
+                <asp:TextBox ID="PaymentDateValue" runat="server" TextMode="Date" placeholder="from date" Height="23px" Width="153px"></asp:TextBox>
             </td>    
         </tr>
     </table>
@@ -41,7 +41,7 @@
     <br />
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" Text="Generate" Height="33px" Width="145px" />
+    <asp:Button ID="GeneratePayslip" runat="server" Text="Generate" Height="33px" Width="145px" />
     <br />
     <br />
     <br />

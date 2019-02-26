@@ -10,7 +10,7 @@
 namespace EMS {
     
     
-    public partial class E_mergencyContacts {
+    public partial class WebForm3 {
         
         /// <summary>
         /// Menu2 control.
@@ -22,75 +22,66 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.Menu Menu2;
         
         /// <summary>
-        /// Name control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Name;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// NameValue control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NameValue;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Relation control.
+        /// table2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Relation;
+        protected global::System.Web.UI.WebControls.Table table2;
         
         /// <summary>
-        /// RelationValue control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RelationValue;
+        protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
-        /// TelephoneNo control.
+        /// expandedImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TelephoneNo;
+        protected global::System.Web.UI.WebControls.Image expandedImage;
         
         /// <summary>
-        /// TelephoneNoValue control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TelephoneNoValue;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// MobileNo control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MobileNo;
-        
-        /// <summary>
-        /// MobileNoValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MobileNoValue;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }
