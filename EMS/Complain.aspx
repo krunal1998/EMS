@@ -16,31 +16,26 @@
       <table ID="Table1" runat="server" class="auto-style1">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="Complain Type: "></asp:Label>
+                <asp:Label ID="ComplainType" runat="server" Text="Complain Type: "></asp:Label>
             </td>    
             <td>
-                <asp:DropDownList ID="DropDownList1" runat="server" Height="25px" Width="101px">
-                     <asp:ListItem Text="" Value=""></asp:ListItem>
-                    <asp:ListItem Text="" Value=""></asp:ListItem>
-                    <asp:ListItem Text="" Value=""></asp:ListItem>
-                    <asp:ListItem Text="" Value=""></asp:ListItem>
-                </asp:DropDownList>
+                <asp:Label ID="ComplainTypeValue" runat="server"></asp:Label>
             </td>   
         </tr>
         <tr>
             <td>
-                 <asp:Label ID="Label2" runat="server" Text="Complain Description: "></asp:Label>
+                 <asp:Label ID="ComplainDescription" runat="server" Text="Complain Description: "></asp:Label>
             </td>     
             <td>
-                <textarea id="TextArea1" cols="20" class="auto-style2"></textarea>
+                <asp:Label ID="ComplainDescriptionValue" runat="server"></asp:Label>
             </td>
         </tr>         
         <tr>
             <td>
-                 <asp:Label ID="Label3" runat="server" Text="Status: "></asp:Label>
+                 <asp:Label ID="Status" runat="server" Text="Status: "></asp:Label>
             </td>           
             <td>
-                <asp:DropDownList ID="DropDownList2" runat="server" Height="26px" Width="100px">
+                <asp:DropDownList ID="StatusValue" runat="server" Height="26px" Width="100px">
                      <asp:ListItem Text="Pending" Value="Pending"></asp:ListItem>
                     <asp:ListItem Text="In Process" Value="In Process"></asp:ListItem>
                     <asp:ListItem Text="Solved" Value="Solved"></asp:ListItem>
@@ -53,9 +48,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" Text="Edit" Height="34px" Width="76px" />
+    <asp:Button ID="Edit" runat="server" Text="Edit" Height="34px" Width="76px" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button2" runat="server" Text="Save" Height="34px" Width="76px" />
+    <asp:Button ID="Save" runat="server" Text="Save" Height="34px" Width="76px" />
     <br />
     <br />
     <br />

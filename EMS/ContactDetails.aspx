@@ -12,6 +12,8 @@
            <asp:MenuItem Text="Personal Details" Value="Personal Details" ></asp:MenuItem>
             <asp:MenuItem Text="Contact Details" Value="Contact Details" Selected="true"></asp:MenuItem>
             <asp:MenuItem Text="Emergency Contacts" Value="Emergency Contacts"></asp:MenuItem>
+             <asp:MenuItem Text="Qualifications" Value="Qualifications"></asp:MenuItem>
+             <asp:MenuItem Text="Documents" Value="Documents"></asp:MenuItem>
         </Items>
         <StaticHoverStyle BackColor="#990000" ForeColor="White" />
         <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
@@ -28,75 +30,75 @@
                 <table>
                     <tr style="padding-bottom:20px">
                         <td>
-                           <h3> <asp:Label ID="Label1" runat="server" Text="Street:" ></asp:Label></h3>
+                           <h3> <asp:Label ID="Street" runat="server" Text="Street:" ></asp:Label></h3>
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label2" runat="server" Text="44/A,Navkar Society"></asp:Label>
+                            <asp:Label ID="StreetValue" runat="server"></asp:Label>
                         </td>
                     </tr>
         
                      <tr style="padding-bottom:20px">
                         <td>
-                          <h3>  <asp:Label ID="Label5" runat="server" Text="Landmark:"></asp:Label></h3>
+                          <h3>  <asp:Label ID="Landmark" runat="server" Text="Landmark:"></asp:Label></h3>
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label6" runat="server" Text="Tadwadi"></asp:Label>
+                            <asp:Label ID="LandmarkValue" runat="server" ></asp:Label>
                         </td>
                     </tr>
                     <tr style="padding-bottom:20px">
                         <td style="padding-bottom:20px">
-                         <h3>  <asp:Label ID="Label7" runat="server" Text="City:"></asp:Label></h3> 
+                         <h3>  <asp:Label ID="City" runat="server" Text="City:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label8" runat="server" Text="Surat"></asp:Label>
+                            <asp:Label ID="CityValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                      <tr style="padding-bottom:20px">
                         <td>
-                          <h3>  <asp:Label ID="Label9" runat="server" Text="State:"></asp:Label></h3> 
+                          <h3>  <asp:Label ID="State" runat="server" Text="State:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label3" runat="server" Text="Gujarat"></asp:Label>
+                            <asp:Label ID="StateValue" runat="server" ></asp:Label>
                         </td>
                     </tr>
                     <tr style="padding-bottom:20px">
                         <td>
-                          <h3>   <asp:Label ID="Label10" runat="server" Text="Pincode:"></asp:Label></h3> 
+                          <h3>   <asp:Label ID="Pincode" runat="server" Text="Pincode:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label11" runat="server" Text="395006"></asp:Label>
+                            <asp:Label ID="PincodeValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                      <tr style="padding-bottom:20px">
                         <td>
-                        <h3>     <asp:Label ID="Label12" runat="server" Text="Country:"></asp:Label></h3> 
+                        <h3>     <asp:Label ID="Country" runat="server" Text="Country:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label4" runat="server" Text="India"></asp:Label>
+                            <asp:Label ID="CountryValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr style="padding-bottom:20px">
                         <td>
-                        <h3>     <asp:Label ID="Label13" runat="server" Text="Telephone No.:"></asp:Label></h3> 
+                        <h3>     <asp:Label ID="TelephoneNo" runat="server" Text="Telephone No.:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label14" runat="server" Text="2255566"></asp:Label>
+                            <asp:Label ID="TelephoneNoValue" runat="server" ></asp:Label>
                         </td>
                     </tr>
                     <tr style="padding-bottom:20px">
                         <td>
-                        <h3>     <asp:Label ID="Label15" runat="server" Text="Mobile No.:"></asp:Label></h3> 
+                        <h3>     <asp:Label ID="MobileNo" runat="server" Text="Mobile No.:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label16" runat="server" Text="9456118812"></asp:Label>
+                            <asp:Label ID="MobileNoValue" runat="server" ></asp:Label>
                         </td>
                     </tr>
                     <tr style="padding-bottom:20px">
                         <td>
-                        <h3>     <asp:Label ID="Label17" runat="server" Text="Email ID:"></asp:Label></h3> 
+                        <h3>     <asp:Label ID="EmailID" runat="server" Text="Email ID:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="Label18" runat="server" Text="navkar@gmail.com"></asp:Label>
+                            <asp:Label ID="EmailIDValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                 </table>

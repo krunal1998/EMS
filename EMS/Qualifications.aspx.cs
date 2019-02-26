@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace EMS
 {
-    public partial class PersonalDetails : System.Web.UI.Page
+    public partial class Qualifications : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

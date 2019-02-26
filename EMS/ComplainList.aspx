@@ -16,28 +16,28 @@
       <table ID="Table1" runat="server" class="auto-style2">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="Complain Type: "></asp:Label>
+                <asp:Label ID="ComplainType" runat="server" Text="Complain Type: "></asp:Label>
             </td>    
             <td class="auto-style1">
-                <asp:DropDownList ID="DropDownList1" runat="server" Height="29px" Width="109px">
+                <asp:DropDownList ID="ComplainTypeValue" runat="server" Height="29px" Width="109px">
                     <asp:ListItem Text="None" Value=""></asp:ListItem>
-                     <asp:ListItem Text="Harassment" Value=""></asp:ListItem>
-                    <asp:ListItem Text="Retaliation" Value=""></asp:ListItem>
-                    <asp:ListItem Text="Discrimination" Value=""></asp:ListItem>
-                    <asp:ListItem Text="Theft" Value=""></asp:ListItem>
-                    <asp:ListItem Text="Bullying" Value=""></asp:ListItem>
-                    <asp:ListItem Text="Leave Issues" Value=""></asp:ListItem>
-                    <asp:ListItem Text="Others Issues" Value=""></asp:ListItem>
+                     <asp:ListItem Text="Harassment" Value="Harassment"></asp:ListItem>
+                    <asp:ListItem Text="Retaliation" Value="Retaliation"></asp:ListItem>
+                    <asp:ListItem Text="Discrimination" Value="Discrimination"></asp:ListItem>
+                    <asp:ListItem Text="Theft" Value="Theft"></asp:ListItem>
+                    <asp:ListItem Text="Bullying" Value="Bullying"></asp:ListItem>
+                    <asp:ListItem Text="Leave Issues" Value="Leave Issues"></asp:ListItem>
+                    <asp:ListItem Text="Others Issues" Value="Others Issues"></asp:ListItem>
 
                 </asp:DropDownList>
             </td>   
         </tr>
         <tr>
             <td>
-                 <asp:Label ID="Label2" runat="server" Text="Complainants Name: "></asp:Label>
+                 <asp:Label ID="ComplainantsName" runat="server" Text="Complainants Name: "></asp:Label>
             </td>     
             <td class="auto-style1">
-                <asp:DropDownList ID="DropDownList3" runat="server" Height="29px">
+                <asp:DropDownList ID="ComplainantsNameValue" runat="server" Height="29px">
                     <asp:ListItem Text="None" Value=""></asp:ListItem>
                     <asp:ListItem Text="Pratik Chirag Joshi" Value="Pratik Chirag Joshi"></asp:ListItem>
                 </asp:DropDownList>
@@ -45,10 +45,10 @@
         </tr>         
         <tr>
             <td>
-                 <asp:Label ID="Label3" runat="server" Text="Status: "></asp:Label>
+                 <asp:Label ID="Status" runat="server" Text="Status: "></asp:Label>
             </td>           
             <td class="auto-style1">
-                <asp:DropDownList ID="DropDownList2" runat="server" Height="28px" Width="102px">
+                <asp:DropDownList ID="StatusValue" runat="server" Height="28px" Width="102px">
                     <asp:ListItem Text="None" Value=""></asp:ListItem>
                      <asp:ListItem Text="Pending" Value="Pending"></asp:ListItem>
                     <asp:ListItem Text="In Process" Value="In Process"></asp:ListItem>
@@ -59,11 +59,11 @@
     </table>
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" Text="Filter" OnClick="Button1_Click" Width="80px" />
+    <asp:Button ID="Filter" runat="server" Text="Filter" OnClick="Filter_Click" Width="80px" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
      <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" Height="104px" >
+    <asp:GridView ID="ComplainList" runat="server" AutoGenerateColumns="false" Height="104px" >
         <Columns>
             <asp:TemplateField>
         <ItemTemplate>

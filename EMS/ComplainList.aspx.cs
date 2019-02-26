@@ -42,18 +42,18 @@ namespace EMS
             dr1[3] = "Solved";
             dr1[4] = "I am glad the issue was solved quickly ";
             dt.Rows.Add(dr1);
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+            ComplainList.DataSource = dt;
+            ComplainList.DataBind();
         }
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridView1.EditIndex = e.NewEditIndex;
+            ComplainList.EditIndex = e.NewEditIndex;
             gvbind();
         }
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            int userid = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
-            GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
+            int userid = Convert.ToInt32(ComplainList.DataKeys[e.RowIndex].Value.ToString());
+            GridViewRow row = (GridViewRow)ComplainList.Rows[e.RowIndex];
             Label lblID = (Label)row.FindControl("lblID");
             //TextBox txtname=(TextBox)gr.cell[].control[];  
             TextBox textName = (TextBox)row.Cells[0].Controls[0];
@@ -61,7 +61,7 @@ namespace EMS
             TextBox textc = (TextBox)row.Cells[2].Controls[0];
             //TextBox textadd = (TextBox)row.FindControl("txtadd");  
             //TextBox textc = (TextBox)row.FindControl("txtc");  
-            GridView1.EditIndex = -1;
+            ComplainList.EditIndex = -1;
             // conn.Open();
             //SqlCommand cmd = new SqlCommand("SELECT * FROM detail", conn);  
             //SqlCommand cmd = new SqlCommand("update detail set name='" + textName.Text + "',address='" + textadd.Text + "',country='" + textc.Text + "'where id='" + userid + "'", conn);
@@ -72,11 +72,11 @@ namespace EMS
         }
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GridView1.EditIndex = -1;
+            ComplainList.EditIndex = -1;
             gvbind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Filter_Click(object sender, EventArgs e)
         {
             gvbind();
         }
