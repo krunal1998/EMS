@@ -1,4 +1,5 @@
-﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageSupervisor.Master" AutoEventWireup="true" CodeBehind="PendingReviews.aspx.cs" Inherits="EMS.ViewReviews" %>
+﻿
+ <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageSupervisor.Master" AutoEventWireup="true" CodeBehind="PendingReviews.aspx.cs" Inherits="EMS.ViewReviews" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -37,7 +38,7 @@
         <tr>
             <td style="width:150px;">Employee Name</td>
             <td>
-                <asp:TextBox ID="EnameTextBox" runat="server" placeholder="Type for hint"></asp:TextBox>
+                <asp:TextBox ID="EnameTextBox" runat="server" placeholder="Type for hint" on></asp:TextBox>
             </td>
         </tr>
     </table>
@@ -66,6 +67,6 @@
                 <asp:TableHeaderCell runat="server">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </asp:TableHeaderCell>
             </asp:TableRow>
 
-            
+       
     </asp:Table>
 </asp:Content>
