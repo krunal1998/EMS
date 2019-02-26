@@ -62,24 +62,16 @@
     <asp:Button ID="Filter" runat="server" Text="Filter" OnClick="Filter_Click" Width="80px" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <br />
-    <asp:GridView ID="ComplainList" runat="server" AutoGenerateColumns="false" Height="104px" >
-        <Columns>
-            <asp:TemplateField>
-        <ItemTemplate>
-            <asp:CheckBox ID="Selector" runat="server" />
-        </ItemTemplate>
-    </asp:TemplateField>
-            <asp:BoundField DataField="ComplainType" HeaderText="Complain Type" ItemStyle-Width="200px" />
-            <asp:BoundField DataField="ComplainantsName" HeaderText="Complainants Name" ItemStyle-Width="200px" />
-            <asp:BoundField DataField="ComplainDescription" HeaderText="Complain Description" ItemStyle-Width="200px" />
-            <asp:BoundField DataField="ComplainStatus" HeaderText="Complain Status" ItemStyle-Width="200px" />
-            <asp:BoundField DataField="Feedback" HeaderText="Feedback" ItemStyle-Width="200px" />
-            <asp:CommandField ShowEditButton="true" ControlStyle-BorderStyle="Outset" />
-        </Columns>
-    </asp:GridView>
-     <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="DeleteButton" runat="server" Text="Delete" Width="78px" />
-     <br />
+    <asp:Table ID="Table2" runat="server" GridLines="Both">
+            <asp:TableRow runat="server">
+                <asp:TableHeaderCell runat="server">Complain Type</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Employee Name</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Complain Description</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Complain Status</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Feedback</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </asp:TableHeaderCell>
+            </asp:TableRow>
+
+       
+    </asp:Table>
 </asp:Content>

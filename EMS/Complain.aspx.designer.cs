@@ -40,6 +40,24 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.Label ComplainTypeValue;
         
         /// <summary>
+        /// EmployeeName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmployeeName;
+        
+        /// <summary>
+        /// EmployeeNameValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmployeeNameValue;
+        
+        /// <summary>
         /// ComplainDescription control.
         /// </summary>
         /// <remarks>
@@ -74,6 +92,24 @@ namespace EMS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList StatusValue;
+        
+        /// <summary>
+        /// Feedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Feedback;
+        
+        /// <summary>
+        /// FeedbackValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FeedbackValue;
         
         /// <summary>
         /// Edit control.
