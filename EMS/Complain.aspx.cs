@@ -10,25 +10,27 @@ namespace EMS
 {
     public partial class Complain : System.Web.UI.Page
     {
-        COMPLAINS c;
+        static COMPLAINS c;
         protected void Page_Load(object sender, EventArgs e)
         {
-            int cid = Convert.ToInt32(Session["CID"]);
-            c = getselectedcomplain(cid);
-            COMPLAINTYPES ct = getcomplaintype(c.ComplainTypeId);
-            EMPLOYEE emp = getEmployee(c.EmployeeId);
-            String ctype = ct.ComplainType;
-            
-            ComplainTypeValue.Text = ctype;
+            if (!IsPostBack) {
+                int cid = Convert.ToInt32(Session["CID"]);
+                c = getselectedcomplain(cid);
+                COMPLAINTYPES ct = getcomplaintype(c.ComplainTypeId);
+                EMPLOYEE emp = getEmployee(c.EmployeeId);
+                String ctype = ct.ComplainType;
 
-            String ename = getEmployeeName(emp);
-            EmployeeNameValue.Text = ename;
+                ComplainTypeValue.Text = ctype;
 
-            ComplainDescriptionValue.Text = c.ComplainDescription;
+                String ename = getEmployeeName(emp);
+                EmployeeNameValue.Text = ename;
 
-            StatusValue.Text = c.ComplainStatus;
+                ComplainDescriptionValue.Text = c.ComplainDescription;
 
-            FeedbackValue.Text = c.feedbackDescription;
+                StatusValue.SelectedValue = c.ComplainStatus;
+
+                FeedbackValue.Text = c.feedbackDescription;
+            }
         }
 
         private COMPLAINTYPES getcomplaintype(int complainTypeId)
@@ -133,7 +135,21 @@ namespace EMS
 
         protected void Save_Click(object sender, EventArgs e)
         {
+            c.feedbackDescription = FeedbackValue.Text;
+            c.ComplainStatus = StatusValue.SelectedValue;
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Global.URIstring);
 
+                    var putTask = client.PutAsJsonAsync<COMPLAINS>("complains/"+c.ComplainId, c);
+                    putTask.Wait();
+
+                    var result = putTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        Response.Write("Save successfull!");
+                    }
+            FeedbackValue.Enabled = false;
+            StatusValue.Enabled = false;
+                }
+            }
         }
-    }
-}
