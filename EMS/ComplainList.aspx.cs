@@ -190,7 +190,11 @@ namespace EMS
 
         protected void Filter_Click(object sender, EventArgs e)
         {
+            //none selected
+            //if()
+            {
 
+            }
         }
 
         protected void Reset_Click(object sender, EventArgs e)

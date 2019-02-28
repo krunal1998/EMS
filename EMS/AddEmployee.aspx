@@ -112,5 +112,5 @@
      </table>
     &nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" Text="Save" Width="94px" />
+    <asp:Button ID="Save" runat="server" Text="Save" Width="94px" OnClick="Save_Click" />
 </asp:Content>

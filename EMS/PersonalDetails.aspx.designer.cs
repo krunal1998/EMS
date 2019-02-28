@@ -103,13 +103,13 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.Label Gender;
         
         /// <summary>
-        /// GenderValue control.
+        /// GenValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList GenderValue;
+        protected global::System.Web.UI.WebControls.Label GenValue;
         
         /// <summary>
         /// Nationality control.
@@ -139,12 +139,12 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.Label MaritalStatus;
         
         /// <summary>
-        /// MaritalStatusValue control.
+        /// MaritalSatusValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList MaritalStatusValue;
+        protected global::System.Web.UI.WebControls.Label MaritalSatusValue;
     }
 }
