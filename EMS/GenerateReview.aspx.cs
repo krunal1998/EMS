@@ -15,9 +15,12 @@ namespace EMS
         static bool parametersfetched = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            pdlist = getallpersonaldetails();
-            elist = getEmployees();
-            Page.DataBind();
+            if (!IsPostBack)
+            {
+                pdlist = getallpersonaldetails();
+                elist = getEmployees();
+                Page.DataBind();
+            }
         }
 
 
@@ -26,9 +29,10 @@ namespace EMS
         }
 
 
-        private void Manageparameters_Click(object sender, EventArgs e)
+        private void Manageparameters_Click(object sender, CommandEventArgs e)
         {
-            
+            Session["JTID"] = e.CommandArgument;
+            Response.Redirect("ManageParameters.aspx");
         }
 
         private List<PERFORMANCEPARAMETER> getparameters(int jobTitleId)
@@ -215,10 +219,11 @@ namespace EMS
                 if (i == pplist.Count / 2)
                 {
                     TableCell tc1 = new TableCell();
-                    LinkButton manageparameters = new LinkButton();
+                    Button manageparameters = new Button();
                     // manageparameters.ID = "manageparametersbutton";
                     manageparameters.Text = "Manage Parameters..";
-                    manageparameters.Click += Manageparameters_Click;
+                    manageparameters.CommandArgument = jt.JobTitleId.ToString();
+                    manageparameters.Command += Manageparameters_Command;
                     tc1.Controls.Add(manageparameters);
                     tr.Cells.Add(tc1);
                 }
@@ -233,19 +238,30 @@ namespace EMS
                 LinkButton manageparameters = new LinkButton();
                 // manageparameters.ID = "manageparametersbutton";
                 manageparameters.Text = "Add Parameters..";
-                manageparameters.Click += Manageparameters_Click;
+                manageparameters.CommandArgument =jt.JobTitleId.ToString();
+                manageparameters.Command += Manageparameters_Command1;
                 tc.Controls.Add(manageparameters);
                 tr.Cells.Add(tc);
                 SelectedParametersTable.Rows.Add(tr);
 
             }
-            else {
+            else
+            {
                 JobTitleLabel.Text = "Selected Parameters for: " + jt.JobTitleName;
-
+                parametersfetched = true;
             }
 
-            parametersfetched = true;
 
+        }
+
+        private void Manageparameters_Command1(object sender, CommandEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Manageparameters_Command(object sender, CommandEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

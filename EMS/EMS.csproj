@@ -193,6 +193,7 @@
     <Content Include="Login.aspx" />
     <Content Include="ManageAllowances.aspx" />
     <Content Include="ManageAppraisals.aspx" />
+    <Content Include="ManageParameters.aspx" />
     <Content Include="NewParameter.aspx" />
     <Content Include="obj\Debug\EMS.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\EMS.dll" />
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="ManageAppraisals.aspx.designer.cs">
       <DependentUpon>ManageAppraisals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageParameters.aspx.cs">
+      <DependentUpon>ManageParameters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageParameters.aspx.designer.cs">
+      <DependentUpon>ManageParameters.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
