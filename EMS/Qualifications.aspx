@@ -9,11 +9,11 @@
         <DynamicMenuStyle BackColor="#FFFBD6" />
         <DynamicSelectedStyle BackColor="#FFCC66" />
         <Items>
-           <asp:MenuItem Text="Personal Details" Value=" Personal Details" ></asp:MenuItem>
-            <asp:MenuItem Text="Contact Details" Value="Contact Details"></asp:MenuItem>
-            <asp:MenuItem Text="Emergency Contacts" Value="Emergency Contacts"></asp:MenuItem>
-            <asp:MenuItem Text="Qualifications" Value="Qualifications" Selected="true"></asp:MenuItem>
-             <asp:MenuItem Text="Documents" Value="Documents"></asp:MenuItem>
+           <asp:MenuItem Text="Personal Details" Value=" Personal Details" NavigateUrl="~/PersonalDetails.aspx"></asp:MenuItem>
+            <asp:MenuItem Text="Contact Details" Value="Contact Details" NavigateUrl="~/ContactDetails.aspx"></asp:MenuItem>
+            <asp:MenuItem Text="Emergency Contacts" Value="Emergency Contacts" NavigateUrl="~/EmergencyContacts.aspx"></asp:MenuItem>
+            <asp:MenuItem Text="Qualifications" Value="Qualifications" Selected="true" NavigateUrl="~/Qualifications.aspx"></asp:MenuItem>
+             <asp:MenuItem Text="Documents" Value="Documents" NavigateUrl="~/Documents.aspx"></asp:MenuItem>
         </Items>
         <StaticHoverStyle BackColor="#990000" ForeColor="White" />
         <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
@@ -23,47 +23,23 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
      <h1 style="color:deeppink;">Education</h1>
     <hr />
-    &nbsp;<asp:Table ID="Table1" runat="server" Width="546px" Height="170px" BorderStyle="Double" GridLines="Both">
-        <asp:TableHeaderRow ID="TableRow1" runat="server">
-             <asp:TableCell runat="server">Degree</asp:TableCell>
-                <asp:TableCell runat="server">Institution</asp:TableCell>
-                <asp:TableCell runat="server">Start Year</asp:TableCell>
-            <asp:TableCell runat="server">End Year</asp:TableCell>
-            </asp:TableHeaderRow>
-            <asp:TableRow runat="server">
-                <asp:TableCell runat="server">B.tech</asp:TableCell>
-                <asp:TableCell runat="server">DDU</asp:TableCell>
-                <asp:TableCell runat="server">2001</asp:TableCell>
-                <asp:TableCell runat="server">2007</asp:TableCell>
+    &nbsp;<asp:Table ID="Table1" runat="server" Width="579px" Height="35px" BorderStyle="Double" GridLines="Both">
+        <asp:TableRow runat="server">
+             <asp:TableHeaderCell runat="server">Degree</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Institution</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Start Date</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">End Date</asp:TableHeaderCell>
             </asp:TableRow>
-            <asp:TableRow runat="server">
-                <asp:TableCell runat="server">M.tech</asp:TableCell>
-                <asp:TableCell runat="server">IIT Kanpur</asp:TableCell>
-                <asp:TableCell runat="server">2007</asp:TableCell>
-                <asp:TableCell runat="server">2009</asp:TableCell>
-        </asp:TableRow>
     </asp:Table>
       <h1 style="color:deeppink;">Work Experience</h1>
     <hr />
-    <asp:Table ID="Table2" runat="server" Width="546px" Height="170px" BorderStyle="Double" GridLines="Both">
-        <asp:TableHeaderRow ID="TableHeaderRow1" runat="server">
-             <asp:TableCell runat="server">Company Name</asp:TableCell>
-                <asp:TableCell runat="server">Job Title</asp:TableCell>
-                <asp:TableCell runat="server">Start Date</asp:TableCell>
-            <asp:TableCell runat="server">End Date</asp:TableCell>
-            </asp:TableHeaderRow>
-            <asp:TableRow runat="server">
-                <asp:TableCell runat="server">XYZ Solutions</asp:TableCell>
-                <asp:TableCell runat="server">Assistant Project Manager</asp:TableCell>
-                <asp:TableCell runat="server">07/2011</asp:TableCell>
-                <asp:TableCell runat="server">12/2018</asp:TableCell>
+    <asp:Table ID="Table2" runat="server" Width="581px" Height="30px" BorderStyle="Double" GridLines="Both">
+        <asp:TableRow runat="server">
+             <asp:TableHeaderCell runat="server">Company Name</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Job Title</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Start Date</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">End Date</asp:TableHeaderCell>
             </asp:TableRow>
-            <asp:TableRow runat="server">
-                <asp:TableCell runat="server">Infosys</asp:TableCell>
-                <asp:TableCell runat="server">Web Designer</asp:TableCell>
-                <asp:TableCell runat="server">10/2009</asp:TableCell>
-                <asp:TableCell runat="server">11/2012</asp:TableCell>
-        </asp:TableRow>
     </asp:Table>
 </asp:Content>
 

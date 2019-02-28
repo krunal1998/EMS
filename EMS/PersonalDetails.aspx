@@ -7,6 +7,9 @@
         .auto-style3 {
             width: 82px;
         }
+        .auto-style4 {
+            width: 109px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -17,11 +20,11 @@
         <DynamicMenuStyle BackColor="#FFFBD6" />
         <DynamicSelectedStyle BackColor="#FFCC66" />
         <Items>
-           <asp:MenuItem Text="Personal Details" Value=" Personal Details" Selected="true"></asp:MenuItem>
-            <asp:MenuItem Text="Contact Details" Value="Contact Details"></asp:MenuItem>
-            <asp:MenuItem Text="Emergency Contacts" Value="Emergency Contacts"></asp:MenuItem>
-             <asp:MenuItem Text="Qualifications" Value="Qualifications"></asp:MenuItem>
-             <asp:MenuItem Text="Documents" Value="Documents"></asp:MenuItem>
+           <asp:MenuItem Text="Personal Details" Value=" Personal Details" Selected="true" NavigateUrl="~/PersonalDetails.aspx"></asp:MenuItem>
+            <asp:MenuItem Text="Contact Details" Value="Contact Details" NavigateUrl="~/ContactDetails.aspx"></asp:MenuItem>
+            <asp:MenuItem Text="Emergency Contacts" Value="Emergency Contacts" NavigateUrl="~/EmergencyContacts.aspx"></asp:MenuItem>
+             <asp:MenuItem Text="Qualifications" Value="Qualifications" NavigateUrl="~/Qualifications.aspx"></asp:MenuItem>
+             <asp:MenuItem Text="Documents" Value="Documents" NavigateUrl="~/Documents.aspx"></asp:MenuItem>
         </Items>
         <StaticHoverStyle BackColor="#990000" ForeColor="White" />
         <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
@@ -43,7 +46,7 @@
                         <td class="auto-style1">
                             <asp:Label ID="FirstName" runat="server"></asp:Label>
                         </td>
-                        <td class="auto-style1">
+                        <td class="auto-style4">
                             <asp:Label ID="MiddleName" runat="server"></asp:Label>
                         </td>
                         <td class="auto-style3">
@@ -56,15 +59,15 @@
                           <h3>  <asp:Label ID="EmployeeID" runat="server" Text="Employee ID:"></asp:Label></h3>
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="IDValue" runat="server" Text="18pcj12"></asp:Label>
+                            <asp:Label ID="IDValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr style="padding-bottom:20px">
-                        <td style="padding-bottom:20px">
+                        <td>
                          <h3>  <asp:Label ID="DOB" runat="server" Text="Date of Birth:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:Label ID="DOBValue" runat="server" Text="1995/08/30"></asp:Label>
+                            <asp:Label ID="DOBValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                      <tr style="padding-bottom:20px">
@@ -72,10 +75,7 @@
                           <h3>  <asp:Label ID="Gender" runat="server" Text="Gender:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:RadioButtonList ID="GenderValue" runat="server">
-                                 <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
-                                <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
-                            </asp:RadioButtonList>
+                        <asp:Label ID="GenValue" runat="server"></asp:Label>   
                         </td>
                     </tr>
                     <tr style="padding-bottom:20px">
@@ -91,10 +91,7 @@
                         <h3>     <asp:Label ID="MaritalStatus" runat="server" Text="Marital Status:"></asp:Label></h3> 
                         </td>
                         <td class="auto-style1">
-                            <asp:DropDownList ID="MaritalStatusValue" runat="server">
-                                <asp:ListItem Text="Single" Value ="Single"></asp:ListItem>
-                                <asp:ListItem Text="Married" Value ="Married"></asp:ListItem>                                  
-                            </asp:DropDownList>
+                            <asp:Label ID="MaritalSatusValue" runat="server"></asp:Label>
                         </td>
                     </tr>
                 </table>

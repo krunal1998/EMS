@@ -31,14 +31,12 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" Height="106px" Width="632px" >
-        <Columns>
-            <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" ItemStyle-Width="200px" />
-            <asp:BoundField DataField="EmployeePost" HeaderText="Employee Post" ItemStyle-Width="200px" />
-            <asp:BoundField DataField="EmployeeStatus" HeaderText="Employee Status" ItemStyle-Width="200px" />
-        </Columns>
-    </asp:GridView>
-     <br />
-     <br />
+      <asp:Table ID="Table2" runat="server" GridLines="Both" Width="689px">
+            <asp:TableRow runat="server">
+                <asp:TableHeaderCell runat="server">Employee Name</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Job Title</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">Employee Status</asp:TableHeaderCell>
+                <asp:TableHeaderCell runat="server">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </asp:TableHeaderCell>
+            </asp:TableRow>     
+    </asp:Table>
 </asp:Content>
