@@ -55,6 +55,9 @@
       <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>H:\internship\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -112,6 +115,7 @@
     <Content Include="AddEmployee.aspx" />
     <Content Include="AddHoliday.aspx" />
     <Content Include="AssignTask.aspx" />
+    <Content Include="Attendance.aspx" />
     <Content Include="AttendanceReport.aspx" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\AjaxMin.dll" />
@@ -184,7 +188,12 @@
     <Content Include="GenerateReview.aspx" />
     <Content Include="HolidayList.aspx" />
     <Content Include="HRDashboard.aspx" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\list.png" />
     <Content Include="Images\Navkar Enterprise Logo.png" />
+    <Content Include="Images\person.jpg" />
+    <Content Include="Images\remove.png" />
+    <Content Include="Images\sheet.png" />
     <Content Include="JobTitle.aspx" />
     <Content Include="LeaveAllocation.aspx" />
     <Content Include="LeaveList.aspx" />
@@ -202,6 +211,7 @@
     <Content Include="Payslip.aspx" />
     <Content Include="PendingReviews.aspx" />
     <Content Include="PersonalDetails.aspx" />
+    <Content Include="sample.aspx" />
     <Content Include="SupervisorDashboard.aspx" />
     <Content Include="ViewProjects.aspx" />
     <Content Include="ViewTasks.aspx" />
@@ -245,6 +255,13 @@
     </Compile>
     <Compile Include="AssignTask.aspx.designer.cs">
       <DependentUpon>AssignTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance.aspx.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Attendance.aspx.designer.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
     </Compile>
     <Compile Include="AttendanceReport.aspx.cs">
       <DependentUpon>AttendanceReport.aspx</DependentUpon>
@@ -465,6 +482,13 @@
     </Compile>
     <Compile Include="PendingReviews.aspx.designer.cs">
       <DependentUpon>PendingReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sample.aspx.cs">
+      <DependentUpon>sample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sample.aspx.designer.cs">
+      <DependentUpon>sample.aspx</DependentUpon>
     </Compile>
     <Compile Include="SupervisorDashboard.aspx.cs">
       <DependentUpon>SupervisorDashboard.aspx</DependentUpon>

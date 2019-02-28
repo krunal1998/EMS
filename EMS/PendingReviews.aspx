@@ -38,7 +38,7 @@
         <tr>
             <td style="width:150px;">Employee Name</td>
             <td>
-                <asp:TextBox ID="EnameTextBox" runat="server" placeholder="Type for hint" on></asp:TextBox>
+                <asp:TextBox ID="EnameTextBox" runat="server" placeholder="Type for hint" ></asp:TextBox>
             </td>
         </tr>
     </table>
