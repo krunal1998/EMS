@@ -60,11 +60,11 @@
              <td style="width:150px;">Leave Status</td>
             <td>
                 <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatDirection="Horizontal" CellPadding="2" CellSpacing="10">
-                    <asp:ListItem Selected="True">All</asp:ListItem>
                     <asp:ListItem>Rejected</asp:ListItem>
                     <asp:ListItem>Pending</asp:ListItem>
                     <asp:ListItem>Approved</asp:ListItem>
                     <asp:ListItem>Consumed</asp:ListItem>
+                    <asp:ListItem>Cancelled</asp:ListItem>
 
                 </asp:CheckBoxList>
             </td>
@@ -80,7 +80,7 @@
     </table> 
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Search" runat="server" Text="Search" Width="78px" ValidationGroup="validationgroup1" />
+    <asp:Button ID="Search" runat="server" Text="Search" Width="78px" ValidationGroup="validationgroup1" OnClick="Search_Click" />
     
     <cc1:AutoCompleteExtender ID="TextBox1_AutoCompleteExtender" runat="server" DelimiterCharacters="" 
 
@@ -99,21 +99,24 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
- 
-    <asp:Table ID="Table1" runat="server" GridLines="Both">
-            <asp:TableRow runat="server">
-                <asp:TableHeaderCell runat="server" Width="200px">Date</asp:TableHeaderCell>
-                <asp:TableHeaderCell runat="server" Width="200px">Employee Name</asp:TableHeaderCell>
-                <asp:TableHeaderCell runat="server" Width="200px">Leave Type</asp:TableHeaderCell>
-                <asp:TableHeaderCell runat="server" Width="200px">Leave Balance(Days)</asp:TableHeaderCell>
-                <asp:TableHeaderCell runat="server" Width="200px">Number of Days</asp:TableHeaderCell>
-                <asp:TableHeaderCell runat="server" Width="200px" >Status</asp:TableHeaderCell>
-                <asp:TableHeaderCell runat="server" Width="200px">Comments</asp:TableHeaderCell>
-                <asp:TableHeaderCell runat="server" Width="200px">Action</asp:TableHeaderCell>
-            </asp:TableRow>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="LeaveId" OnRowDataBound="OnRowDataBound" EmptyDataText="No record found">
+        <Columns>
+            <asp:BoundField DataField="Date" HeaderText="Date" ItemStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center"/>
+            <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" ItemStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundField DataField="LeaveType" HeaderText="Leave Type" ItemStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center"/>
+            <asp:BoundField DataField="LeaveBalance" HeaderText="Laeve Balance(Days)" ItemStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center"/>
+            <asp:BoundField DataField="NumberOfDays" HeaderText="Number Of Days" ItemStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center"/>
+            <asp:BoundField DataField="Status" HeaderText="Status" ItemStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center"/>
+            <asp:BoundField DataField="Comment" HeaderText="Comment" ItemStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center"/>
+            <asp:TemplateField HeaderText="Action">
+                <ItemTemplate>
+                    <asp:DropDownList ID="ActionDropDown" runat="server" Width="150px" ></asp:DropDownList>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+    
 
-       
-    </asp:Table>
     <br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

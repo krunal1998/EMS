@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Http;
+using System.Data;
 
 namespace EMS
 {
@@ -24,7 +25,6 @@ namespace EMS
                 loademployee();
                 loadleavetypes();
                 loadleaveallocation();
-                loadleaves();
                 loademployeeleaves();
                 display();
             }
@@ -95,13 +95,14 @@ namespace EMS
         }
        
         //load all leave data
-        public void loadleaves()
+        public void loadleaves(string fromdate,string todate)
         {
             using (var client = new HttpClient())
             {
+
                 client.BaseAddress = new Uri(Global.URIstring);
                 //HTTP GET
-                var responseTask = client.GetAsync("Leave");
+                var responseTask = client.GetAsync("Leave?date1=" + fromdate + "&date2=" + todate);
                 responseTask.Wait();
 
                 var result = responseTask.Result;
@@ -164,20 +165,159 @@ namespace EMS
         //display record in table
         protected void display()
         {
-            foreach(var leave in leaves)
+            //load latest leave record
+            loadleaves(FromDateTextBox.Text, ToDateTextBox.Text);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("LeaveId");
+            dt.Columns.Add("Date");
+            dt.Columns.Add("EmployeeName");
+            dt.Columns.Add("LeaveType");
+            dt.Columns.Add("LeaveBalance");
+            dt.Columns.Add("NumberOfDays");
+            dt.Columns.Add("Status");
+            dt.Columns.Add("Comment");
+            
+            //if anything from employee name or leave status is selected 
+            if(((!EnameTextBox.Text.Equals(""))||Ischecked(CheckBoxList1)))
             {
-                int pid = getpdid(leave.EmployeeId);
-                string ename = getemployeename(pid);
-                string leavetypename = getleaevetype(leave.LeavetypeId);
-                int jobid = getjobtitleid(leave.EmployeeId);
-                int allocatedleave = getallocatedleave(jobid,leave.LeavetypeId);
-                int consumeleave = getconsumedleave(leave.EmployeeId,leave.LeavetypeId);
-                int leavebalance = allocatedleave - consumeleave;
-                string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
+                //only leave status is selected
+                if((EnameTextBox.Text.Equals("") && Ischecked(CheckBoxList1)) || (Ischecked(CheckBoxList1) && !CustomValidator1.IsValid))
+                {
+                    //get list of all selected leave status
+                    List<string> checkeditems=new List<string>();
+                    foreach (ListItem l in CheckBoxList1.Items)
+                    {
+                        if (l.Selected)
+                            checkeditems.Add(l.Text);
+                    }
+                    foreach (var leave in leaves)
+                    {
+                        if(checkeditems.Contains(leave.LeaveStatus))
+                        {
+                            DataRow row = dt.NewRow();
+                            int pid = getpdid(leave.EmployeeId);
+                            string ename = getemployeename(pid);
+                            string leavetypename = getleaevetype(leave.LeavetypeId);
+                            int jobid = getjobtitleid(leave.EmployeeId);
+                            int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
+                            int consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
+                            int leavebalance = allocatedleave - consumeleave;
+                            string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
 
-                createrow(leave.LeaveId,date,ename,leavetypename,leavebalance,leave.NumberOfDays,leave.LeaveStatus,leave.Description);
+                            row["LeaveId"] = leave.LeaveId;
+                            row["Date"] = date;
+                            row["EmployeeName"] = ename;
+                            row["LeaveType"] = leavetypename;
+                            row["LeaveBalance"] = leavebalance;
+                            row["NumberOfDays"] = leave.NumberOfDays;
+                            row["Status"] = leave.LeaveStatus;
+                            row["Comment"] = leave.Description;
+
+                            dt.Rows.Add(row);
+                        }
+                    }
+
+                }
+                //if employee name is entered and if any leave status is not selected then Ischecked will return false
+                else if(!EnameTextBox.Text.Equals("") && !Ischecked(CheckBoxList1) && CustomValidator1.IsValid)
+                {
+                    foreach (var leave in leaves)
+                    {
+                        int pid = getpdid(leave.EmployeeId);
+                        string ename = getemployeename(pid);
+                        if(ename.Equals(EnameTextBox.Text))
+                        {
+                            DataRow row = dt.NewRow();
+                            string leavetypename = getleaevetype(leave.LeavetypeId);
+                            int jobid = getjobtitleid(leave.EmployeeId);
+                            int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
+                            int consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
+                            int leavebalance = allocatedleave - consumeleave;
+                            string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
+
+                            row["LeaveId"] = leave.LeaveId;
+                            row["Date"] = date;
+                            row["EmployeeName"] = ename;
+                            row["LeaveType"] = leavetypename;
+                            row["LeaveBalance"] = leavebalance;
+                            row["NumberOfDays"] = leave.NumberOfDays;
+                            row["Status"] = leave.LeaveStatus;
+                            row["Comment"] = leave.Description;
+
+                            dt.Rows.Add(row);
+                        }
+                        
+                    }
+                }
+                //if both parameter is entered
+                else if((!EnameTextBox.Text.Equals("")) && Ischecked(CheckBoxList1) && CustomValidator1.IsValid)
+                {
+                    //get list of all selected leave status
+                    List<string> checkeditems = new List<string>();
+                    foreach (ListItem l in CheckBoxList1.Items)
+                    {
+                        if (l.Selected)
+                            checkeditems.Add(l.Text);
+                    }
+                    foreach (var leave in leaves)
+                    {
+                        int pid = getpdid(leave.EmployeeId);
+                        string ename = getemployeename(pid);
+                        if (ename.Equals(EnameTextBox.Text) && checkeditems.Contains(leave.LeaveStatus))
+                        {
+                            DataRow row = dt.NewRow();
+                            string leavetypename = getleaevetype(leave.LeavetypeId);
+                            int jobid = getjobtitleid(leave.EmployeeId);
+                            int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
+                            int consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
+                            int leavebalance = allocatedleave - consumeleave;
+                            string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
+
+                            row["LeaveId"] = leave.LeaveId;
+                            row["Date"] = date;
+                            row["EmployeeName"] = ename;
+                            row["LeaveType"] = leavetypename;
+                            row["LeaveBalance"] = leavebalance;
+                            row["NumberOfDays"] = leave.NumberOfDays;
+                            row["Status"] = leave.LeaveStatus;
+                            row["Comment"] = leave.Description;
+
+                            dt.Rows.Add(row);
+                        }
+
+                    }
+                }
             }
-            Table1.DataBind();
+            //any employee name or leave status is not selected
+            else
+            {
+                foreach (var leave in leaves)
+                {
+                    DataRow row = dt.NewRow();
+                    int pid = getpdid(leave.EmployeeId);
+                    string ename = getemployeename(pid);
+                    string leavetypename = getleaevetype(leave.LeavetypeId);
+                    int jobid = getjobtitleid(leave.EmployeeId);
+                    int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
+                    int consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
+                    int leavebalance = allocatedleave - consumeleave;
+                    string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
+
+                    row["LeaveId"] = leave.LeaveId;
+                    row["Date"] = date;
+                    row["EmployeeName"] = ename;
+                    row["LeaveType"] = leavetypename;
+                    row["LeaveBalance"] = leavebalance;
+                    row["NumberOfDays"] = leave.NumberOfDays;
+                    row["Status"] = leave.LeaveStatus;
+                    row["Comment"] = leave.Description;
+
+                    dt.Rows.Add(row);
+                }
+            }           
+            
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
         }
 
         //get employee name from personal details based on personal id
@@ -268,91 +408,41 @@ namespace EMS
             return days;
         }
 
-        //create row for display in table
-        public void createrow(int leaveid,string date,string ename,string leavetype,int remainedleaves,double numberofdays,string status,string comment)
+        //check is any item in checkboxlist is selected or not 
+        public bool Ischecked(CheckBoxList cklist)
         {
-            TableRow row = new TableRow();
-            row.ID = leaveid.ToString();
-
-            TableCell datecell = new TableCell();
-            datecell.HorizontalAlign = HorizontalAlign.Center;
-            Label datelabel = new Label();
-            datelabel.Text = date;
-            datecell.Controls.Add(datelabel);
-            row.Cells.Add(datecell);
-
-            TableCell enamecell = new TableCell();
-            enamecell.HorizontalAlign = HorizontalAlign.Center;
-            Label enamelabel = new Label();
-            enamelabel.Text = ename;
-            enamecell.Controls.Add(enamelabel);
-            row.Cells.Add(enamecell);
-
-            TableCell leavetypecell = new TableCell();
-            leavetypecell.HorizontalAlign = HorizontalAlign.Center;
-            Label leavetypelabel = new Label();
-            leavetypelabel.Text = leavetype; ;
-            leavetypecell.Controls.Add(leavetypelabel);
-            row.Cells.Add(leavetypecell);
-
-            TableCell remainleavecell = new TableCell();
-            remainleavecell.HorizontalAlign = HorizontalAlign.Center;  
-            Label remainleavelabel = new Label();
-            remainleavelabel.Text = Convert.ToString( remainedleaves);
-            remainleavecell.Controls.Add(remainleavelabel);
-            row.Cells.Add(remainleavecell);
-
-            TableCell dayscell = new TableCell();
-            dayscell.HorizontalAlign = HorizontalAlign.Center;
-            Label dayslabel = new Label();
-            dayslabel.Text = Convert.ToString(numberofdays);
-            dayscell.Controls.Add(dayslabel);
-            row.Cells.Add(dayscell);
-
-            TableCell statuscell = new TableCell();
-            statuscell.HorizontalAlign = HorizontalAlign.Center;
-            Label statuslabel = new Label();
-            statuslabel.Text = status;
-            statuscell.Controls.Add(statuslabel);
-            row.Cells.Add(statuscell);
-
-            TableCell descriptioncell = new TableCell();
-            descriptioncell.HorizontalAlign = HorizontalAlign.Center;
-            Label descriptionlabel = new Label();
-            descriptionlabel.Text = comment;
-            descriptioncell.Controls.Add(descriptionlabel);
-            row.Cells.Add(descriptioncell);
-
-            TableCell Actioncell = new TableCell();
-            Actioncell.HorizontalAlign = HorizontalAlign.Center;
-            if (status.Equals("Pending"))
+            foreach(ListItem l in cklist.Items)
             {
-                DropDownList drp = new DropDownList();
-                drp.ID = "drp" + leaveid.ToString();
-                drp.Width = 150;
-                drp.Items.Add(new ListItem("--Select--", "0"));
-                drp.Items.Add(new ListItem("Accept", "Accept"));
-                drp.Items.Add(new ListItem("Reject", "Reject"));
-                Actioncell.Controls.Add(drp);
+                if (l.Selected)
+                    return true;
             }
-            else if(status.Equals("Approved"))
-            {
-                DropDownList drp = new DropDownList();
-                drp.ID = "drp" + leaveid.ToString();
-                drp.Width = 150;
-                drp.Items.Add(new ListItem("--Select--", "0"));
-                drp.Items.Add(new ListItem("Cancel", "Cancelled"));
-                Actioncell.Controls.Add(drp);
-            }
-            row.Cells.Add(Actioncell);
-            //add row in table
-            Table1.Rows.Add(row);
+            return false;
         }
 
-
-
-
-
+        
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                //Find the DropDownList in the Row.
+                DropDownList droplist = e.Row.FindControl("ActionDropDown") as DropDownList;
+                droplist.Width = 150;
+                string status = e.Row.Cells[5].Text;
+                if (status.Equals("Pending"))
+                {
+                    droplist.Items.Add(new ListItem("--Select--", "0"));
+                    droplist.Items.Add(new ListItem("Approve", "Approved"));
+                    droplist.Items.Add(new ListItem("Reject", "Rejected"));
+                }
+                else if (status.Equals("Approved"))
+                {
+                    droplist.Items.Add(new ListItem("--Select--", "0"));
+                    droplist.Items.Add(new ListItem("Cancel", "Cancelled"));
+                }
+                else
+                    droplist.Visible = false;
+            }
+        }
 
         //for auto complete
         [System.Web.Script.Services.ScriptMethod()]
@@ -391,28 +481,33 @@ namespace EMS
             {
                 args.IsValid = false;
             }
+            else
+            {
+                args.IsValid = true;
+            }
         }
 
         protected void Save_Click(object sender, EventArgs e)
         {
-           // var c = (Content)Page.FindControl("Content3");
-           // Table tb = (Table)Page.FindControl("Table1");
-            foreach(TableRow tr in Table1.Rows)
+            for (int i = 0; i < GridView1.Rows.Count; i++)
             {
-                string status = tr.Cells[5].Text;
+
+                string status = GridView1.Rows[i].Cells[5].Text;
+                string leaveid = GridView1.DataKeys[i].Values[0].ToString();
+
                 LEAVES leave = new LEAVES();
-                leave.LeaveStatus = status;
-                if(status.Equals("Pending") || status.Equals("Approved"))
+
+                if (status.Equals("Pending") || status.Equals("Approved"))
                 {
                     //generate id for dropdown list
-                    string id = "drp" + tr.ID;
-                    DropDownList drp = tr.Cells[7].FindControl(id) as DropDownList;
+                    DropDownList drp = GridView1.Rows[i].FindControl("ActionDropDown") as DropDownList;
                     if(!drp.SelectedValue.Equals("0"))
                     {
+                        leave.LeaveStatus = drp.SelectedValue; 
                         var client = new HttpClient();
                         client.BaseAddress = new Uri(Global.URIstring);
                         //HTTP PUT
-                        string str = "LeaveAllocation?leaveid=" + tr.ID.ToString();
+                        string str = "Leave?leaveid=" + leaveid;
                         var updateTask = client.PutAsJsonAsync(str,leave);
                         updateTask.Wait();
 
@@ -420,7 +515,12 @@ namespace EMS
                     }
                 }
             }
-            loadleaves();
+            loadleaves(FromDateTextBox.Text,ToDateTextBox.Text);
+            display();
+        }
+
+        protected void Search_Click(object sender, EventArgs e)
+        {
             display();
         }
     }

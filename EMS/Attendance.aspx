@@ -89,15 +89,7 @@
 
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
             </asp:CommandField>
-            <asp:TemplateField>
-        <ItemTemplate>
-            <asp:DropDownList ID="DropDownList2" runat="server">
-                <asp:ListItem  Value="8" Text="Present(Full day)" />
-                        <asp:ListItem  Value="4" Text="Present(Half day)" />
-                        <asp:ListItem  Value="0" Text="Absent" />
-            </asp:DropDownList>
-        </ItemTemplate>
-    </asp:TemplateField>
+
         </Columns>
     </asp:GridView>
 </asp:Content>
