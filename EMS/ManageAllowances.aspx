@@ -10,7 +10,8 @@
                  <asp:Label ID="Employee" runat="server" Text="Employee:    "></asp:Label>
             </td>       
             <td>
-                 <asp:DropDownList ID="EmployeeValue" runat="server" Height="29px" Width="94px"  ></asp:DropDownList>
+                <asp:TextBox ID="EmployeeNameValue" runat="server"></asp:TextBox>
+            
             </td>     
         </tr>
         <tr>
@@ -23,10 +24,10 @@
         </tr>
         <tr>
             <td>
-                 <asp:Label ID="Post" runat="server" Text="Post:    "></asp:Label>
+                 <asp:Label ID="JobTitle" runat="server" Text="Job Title:    "></asp:Label>
             </td>       
             <td>
-                <asp:DropDownList ID="PostValue" runat="server" Height="29px" Width="93px"  ></asp:DropDownList>
+                <asp:DropDownList ID="JobTitleValue" runat="server" Height="24px" Width="161px"  ></asp:DropDownList>
             </td>     
         </tr>
         <tr>
@@ -47,7 +48,6 @@
                     <asp:ListItem Text="House Rent" Value="House Rent"></asp:ListItem>
                     <asp:ListItem Text="Medical" Value="Medical"></asp:ListItem>
                     <asp:ListItem Text="Office Expense" Value="Office Expense"></asp:ListItem>
-                    <asp:ListItem Text="Others"Value="Others"></asp:ListItem>
                 </asp:DropDownList>
             </td>     
         </tr>
@@ -68,11 +68,13 @@
             </td>
         </tr>
     </table>
+     
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Add" runat="server" Text="Add" Width="75px" Height="28px" />
+    <asp:Button ID="Add" runat="server" Text="Add" Width="75px" Height="28px" OnClick="Add_Click" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="Delete" runat="server" Text="Delete" Width="75px" Height="28px" />
     <br />

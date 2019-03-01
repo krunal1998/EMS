@@ -10,43 +10,43 @@
 namespace EMS {
     
     
-    public partial class EmployeeList {
+    public partial class Attendance {
         
         /// <summary>
-        /// Label1 control.
+        /// EnameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox EnameTextBox;
         
         /// <summary>
-        /// TextBox1 control.
+        /// DateTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox DateTextBox;
         
         /// <summary>
-        /// CustomValidator1 control.
+        /// ViewButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        protected global::System.Web.UI.WebControls.Button ViewButton;
         
         /// <summary>
-        /// DirectView control.
+        /// ResetButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DirectView;
+        protected global::System.Web.UI.WebControls.Button ResetButton;
         
         /// <summary>
         /// TextBox1_AutoCompleteExtender control.
@@ -58,6 +58,15 @@ namespace EMS {
         protected global::AjaxControlToolkit.AutoCompleteExtender TextBox1_AutoCompleteExtender;
         
         /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        
+        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -67,12 +76,12 @@ namespace EMS {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Table2 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table2;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

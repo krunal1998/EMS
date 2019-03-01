@@ -22,6 +22,15 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.TextBox FromDateTextBox;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// CompareValidator1 control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.TextBox ToDateTextBox;
         
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// CheckBoxList1 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace EMS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EnameTextBox;
+        
+        /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
         
         /// <summary>
         /// Search control.
@@ -85,13 +112,13 @@ namespace EMS {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// PlaceHolder1 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
         /// Save control.

@@ -31,31 +31,31 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.Label Employee;
         
         /// <summary>
-        /// EmployeeValue control.
+        /// EmployeeNameValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList EmployeeValue;
+        protected global::System.Web.UI.WebControls.TextBox EmployeeNameValue;
         
         /// <summary>
-        /// Post control.
+        /// JobTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Post;
+        protected global::System.Web.UI.WebControls.Label JobTitle;
         
         /// <summary>
-        /// PostValue control.
+        /// JobTitleValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PostValue;
+        protected global::System.Web.UI.WebControls.DropDownList JobTitleValue;
         
         /// <summary>
         /// Allowances control.
