@@ -132,7 +132,7 @@ namespace EMS
             dt.Columns.Add("Attendance");
 
             //if employee name and date is not selected
-            if ( EnameTextBox.Text.Equals("") && DateTextBox.Text.Equals("") )
+            if ( (EnameTextBox.Text.Equals("") && DateTextBox.Text.Equals("")) || (!CustomValidator1.IsValid && DateTextBox.Text.Equals("")) )
             {
                 //if any filter parameter is not selected then fetch attendance data of current day in attendance[]
                 loadattendance(DateTime.Today);
@@ -172,7 +172,7 @@ namespace EMS
             else
             {
                 //if employee name is given and date not
-                if((!EnameTextBox.Text.Equals("")) && DateTextBox.Text.Equals(""))
+                if((!EnameTextBox.Text.Equals("")) && DateTextBox.Text.Equals("") && CustomValidator1.IsValid)
                 {
                     loadattendance(EnameTextBox.Text);
 
@@ -212,7 +212,7 @@ namespace EMS
                     
                 }
                 //if employee name is not entered and date is entered
-                else if(EnameTextBox.Text.Equals("") && (!DateTextBox.Text.Equals("")))
+                else if(EnameTextBox.Text.Equals("") && (!DateTextBox.Text.Equals("")) || (!DateTextBox.Text.Equals("")) && !CustomValidator1.IsValid)
                 {
                     //load attendance data based on entered date
                     DateTime date = Convert.ToDateTime(DateTextBox.Text);

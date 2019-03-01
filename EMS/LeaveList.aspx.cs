@@ -499,10 +499,40 @@ namespace EMS
 
                 if (status.Equals("Pending") || status.Equals("Approved"))
                 {
-                    //generate id for dropdown list
                     DropDownList drp = GridView1.Rows[i].FindControl("ActionDropDown") as DropDownList;
                     if(!drp.SelectedValue.Equals("0"))
                     {
+                        //change in employee consumed leave
+                        if(drp.SelectedValue.Equals("Cancelled") || drp.SelectedValue.Equals("Rejected"))
+                        {
+                            string empid = "";
+                            int leavetypeid = 0;
+                            int leaveday = 0;
+                            foreach(var l in leaves)
+                            {
+                                if(l.LeaveId== Convert.ToInt32( leaveid))
+                                {
+                                    empid = l.EmployeeId;
+                                    leavetypeid = l.LeavetypeId;
+                                    leaveday = Convert.ToInt32( l.NumberOfDays);
+                                    break;
+                                }
+                            }
+                            int consumedleave = getconsumedleave(empid,leavetypeid);
+                            EMPLOYEELEAVES empleave = new EMPLOYEELEAVES();
+                            empleave.EmployeeId = empid;
+                            empleave.LeaveTypeId = leavetypeid;
+                            empleave.NumberOfLeaves = consumedleave - leaveday;
+                            var clientemp = new HttpClient();
+                            clientemp.BaseAddress = new Uri(Global.URIstring);
+                            //HTTP PUT
+                            string url = "EmployeeLeaves?employeeid=" + empid+"&leavetypeid="+leavetypeid;
+                            var update = clientemp.PutAsJsonAsync(url, empleave);
+                            update.Wait();
+
+                            var r = update.Result;
+
+                        }
                         leave.LeaveStatus = drp.SelectedValue; 
                         var client = new HttpClient();
                         client.BaseAddress = new Uri(Global.URIstring);

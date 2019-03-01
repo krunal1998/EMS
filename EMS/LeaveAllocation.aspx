@@ -42,7 +42,7 @@
             </td>
             <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of days: </td>
             <td class="auto-style4">
-                <asp:TextBox ID="DaysTextBox" runat="server" placeholder="Type number of days" Height="16px" Width="162px" ></asp:TextBox>
+                <asp:TextBox ID="DaysTextBox" runat="server" placeholder="Type number of days" Height="16px" Width="162px" TextMode="Number" ></asp:TextBox>
             </td>
             <td class="auto-style4"><asp:Button ID="Add" runat="server" Text="Add" width="78px" ValidationGroup="validationgroup" OnClick="Add_Click"/></td>
             
