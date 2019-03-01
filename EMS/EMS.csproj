@@ -202,6 +202,7 @@
     <Content Include="Login.aspx" />
     <Content Include="ManageAllowances.aspx" />
     <Content Include="ManageAppraisals.aspx" />
+    <Content Include="ManageParameters.aspx" />
     <Content Include="NewParameter.aspx" />
     <Content Include="obj\Debug\EMS.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\EMS.dll" />
@@ -211,10 +212,12 @@
     <Content Include="Payslip.aspx" />
     <Content Include="PendingReviews.aspx" />
     <Content Include="PersonalDetails.aspx" />
+    <Content Include="Qualifications.aspx" />
     <Content Include="SupervisorDashboard.aspx" />
     <Content Include="ViewProjects.aspx" />
     <Content Include="ViewTasks.aspx" />
     <Content Include="AssessReview.aspx" />
+    <Content Include="Documents.aspx" />
     <Content Include="WorkWeek.aspx" />
     <Content Include="MasterPageSupervisor.Master" />
     <Content Include="bin\EMS.dll.config" />
@@ -410,6 +413,13 @@
     <Compile Include="ManageAppraisals.aspx.designer.cs">
       <DependentUpon>ManageAppraisals.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageParameters.aspx.cs">
+      <DependentUpon>ManageParameters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageParameters.aspx.designer.cs">
+      <DependentUpon>ManageParameters.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -433,6 +443,7 @@
     <Compile Include="Models\DEDUCTIONS.cs" />
     <Compile Include="Models\DEDUCTIONSTRUCTURE.cs" />
     <Compile Include="Models\DOCUMENTS.cs" />
+    <Compile Include="Models\EDUCATION.cs" />
     <Compile Include="Models\EMERGENCYCONTACT.cs" />
     <Compile Include="Models\EMPLOYEE.cs" />
     <Compile Include="Models\EMPLOYEELEAVES.cs" />
@@ -450,6 +461,7 @@
     <Compile Include="Models\SUPERVISOR.cs" />
     <Compile Include="Models\TASK.cs" />
     <Compile Include="Models\WEEKDAY.cs" />
+    <Compile Include="Models\WORKEXPERIENCE.cs" />
     <Compile Include="NewParameter.aspx.cs">
       <DependentUpon>NewParameter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -482,6 +494,13 @@
     <Compile Include="PendingReviews.aspx.designer.cs">
       <DependentUpon>PendingReviews.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Qualifications.aspx.cs">
+      <DependentUpon>Qualifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Qualifications.aspx.designer.cs">
+      <DependentUpon>Qualifications.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SupervisorDashboard.aspx.cs">
       <DependentUpon>SupervisorDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -509,6 +528,13 @@
     </Compile>
     <Compile Include="AssessReview.aspx.designer.cs">
       <DependentUpon>AssessReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Documents.aspx.cs">
+      <DependentUpon>Documents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Documents.aspx.designer.cs">
+      <DependentUpon>Documents.aspx</DependentUpon>
     </Compile>
     <Compile Include="WorkWeek.aspx.cs">
       <DependentUpon>WorkWeek.aspx</DependentUpon>

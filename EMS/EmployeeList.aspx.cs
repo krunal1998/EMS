@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data; 
+using System.Data;
+using System.Net.Http;
 
 namespace EMS
 {
@@ -12,9 +13,163 @@ namespace EMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-                gvbind();
+            // if (!IsPostBack)
+            //   gvbind();
+            List<EMPLOYEE> elist = getAllEmployees();
+
+            foreach (EMPLOYEE emp in elist)
+            {
+                TableRow row = new TableRow();
+                row.ID = emp.EmployeeId.ToString();
+
+                String ename = getEmployeeName(emp);
+                TableCell employee = new TableCell();
+                Label employeelabel = new Label();
+                employeelabel.Text = ename;
+                employee.Controls.Add(employeelabel);
+                row.Cells.Add(employee);
+
+                String post = getpost(emp.JobtitleId.Value);
+                TableCell epost = new TableCell();
+                Label epostlabel = new Label();
+                epostlabel.Text = post;
+                epost.Controls.Add(epostlabel);
+                row.Cells.Add(epost);
+
+
+                TableCell estatus = new TableCell();
+                Label estatuslabel = new Label();
+                estatuslabel.Text = emp.EmployeeStatus;
+                estatus.Controls.Add(estatuslabel);
+                row.Cells.Add(estatus);
+
+
+                TableCell c1 = new TableCell();
+                Button view = new Button();
+                view.Text = "view";
+                view.Command += new CommandEventHandler(viewbutton_click);
+                view.CommandArgument = emp.EmployeeId.ToString();
+                c1.Controls.Add(view);
+                row.Cells.Add(c1);
+                Table2.Rows.Add(row);
+
+            }
         }
+
+        private void viewbutton_click(object sender, CommandEventArgs e)
+        {
+            Session["EID"] = e.CommandArgument;
+
+            Response.Redirect("PersonalDetails.aspx");
+        }
+
+        private string  getpost(int jobtitleId)
+        {
+            List<JOBTITLE> plist = new List<JOBTITLE>();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("JobTitle/"+jobtitleId);
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<JOBTITLE>();
+                    readTask.Wait();
+
+                    var jt = readTask.Result;
+                    return jt.JobTitleName;    
+                }
+                return null;
+            }
+                
+        }
+
+        private string getEmployeeName(EMPLOYEE e)
+        {
+        //    EMPLOYEE e = getEmployee(employeeId);
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("PersonalDetails/" + e.PersonalDetailId.ToString());
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<PERSONALDETAILS>();
+                    readTask.Wait();
+
+                    PERSONALDETAILS pd = readTask.Result;
+                    return pd.FirstName + " " + pd.MiddleName + " " + pd.LastName;
+                }
+                else return "";
+            }
+        }
+
+        private EMPLOYEE getEmployee(string employeeId)
+        {
+            EMPLOYEE e;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("Employees/" + employeeId);
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<EMPLOYEE>();
+                    readTask.Wait();
+
+                    e = readTask.Result;
+                    return e;
+
+                }
+                else return null;
+            }
+        }
+
+        private List<EMPLOYEE> getAllEmployees()
+        {
+            List<EMPLOYEE> list = new List<EMPLOYEE>();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("Employees");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<EMPLOYEE[]>();
+                    readTask.Wait();
+
+                    var employees = readTask.Result;
+
+                    foreach (var employee in employees)
+                    {
+                        list.Add(employee);
+                    }
+                }
+            }
+            return list;
+        }                                                                                                 
+
+
+        /*
         protected void gvbind()
         {
             DataTable dt = new DataTable();
@@ -72,5 +227,6 @@ namespace EMS
             GridView1.EditIndex = -1;
             gvbind();
         }
+        */
     }
 }

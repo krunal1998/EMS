@@ -6,7 +6,7 @@
         }
         .auto-style2 {
             width: 500px;
-            height: 100px;
+            height: 100px;                                                                                                          
             margin-right: 0px;
         }
         .auto-style3 {
@@ -23,7 +23,7 @@
      <table ID="Table1" runat="server" class="auto-style2" border="1">
         <tr>
             <td class="auto-style4">
-                <asp:Label ID="Label1" runat="server" Text="Payment Date: "></asp:Label>
+                <asp:Label ID="PaymentDate" runat="server" Text="Payment Date: "></asp:Label>
             </td>    
             <td class="auto-style3">
                 
@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td class="auto-style4">
-                 <asp:Label ID="Label2" runat="server" Text="Employee Name: "></asp:Label>
+                 <asp:Label ID="EmployeeName" runat="server" Text="Employee Name: "></asp:Label>
             </td>     
             <td class="auto-style3">
                 
@@ -39,7 +39,7 @@
         </tr>         
         <tr>
             <td class="auto-style4">
-                 <asp:Label ID="Label3" runat="server" Text="Post: "></asp:Label>
+                 <asp:Label ID="Post" runat="server" Text="Post: "></asp:Label>
             </td>           
             <td class="auto-style3">
                
@@ -49,13 +49,13 @@
     <table border="1">
         <tr>
             <td>
-                 <b><asp:Label ID="Label4" runat="server" Text="Earnings"></asp:Label></b>
+                 <b><asp:Label ID="Earnings" runat="server" Text="Earnings"></asp:Label></b>
             </td>
              <td class="auto-style3">
                  
             </td>
              <td>
-                 <b><asp:Label ID="Label10" runat="server" Text="Deductions"></asp:Label></b>
+                 <b><asp:Label ID="Deductions" runat="server" Text="Deductions"></asp:Label></b>
             </td>          
              <td class="auto-style3">
                  
@@ -63,13 +63,13 @@
         </tr>
         <tr>
             <td>
-                 <asp:Label ID="Label5" runat="server" Text="Basic Pay:    "></asp:Label>
+                 <asp:Label ID="BasicPay" runat="server" Text="Basic Pay:    "></asp:Label>
             </td>       
             <td class="auto-style3">
                 
             </td>  
              <td>
-                 <asp:Label ID="Label14" runat="server" Text="Employee PF:  "></asp:Label>
+                 <asp:Label ID="EmployeePF" runat="server" Text="Employee PF:  "></asp:Label>
             </td>       
             <td class="auto-style1">
                
@@ -77,13 +77,13 @@
         </tr>
         <tr>
             <td>
-                 <asp:Label ID="Label6" runat="server" Text=" TA:       "></asp:Label>
+                 <asp:Label ID="TA" runat="server" Text=" TA:       "></asp:Label>
             </td>       
             <td class="auto-style3">
                 
             </td>     
              <td>
-                 <asp:Label ID="Label12" runat="server" Text=" Total Tax:       "></asp:Label>
+                 <asp:Label ID="TotalTax" runat="server" Text=" Total Tax:       "></asp:Label>
             </td>       
             <td class="auto-style1">
                 
@@ -91,13 +91,13 @@
         </tr>
          <tr>
             <td>
-                 <asp:Label ID="Label13" runat="server" Text=" HRA:       "></asp:Label>
+                 <asp:Label ID="HRA" runat="server" Text=" HRA:       "></asp:Label>
             </td>       
             <td class="auto-style3">
                 
             </td>     
              <td>
-                 <asp:Label ID="Label8" runat="server" Text="Absence: "></asp:Label>
+                 <asp:Label ID="Absence" runat="server" Text="Absence: "></asp:Label>
             </td>       
             <td class="auto-style1">
                 
@@ -105,7 +105,7 @@
         </tr>
          <tr>
             <td>
-                 <asp:Label ID="Label7" runat="server" Text=" Other Allowances:       "></asp:Label>
+                 <asp:Label ID="OtherAllowances" runat="server" Text=" Other Allowances:       "></asp:Label>
             </td>       
             <td class="auto-style3">
                 
@@ -119,13 +119,13 @@
         </tr>
           <tr>
             <td>
-                 <b><asp:Label ID="Label15" runat="server" Text=" Total Earnings"></asp:Label></b>
+                 <b><asp:Label ID="TotalEarnings" runat="server" Text=" Total Earnings"></asp:Label></b>
             </td>
              <td class="auto-style3">
                  
             </td>
              <td>
-                 <b><asp:Label ID="Label16" runat="server" Text="Total Deductions"></asp:Label></b>
+                 <b><asp:Label ID="TotalDeductions" runat="server" Text="Total Deductions"></asp:Label></b>
             </td>          
              <td>
                  
@@ -133,7 +133,7 @@
          </tr>
          <tr>
             <td>
-                 <b><asp:Label ID="Label17" runat="server" Text="Net Salary"></asp:Label></b>
+                 <b><asp:Label ID="NetSalary" runat="server" Text="Net Salary"></asp:Label></b>
             </td>
              <td class="auto-style3">
                  
@@ -145,7 +145,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" Text="Print" Height="31px" Width="87px" />
+    <asp:Button ID="Print" runat="server" Text="Print" Height="31px" Width="87px" />
     <br />
     <br />
 </asp:Content>

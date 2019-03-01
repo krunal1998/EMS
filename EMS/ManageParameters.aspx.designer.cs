@@ -10,141 +10,105 @@
 namespace EMS {
     
     
-    public partial class PersonalDetails {
+    public partial class ManageParameters {
         
         /// <summary>
-        /// Menu2 control.
+        /// DropDownList3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu Menu2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
         
         /// <summary>
-        /// FullName control.
+        /// Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FullName;
+        protected global::System.Web.UI.WebControls.Button Search;
         
         /// <summary>
-        /// FirstName control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FirstName;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// MiddleName control.
+        /// addparametertable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MiddleName;
+        protected global::System.Web.UI.WebControls.Table addparametertable;
         
         /// <summary>
-        /// LastName control.
+        /// newparametertextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LastName;
+        protected global::System.Web.UI.WebControls.TextBox newparametertextbox;
         
         /// <summary>
-        /// EmployeeID control.
+        /// newminratingtextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmployeeID;
+        protected global::System.Web.UI.WebControls.TextBox newminratingtextbox;
         
         /// <summary>
-        /// IDValue control.
+        /// newmaxratingtextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label IDValue;
+        protected global::System.Web.UI.WebControls.TextBox newmaxratingtextbox;
         
         /// <summary>
-        /// DOB control.
+        /// addbutton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DOB;
+        protected global::System.Web.UI.WebControls.Button addbutton;
         
         /// <summary>
-        /// DOBValue control.
+        /// deleteerrorlabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DOBValue;
+        protected global::System.Web.UI.WebControls.Label deleteerrorlabel;
         
         /// <summary>
-        /// Gender control.
+        /// DeleteButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Gender;
+        protected global::System.Web.UI.WebControls.Button DeleteButton;
         
         /// <summary>
-        /// GenValue control.
+        /// AddNewParameterButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GenValue;
-        
-        /// <summary>
-        /// Nationality control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Nationality;
-        
-        /// <summary>
-        /// NationalityValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NationalityValue;
-        
-        /// <summary>
-        /// MaritalStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MaritalStatus;
-        
-        /// <summary>
-        /// MaritalSatusValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MaritalSatusValue;
+        protected global::System.Web.UI.WebControls.Button AddNewParameterButton;
     }
 }

@@ -12,7 +12,7 @@ namespace EMS
     public partial class AssessReview : System.Web.UI.Page
     {
         static List<PERFORMANCEPARAMETER> parameterList;
-        GENERATEREVIEW g;
+        static GENERATEREVIEW g;
         protected void Page_Load(object sender, EventArgs e)
         {
             int grid = Convert.ToInt32(Session["GRID"]);
@@ -177,6 +177,7 @@ namespace EMS
 
         protected void Save_Click(object sender, EventArgs e)
         {
+            bool error = false;
             foreach (TableRow tr in ParametersTable.Rows)
             {
                 if (tr.Cells.Count == 3 && tr != ParametersTable.Rows[0])
@@ -199,6 +200,7 @@ namespace EMS
                             break;
                         }
                     }
+                    //update reviews in db
                     // Response.Write(r.GenerateReviewId + " " +r.PerameterId+" "+ r.Rating + " " + r.Comment + "\n" );
                     var client = new HttpClient();
                     client.BaseAddress = new Uri(Global.URIstring);
@@ -207,13 +209,33 @@ namespace EMS
                     postTask.Wait();
 
                     var result = postTask.Result;
-                    if (result.IsSuccessStatusCode)
+                    if (!result.IsSuccessStatusCode)
                     {
-                        Response.Write("Save successful!");
-
-
+                        // occurs if some error in writing to db
+                        Response.Write("Some error occured");
+                        //TODO take appt. action for the error
+                        error = true;
+                        break;
 
                     }
+
+                }
+            }
+            if (!error)
+            {
+                //update generatedreview status
+                g.Status = "Assessed";
+
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(Global.URIstring);
+                var putTask = client.PutAsJsonAsync<GENERATEREVIEW>("generatedreviews/" + g.GenerateReviewId, g);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    Response.Write("Review assessed successfully.");
+                    Response.Redirect("PendingReviews.aspx");
                 }
             }
         }

@@ -7,32 +7,32 @@
     <table ID="Table1" runat="server">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="Full Name: "></asp:Label>
+                <asp:Label ID="FullName" runat="server" Text="Full Name: "></asp:Label>
             </td>    
             <td>
-                <asp:TextBox ID="TextBox1" runat="server" placeholder="First Name"></asp:TextBox>
+                <asp:TextBox ID="FirstName" runat="server" placeholder="First Name"></asp:TextBox>
             </td>    
             <td>
-                <asp:TextBox ID="TextBox2" runat="server" placeholder="Middle Name"></asp:TextBox>
+                <asp:TextBox ID="MiddleName" runat="server" placeholder="Middle Name"></asp:TextBox>
             </td>    
             <td>
-                <asp:TextBox ID="TextBox3" runat="server" placeholder="Last Name"></asp:TextBox>
+                <asp:TextBox ID="LastName" runat="server" placeholder="Last Name"></asp:TextBox>
             </td>    
         </tr>
         <tr>
             <td>
-                 <asp:Label ID="Label2" runat="server" Text="Employee ID: "></asp:Label>
+                 <asp:Label ID="EmployeeID" runat="server" Text="Employee ID: "></asp:Label>
             </td>     
             <td>
-                 <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                 <asp:TextBox ID="EmployeeIDValue" runat="server"></asp:TextBox>
             </td>
         </tr>         
         <tr>
             <td>
-                 <asp:Label ID="Label3" runat="server" Text="Supervisor: "></asp:Label>
+                 <asp:Label ID="Supervisor" runat="server" Text="Supervisor: "></asp:Label>
             </td>           
             <td>
-                 <asp:DropDownList ID="DropDownList1" runat="server"  ></asp:DropDownList>
+                 <asp:DropDownList ID="SupervisorValue" runat="server"  ></asp:DropDownList>
             </td>
         </tr>
     </table>
@@ -41,26 +41,26 @@
     <table ID="Table2" runat="server">
         <tr>
             <td>
-                 <asp:Label ID="Label4" runat="server" Text="Post:    "></asp:Label>
+                 <asp:Label ID="Post" runat="server" Text="Post:    "></asp:Label>
             </td>       
             <td>
-                 <asp:DropDownList ID="DropDownList2" runat="server"  ></asp:DropDownList>
+                 <asp:DropDownList ID="PostValue" runat="server"  ></asp:DropDownList>
             </td>     
         </tr>
         <tr>
             <td>
-                 <asp:Label ID="Label5" runat="server" Text="Basic Pay:    "></asp:Label>
+                 <asp:Label ID="BasicPay" runat="server" Text="Basic Pay:    "></asp:Label>
             </td>       
             <td>
-                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                <asp:TextBox ID="BasicPayValue" runat="server"></asp:TextBox>
             </td>     
         </tr>
         <tr>
             <td>
-                 <asp:Label ID="Label6" runat="server" Text="Allowances:       "></asp:Label>
+                 <asp:Label ID="Allowances" runat="server" Text="Allowances:       "></asp:Label>
             </td>       
             <td>
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                <asp:CheckBoxList ID="AllowancesValue" runat="server">
                     <asp:ListItem Text="Travel" Value="Travel"></asp:ListItem>
                     <asp:ListItem Text="House Rent" Value="House Rent"></asp:ListItem>
                     <asp:ListItem Text="Medical" Value="Medical"></asp:ListItem>
@@ -76,34 +76,34 @@
      <table ID="Table3" runat="server">
         <tr>
             <td>
-                 <asp:Label ID="Label7" runat="server" Text="Username:    "></asp:Label>
+                 <asp:Label ID="UserName" runat="server" Text="Username:    "></asp:Label>
             </td>       
             <td>
-                <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                <asp:TextBox ID="UserNameValue" runat="server"></asp:TextBox>
             </td>     
         </tr>
           <tr>
             <td>
-                 <asp:Label ID="Label8" runat="server" Text="Password:    "></asp:Label>
+                 <asp:Label ID="Password" runat="server" Text="Password:    "></asp:Label>
             </td>       
             <td>
-                <asp:TextBox ID="TextBox7" runat="server" TextMode="Password"></asp:TextBox>     
+                <asp:TextBox ID="PasswordValue" runat="server" TextMode="Password"></asp:TextBox>     
             </td>     
         </tr>
           <tr>
             <td>
-                 <asp:Label ID="Label9" runat="server" Text="Confirm Password:    "></asp:Label>
+                 <asp:Label ID="ConfirmPassword" runat="server" Text="Confirm Password:    "></asp:Label>
             </td>       
             <td>
-                <asp:TextBox ID="TextBox8" runat="server" TextMode="Password"></asp:TextBox>                      
+                <asp:TextBox ID="ConfirmPasswordValue" runat="server" TextMode="Password"></asp:TextBox>                      
             </td>     
         </tr>
           <tr>
             <td>
-                 <asp:Label ID="Label10" runat="server" Text="Status:    "></asp:Label>
+                 <asp:Label ID="Status" runat="server" Text="Status:    "></asp:Label>
             </td>       
             <td>
-                 <asp:DropDownList ID="DropDownList3" runat="server"  >
+                 <asp:DropDownList ID="StatusValue" runat="server"  >
                      <asp:ListItem Text="Enabled" Value="Enabled"></asp:ListItem>
                      <asp:ListItem Text="Disabled" Value="Disabled"></asp:ListItem>
                  </asp:DropDownList>               
@@ -112,5 +112,5 @@
      </table>
     &nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" Text="Save" Width="94px" />
+    <asp:Button ID="Save" runat="server" Text="Save" Width="94px" OnClick="Save_Click" />
 </asp:Content>

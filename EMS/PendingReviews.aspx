@@ -69,4 +69,6 @@
 
        
     </asp:Table>
+    <asp:Label ID ="nopendingreviewslabel" runat="server" Visible="false">You're all caught up! No Pending reviews remaining
+    </asp:Label>
 </asp:Content>

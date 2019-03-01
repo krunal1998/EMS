@@ -17,45 +17,53 @@ namespace EMS
            // if (!IsPostBack)
             {
                 List<GENERATEREVIEW> list = getAllPendingReviews();
+                if (list.Count == 0)
+                {
+                    Table1.Visible = false;
+                    nopendingreviewslabel.Visible = true;
+                }
+                else
+                {
+                    foreach (GENERATEREVIEW g in list)
+                    {
+                        String ename = getEmployeeName(g.EmployeeId);
+                        TableRow row = new TableRow();
+                        row.ID = g.GenerateReviewId.ToString();
+                        TableCell employee = new TableCell();
+                        Label employeelabel = new Label();
+                        employeelabel.Text = ename;
+                        employee.Controls.Add(employeelabel);
+                        row.Cells.Add(employee);
+                        TableCell sd = new TableCell();
+                        Label sdlabel = new Label();
+                        sdlabel.Text = g.StartDate.ToShortDateString();
+                        sd.Controls.Add(sdlabel);
+                        row.Cells.Add(sd);
+                        TableCell ed = new TableCell();
+                        Label edlabel = new Label();
+                        edlabel.Text = g.EndDate.ToShortDateString();
+                        ed.Controls.Add(edlabel);
+                        row.Cells.Add(ed);
+                        TableCell dd = new TableCell();
+                        Label ddlabel = new Label();
+                        ddlabel.Text = g.DueDate.ToShortDateString();
+                        dd.Controls.Add(ddlabel);
+                        row.Cells.Add(dd);
+                        TableCell status = new TableCell();
+                        Label statuslabel = new Label();
+                        statuslabel.Text = g.Status;
+                        status.Controls.Add(statuslabel);
+                        row.Cells.Add(status);
+                        TableCell c1 = new TableCell();
+                        Button assess = new Button();
+                        assess.Text = "Assess";
+                        assess.Command += new CommandEventHandler(assessbutton_click);
+                        assess.CommandArgument = g.GenerateReviewId.ToString();
+                        c1.Controls.Add(assess);
+                        row.Cells.Add(c1);
+                        Table1.Rows.Add(row);
 
-                foreach(GENERATEREVIEW g in list) {
-                    String ename = getEmployeeName(g.EmployeeId);
-                    TableRow row = new TableRow();
-                    row.ID = g.GenerateReviewId.ToString();
-                    TableCell employee = new TableCell();
-                    Label employeelabel = new Label();
-                    employeelabel.Text = ename;
-                    employee.Controls.Add(employeelabel);
-                    row.Cells.Add(employee);
-                    TableCell sd = new TableCell();
-                    Label sdlabel = new Label();
-                    sdlabel.Text = g.StartDate.ToShortDateString();
-                    sd.Controls.Add(sdlabel);
-                    row.Cells.Add(sd);
-                    TableCell ed = new TableCell();
-                    Label edlabel = new Label();
-                    edlabel.Text = g.EndDate.ToShortDateString();
-                    ed.Controls.Add(edlabel);
-                    row.Cells.Add(ed);
-                    TableCell dd = new TableCell();
-                    Label ddlabel = new Label();
-                    ddlabel.Text = g.DueDate.ToShortDateString();
-                    dd.Controls.Add(ddlabel);
-                    row.Cells.Add(dd);
-                    TableCell status = new TableCell();
-                    Label statuslabel = new Label();
-                    statuslabel.Text = g.Status;
-                    status.Controls.Add(statuslabel);
-                    row.Cells.Add(status);
-                    TableCell c1 = new TableCell();
-                    Button assess = new Button();
-                    assess.Text = "Assess";
-                    assess.Command += new CommandEventHandler(assessbutton_click);
-                    assess.CommandArgument = g.GenerateReviewId.ToString();
-                    c1.Controls.Add(assess);
-                    row.Cells.Add(c1);
-                    Table1.Rows.Add(row);
-                    
+                    }
                 }
             }
         }
@@ -122,7 +130,7 @@ namespace EMS
                     foreach (var g in GRs)
                     {
                         int gsid =getEmployeeSID(g.EmployeeId);
-                        if (supervisorid == gsid) {
+                        if (supervisorid == gsid && g.Status.Equals("Generated")) {
                             list.Add(g);
                         }
                     }

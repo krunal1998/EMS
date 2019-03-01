@@ -16,18 +16,18 @@
      <table ID="Table1" runat="server">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="Employee Name: "></asp:Label>
+                <asp:Label ID="EmployeeName" runat="server" Text="Employee Name: "></asp:Label>
             &nbsp;</td>    
             <td class="auto-style1">
-                <asp:DropDownList ID="DropDownList1" runat="server" Height="33px" Width="129px"></asp:DropDownList>
+                <asp:DropDownList ID="EmployeeNameValue" runat="server" Height="33px" Width="129px"></asp:DropDownList>
             </td>        
         </tr>
           <tr>
             <td>
-                <asp:Label ID="Label2" runat="server" Text="Reason: "></asp:Label>
+                <asp:Label ID="Reason" runat="server" Text="Reason: "></asp:Label>
             </td>    
             <td class="auto-style1">
-                <textarea id="TextArea1" class="auto-style2"></textarea>
+                <textarea id="ReasonValue" class="auto-style2"></textarea>
             </td>        
         </tr>
        </table>
@@ -35,7 +35,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" Text="Remove" Height="29px" Width="83px" />
+    <asp:Button ID="Remove" runat="server" Text="Remove" Height="29px" Width="83px" />
     <br />
     <br />
     <br />
