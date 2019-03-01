@@ -8,7 +8,7 @@
     <style type="text/css">
         #Table1 {
             height: 99px;
-            width: 133px;
+            width: 200px;
          
         }
         #logo {
@@ -16,8 +16,17 @@
             width: 106px;
         }
         .auto-style1 {
-            width: 249px;
-            height: 177px;
+            width: 339px;
+            height: 258px;
+        }
+        .auto-style3 {
+            width: 185px;
+        }
+        .auto-style4 {
+            width: 94px;
+        }
+        .auto-style5 {
+            width: 187px;
         }
     </style>
 </head>
@@ -28,24 +37,30 @@
     
         <table id="Table1" runat="server" class="auto-style1">
             <tr>
-                <td>
-                    <img id="logo" runat="server" src="Images/Navkar%20Enterprise%20Logo.png" />
+                <td class="auto-style4">
+                    <img id="logo" runat="server" src="Images/Navkar%20Enterprise%20Logo.png" class="auto-style3" />
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="auto-style4">
                     Employee ID:
                 </td>
                 <td>
                     <asp:TextBox ID="Username" runat="server"></asp:TextBox>
                 </td>
+                <td class="auto-style5">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter Username " ControlToValidate="Username" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
-                <td>
+                <td class="auto-style4">
                     Password:
                 </td>
                 <td>
                     <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                </td>
+                <td class="auto-style5">
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter Password" ControlToValidate="Password" ForeColor="Red" Width="150px"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             
@@ -53,15 +68,12 @@
         <br />
 &nbsp;&nbsp;&nbsp;
         <asp:Label ID="ErrorMessage" runat="server" ForeColor="Red"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
         <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="LoginButton" runat="server" Text="Login" Width="105px" OnClick="LoginButton_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       
-        </p>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:HyperLink ID="HyperLink1" NavigateUrl="#" runat="server">Forgot Password?</asp:HyperLink>
                        
         </p>
         <p>
