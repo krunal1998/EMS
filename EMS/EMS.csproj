@@ -178,6 +178,7 @@
     <Content Include="ContactDetails.aspx" />
     <Content Include="CreateProject.aspx" />
     <Content Include="DeleteEmployee.aspx" />
+    <Content Include="EditReview.aspx" />
     <Content Include="EmergencyContacts.aspx" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="GeneratePayslip.aspx" />
@@ -193,6 +194,7 @@
     <Content Include="Login.aspx" />
     <Content Include="ManageAllowances.aspx" />
     <Content Include="ManageAppraisals.aspx" />
+    <Content Include="ManageIndividualParameters.aspx" />
     <Content Include="ManageParameters.aspx" />
     <Content Include="NewParameter.aspx" />
     <Content Include="obj\Debug\EMS.csproj.FileListAbsolute.txt" />
@@ -298,6 +300,13 @@
     <Compile Include="DeleteEmployee.aspx.designer.cs">
       <DependentUpon>DeleteEmployee.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditReview.aspx.cs">
+      <DependentUpon>EditReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditReview.aspx.designer.cs">
+      <DependentUpon>EditReview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EmergencyContacts.aspx.cs">
       <DependentUpon>EmergencyContacts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,6 +405,13 @@
     </Compile>
     <Compile Include="ManageAppraisals.aspx.designer.cs">
       <DependentUpon>ManageAppraisals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageIndividualParameters.aspx.cs">
+      <DependentUpon>ManageIndividualParameters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageIndividualParameters.aspx.designer.cs">
+      <DependentUpon>ManageIndividualParameters.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageParameters.aspx.cs">
       <DependentUpon>ManageParameters.aspx</DependentUpon>

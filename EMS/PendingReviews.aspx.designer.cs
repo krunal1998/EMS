@@ -22,6 +22,33 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.TextBox EnameTextBox;
         
         /// <summary>
+        /// fromdatetb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fromdatetb;
+        
+        /// <summary>
+        /// todatetb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox todatetb;
+        
+        /// <summary>
+        /// searchbutton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button searchbutton;
+        
+        /// <summary>
         /// TextBox1_AutoCompleteExtender control.
         /// </summary>
         /// <remarks>

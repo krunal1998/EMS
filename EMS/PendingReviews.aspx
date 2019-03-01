@@ -40,16 +40,42 @@
             <td>
                 <asp:TextBox ID="EnameTextBox" runat="server" placeholder="Type for hint" on></asp:TextBox>
             </td>
+        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                
+        </tr>
+        
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="width:150px">Due Date From:</td>
+            <td>
+                <asp:TextBox ID="fromdatetb" runat="server" TextMode="Date"></asp:TextBox>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+            <td style="width:150px">Due Date To:</td>
+            <td>
+                <asp:TextBox ID="todatetb" runat="server" TextMode="Date"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="searchbutton" runat="server" Text="Search" OnClick="searchbutton_Click" />
+            </td>
         </tr>
     </table>
-    &nbsp;<cc1:AutoCompleteExtender ID="TextBox1_AutoCompleteExtender" runat="server" DelimiterCharacters=""
+    &nbsp;  <cc1:AutoCompleteExtender ID="TextBox1_AutoCompleteExtender" runat="server" DelimiterCharacters="" FirstRowSelected="true"
 
-            Enabled="True" ServiceMethod="GetEmployeesList" MinimumPrefixLength="1" EnableCaching="false" ServicePath=""
+            Enabled="True" ServiceMethod="GetEmployeesList" MinimumPrefixLength="1" EnableCaching="false" 
             CompletionListItemCssClass="CompletionListItem" CompletionListCssClass="CompletionList" CompletionListHighlightedItemCssClass="CompletionListItemHighLight"
 
             TargetControlID="EnameTextBox">
 
         </cc1:AutoCompleteExtender>
+
     
     <hr />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -69,6 +95,6 @@
 
        
     </asp:Table>
-    <asp:Label ID ="nopendingreviewslabel" runat="server" Visible="false">You're all caught up! No Pending reviews remaining
+    <asp:Label ID ="nopendingreviewslabel" runat="server" Visible="false"> No Pending reviews found!
     </asp:Label>
 </asp:Content>

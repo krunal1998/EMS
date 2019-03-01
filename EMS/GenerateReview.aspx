@@ -101,9 +101,10 @@
     <br/>
     
     <asp:Label ID="JobTitleLabel" runat="server"></asp:Label>
-    <asp:Table ID ="SelectedParametersTable" runat="server">
+    <asp:Table ID ="SelectedParametersTable" runat="server" >
        
     </asp:Table>
+    <asp:LinkButton ID="manageparameters" runat="server" Text="Manage Parameters..." Visible="false" OnClick="manageparameters_Click"/>
     <hr/>
     <asp:Button ID="Add" runat="server" Text="Generate" Width="78px" OnClick="Add_Click" ValidationGroup="group" />
 
