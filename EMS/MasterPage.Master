@@ -37,6 +37,7 @@
                         <asp:MenuItem Text="Dashboard" Value="Dashboard" NavigateUrl="~/HRDashboard.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Employee Info" Value="Employee Info" NavigateUrl="~/EmployeeList.aspx" ></asp:MenuItem>
                         <asp:MenuItem Text="Tasks" Value="Tasks"></asp:MenuItem>
+                        <asp:MenuItem Text="Attendance" Value="Attendance" NavigateUrl="~/Attendance.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Leaves" Value="Leaves" NavigateUrl="~/LeaveList.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Performance" Value="Performance" NavigateUrl="~/CompletedReviews.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Complains" Value="Complains" NavigateUrl="~/ComplainList.aspx"></asp:MenuItem> 
