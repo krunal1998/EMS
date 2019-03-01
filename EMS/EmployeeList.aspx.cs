@@ -11,12 +11,15 @@ namespace EMS
 {
     public partial class EmployeeList : System.Web.UI.Page
     {
+        static List<PERSONALDETAILS> pdlist;
+        static List<EMPLOYEE> elist;
         protected void Page_Load(object sender, EventArgs e)
         {
+            pdlist = getallpersonaldetails();
+            elist  = getallemployees();
             // if (!IsPostBack)
             //   gvbind();
-            List<EMPLOYEE> elist = getAllEmployees();
-
+            
             foreach (EMPLOYEE emp in elist)
             {
                 TableRow row = new TableRow();
@@ -54,6 +57,62 @@ namespace EMS
                 Table2.Rows.Add(row);
 
             }
+        }
+
+        private List<EMPLOYEE> getallemployees()
+        {
+            List<EMPLOYEE> list = new List<EMPLOYEE>();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("Employees");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<EMPLOYEE[]>();
+                    readTask.Wait();
+
+                    var employees = readTask.Result;
+
+                    foreach (var employee in employees)
+                    {
+                        list.Add(employee);
+                    }
+                }
+            }
+            return list;
+        }
+
+        private List<PERSONALDETAILS> getallpersonaldetails()
+        {
+            List<PERSONALDETAILS> list = new List<PERSONALDETAILS>();
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Global.URIstring);
+            //HTTP GET
+            var responseTask = client.GetAsync("PersonalDetails/");
+            responseTask.Wait();
+
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+
+                var readTask = result.Content.ReadAsAsync<PERSONALDETAILS[]>();
+                readTask.Wait();
+
+                var employees = readTask.Result;
+
+                foreach (PERSONALDETAILS e in employees)
+                {
+                    list.Add(e);
+                }
+            }
+
+            return list;
         }
 
         private void viewbutton_click(object sender, CommandEventArgs e)
@@ -139,94 +198,122 @@ namespace EMS
             }
         }
 
-        private List<EMPLOYEE> getAllEmployees()
+      
+
+        //custom validator method 
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            List<EMPLOYEE> list = new List<EMPLOYEE>();
-
-            using (var client = new HttpClient())
+            List<string> list = GetEmployeeName();
+            if (!list.Contains(TextBox1.Text))
             {
-                client.BaseAddress = new Uri(Global.URIstring);
-                //HTTP GET
-                var responseTask = client.GetAsync("Employees");
-                responseTask.Wait();
-
-                var result = responseTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-
-                    var readTask = result.Content.ReadAsAsync<EMPLOYEE[]>();
-                    readTask.Wait();
-
-                    var employees = readTask.Result;
-
-                    foreach (var employee in employees)
-                    {
-                        list.Add(employee);
-                    }
-                }
+                args.IsValid = false;
             }
-            return list;
-        }                                                                                                 
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod]
+        public static List<string> GetListofEmployeeName(string prefixText)
+        {
+            //get all employee name 
+            List<string> namelist = GetEmployeeName();
+
+            List<string> temp = new List<string>();
+            //generate employee name list based on prefix
+            foreach (string v in namelist)
+            {
+                if (v.ToLower().Contains(prefixText.ToLower()))
+                    temp.Add(v);
+            }
+            return temp;
+        }
+
+        private static List<string> GetEmployeeName()
+        {
+            List<string> namelist = new List<string>();
+            foreach (PERSONALDETAILS p in pdlist)
+            {
+                namelist.Add(p.FirstName + " "+p.MiddleName+ " " + p.LastName);
+            }
+            return namelist;
+        }
+
+        protected void DirectView_Click(object sender, EventArgs e)
+        {
+            if(CustomValidator1.IsValid)
+            {
+                string name = TextBox1.Text;
+                PERSONALDETAILS pd = pdlist.Find(p => (p.FirstName + " " + p.MiddleName + " " + p.LastName).Equals(name));
+                EMPLOYEE emp = elist.Find(em => em.PersonalDetailId == pd.PersonalDetailId);
+                Session["EID"] = emp.EmployeeId;
+                Response.Redirect("PersonalDetails.aspx");
+            }
+
+            
+        }
+
 
 
         /*
-        protected void gvbind()
-        {
-            DataTable dt = new DataTable();
-            DataColumn dc1 = new DataColumn("EmployeeName");
-            DataColumn dc2 = new DataColumn("EmployeePost");
-            DataColumn dc3 = new DataColumn("EmployeeStatus");
-            dt.Columns.Add(dc1);
-            dt.Columns.Add(dc2);
-            dt.Columns.Add(dc3);
-            DataRow dr = dt.NewRow();
-            dr[0] = "Pratik Chirag Joshi";
-            dr[1] = "Software Designer";
-            dr[2] = "Enabled";
-            dt.Rows.Add(dr);
-            DataRow dr1 = dt.NewRow();
-            dr1[0] = "Chintan Maheshbhai Shah";
-            dr1[1] = "Database Administrater";
-            dr1[2] = "Enabled";
-            dt.Rows.Add(dr1);
-            DataRow dr2 = dt.NewRow();
-            dr2[0] = "Sameer Rajeshbhai Patel";
-            dr2[1] = "Project Manager";
-            dr2[2] = "Enabled";
-            dt.Rows.Add(dr2);
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-        }
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GridView1.EditIndex = e.NewEditIndex;
-            gvbind();
-        }
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            int userid = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
-            GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
-            Label lblID = (Label)row.FindControl("lblID");
-            //TextBox txtname=(TextBox)gr.cell[].control[];  
-            TextBox textName = (TextBox)row.Cells[0].Controls[0];
-            TextBox textadd = (TextBox)row.Cells[1].Controls[0];
-            TextBox textc = (TextBox)row.Cells[2].Controls[0];
-            //TextBox textadd = (TextBox)row.FindControl("txtadd");  
-            //TextBox textc = (TextBox)row.FindControl("txtc");  
-            GridView1.EditIndex = -1;
-            // conn.Open();
-            //SqlCommand cmd = new SqlCommand("SELECT * FROM detail", conn);  
-            //SqlCommand cmd = new SqlCommand("update detail set name='" + textName.Text + "',address='" + textadd.Text + "',country='" + textc.Text + "'where id='" + userid + "'", conn);
-            //cmd.ExecuteNonQuery();
-            //conn.Close();
-            gvbind();
-            //GridView1.DataBind();  
-        }
-        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            GridView1.EditIndex = -1;
-            gvbind();
-        }
-        */
+protected void gvbind()
+{
+   DataTable dt = new DataTable();
+   DataColumn dc1 = new DataColumn("EmployeeName");
+   DataColumn dc2 = new DataColumn("EmployeePost");
+   DataColumn dc3 = new DataColumn("EmployeeStatus");
+   dt.Columns.Add(dc1);
+   dt.Columns.Add(dc2);
+   dt.Columns.Add(dc3);
+   DataRow dr = dt.NewRow();
+   dr[0] = "Pratik Chirag Joshi";
+   dr[1] = "Software Designer";
+   dr[2] = "Enabled";
+   dt.Rows.Add(dr);
+   DataRow dr1 = dt.NewRow();
+   dr1[0] = "Chintan Maheshbhai Shah";
+   dr1[1] = "Database Administrater";
+   dr1[2] = "Enabled";
+   dt.Rows.Add(dr1);
+   DataRow dr2 = dt.NewRow();
+   dr2[0] = "Sameer Rajeshbhai Patel";
+   dr2[1] = "Project Manager";
+   dr2[2] = "Enabled";
+   dt.Rows.Add(dr2);
+   GridView1.DataSource = dt;
+   GridView1.DataBind();
+}
+protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+{
+   GridView1.EditIndex = e.NewEditIndex;
+   gvbind();
+}
+protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+{
+   int userid = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
+   GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
+   Label lblID = (Label)row.FindControl("lblID");
+   //TextBox txtname=(TextBox)gr.cell[].control[];  
+   TextBox textName = (TextBox)row.Cells[0].Controls[0];
+   TextBox textadd = (TextBox)row.Cells[1].Controls[0];
+   TextBox textc = (TextBox)row.Cells[2].Controls[0];
+   //TextBox textadd = (TextBox)row.FindControl("txtadd");  
+   //TextBox textc = (TextBox)row.FindControl("txtc");  
+   GridView1.EditIndex = -1;
+   // conn.Open();
+   //SqlCommand cmd = new SqlCommand("SELECT * FROM detail", conn);  
+   //SqlCommand cmd = new SqlCommand("update detail set name='" + textName.Text + "',address='" + textadd.Text + "',country='" + textc.Text + "'where id='" + userid + "'", conn);
+   //cmd.ExecuteNonQuery();
+   //conn.Close();
+   gvbind();
+   //GridView1.DataBind();  
+}
+protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+{
+   GridView1.EditIndex = -1;
+   gvbind();
+}
+*/
     }
 }
