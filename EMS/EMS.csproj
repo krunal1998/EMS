@@ -211,7 +211,6 @@
     <Content Include="Payslip.aspx" />
     <Content Include="PendingReviews.aspx" />
     <Content Include="PersonalDetails.aspx" />
-    <Content Include="sample.aspx" />
     <Content Include="SupervisorDashboard.aspx" />
     <Content Include="ViewProjects.aspx" />
     <Content Include="ViewTasks.aspx" />
@@ -482,13 +481,6 @@
     </Compile>
     <Compile Include="PendingReviews.aspx.designer.cs">
       <DependentUpon>PendingReviews.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="sample.aspx.cs">
-      <DependentUpon>sample.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="sample.aspx.designer.cs">
-      <DependentUpon>sample.aspx</DependentUpon>
     </Compile>
     <Compile Include="SupervisorDashboard.aspx.cs">
       <DependentUpon>SupervisorDashboard.aspx</DependentUpon>
