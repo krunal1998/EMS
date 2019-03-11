@@ -16,6 +16,6 @@ namespace EMS
     {
         public int AllowanceId { get; set; }
         public string EmployeeId { get; set; }
-        public string Salary { get; set; }
+        public Nullable<int> Salary { get; set; }
     }
 }
