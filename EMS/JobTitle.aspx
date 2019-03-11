@@ -28,4 +28,7 @@
     <br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:button runat="server" text="Delete" id="DeleteButton" OnClick="DeleteButton_Click"/>
+    <br />
+    <br />
+    <asp:Label ID="Label1" runat="server" Text="Can't delete because of it is in use" Visible="false" ForeColor="Red"></asp:Label>
 </asp:Content>

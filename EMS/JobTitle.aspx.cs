@@ -48,22 +48,42 @@ namespace EMS
             }
         }
 
+        
         //Add new jobtitle
         protected void AddButton_Click(object sender, EventArgs e)
         {
-            JOBTITLE jobtitle = new EMS.JOBTITLE();
-            jobtitle.JobTitleName = JobTitleTextBox.Text.Trim();
-            using (var client = new HttpClient())
+            int flag = 0;
+            foreach (var job in jobtitles)
             {
-                client.BaseAddress = new Uri(Global.URIstring);
-                var postTask = client.PostAsJsonAsync("JobTitle", jobtitle);
-                postTask.Wait();
-
-                var result = postTask.Result;
-                if (result.IsSuccessStatusCode)
+                flag = 0;
+                if (job.JobTitleName.ToLower().Equals(JobTitleTextBox.Text.ToLower()))
                 {
-                    displayrecord();
-                    JobTitleTextBox.Text = null;
+                    flag = 1;JobTitleTextBox.Text = null;
+                    break;
+                }
+                    
+            }
+            if (flag == 1)
+            {
+                Response.Write("<script>alert('Job tile exists already with same name')</script>");
+            }
+
+            else
+            {
+                JOBTITLE jobtitle = new EMS.JOBTITLE();
+                jobtitle.JobTitleName = JobTitleTextBox.Text.Trim();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(Global.URIstring);
+                    var postTask = client.PostAsJsonAsync("JobTitle", jobtitle);
+                    postTask.Wait();
+
+                    var result = postTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        displayrecord();
+                        JobTitleTextBox.Text = null;
+                    }
                 }
             }
         }
@@ -88,6 +108,8 @@ namespace EMS
                                 deleteTask.Wait();
 
                                 var result = deleteTask.Result;
+                                if (!result.IsSuccessStatusCode)
+                                    Label1.Visible = true;
                             }
                         }
                     }

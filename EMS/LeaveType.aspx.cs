@@ -71,6 +71,8 @@ namespace EMS
                                 deleteTask.Wait();
 
                                 var result = deleteTask.Result;
+                                if (!result.IsSuccessStatusCode)
+                                    Label1.Visible = true;
                             }
                         }
                     }
@@ -81,21 +83,38 @@ namespace EMS
 
         protected void AddLeaveType(object sender, EventArgs e)
         {
-            LEAVETYPE leavetype = new EMS.LEAVETYPE();
-            leavetype.LeaveTypeName = AddNewLeaveTypeBox.Text.Trim();
-            using (var client = new HttpClient())
+            int flag=0;
+            foreach(var leave in leavetypes)
             {
-                client.BaseAddress = new Uri(Global.URIstring);
-                var postTask = client.PostAsJsonAsync("LeaveType", leavetype);
-                postTask.Wait();
-
-                var result = postTask.Result;
-                if (result.IsSuccessStatusCode)
+                flag = 0;
+                if(leave.LeaveTypeName.ToLower().Equals(AddNewLeaveTypeBox.Text.ToLower()))
                 {
-                    displayrecord();
-                    AddNewLeaveTypeBox.Text = null;
+                    flag = 1;AddNewLeaveTypeBox.Text = null;
+                    break;
                 }
+            }
+            if(flag==1)
+            {
+                Response.Write("<script>alert('leave type name exists already with same name')</script>");
+            }
+            else
+            {
+                LEAVETYPE leavetype = new EMS.LEAVETYPE();
+                leavetype.LeaveTypeName = AddNewLeaveTypeBox.Text.Trim();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(Global.URIstring);
+                    var postTask = client.PostAsJsonAsync("LeaveType", leavetype);
+                    postTask.Wait();
 
+                    var result = postTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        displayrecord();
+                        AddNewLeaveTypeBox.Text = null;
+                    }
+
+                }
             }
         }
     }

@@ -166,6 +166,15 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.Table SelectedParametersTable;
         
         /// <summary>
+        /// manageparameters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton manageparameters;
+        
+        /// <summary>
         /// Add control.
         /// </summary>
         /// <remarks>

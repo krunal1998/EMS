@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net.Http;
-using System.Net.Http.Headers;
 
 namespace EMS
 {
-    public partial class AssessReview : System.Web.UI.Page
+    public partial class EditReview : System.Web.UI.Page
     {
         static List<PERFORMANCEPARAMETER> parameterList;
+        static List<REVIEW> rlist;
         static GENERATEREVIEW g;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["GRID"]== null)
                 Response.Redirect("ErrorPage.aspx");
+
             int grid = Convert.ToInt32(Session["GRID"]);
-            g=  getgeneratedreview(grid);
+            g = getgeneratedreview(grid);
             EMPLOYEE emp = getEmployee(g.EmployeeId);
 
 
@@ -29,7 +30,8 @@ namespace EMS
 
             parameterList = getParameters(emp.JobtitleId.Value);
 
-            foreach (PERFORMANCEPARAMETER p in parameterList) {
+            foreach (PERFORMANCEPARAMETER p in parameterList)
+            {
                 TableRow row = new TableRow();
                 TableCell pname = new TableCell();
                 Label pnamelabel = new Label();
@@ -38,14 +40,15 @@ namespace EMS
                 row.Cells.Add(pname);
 
                 TableCell review = new TableCell();
-                for (int i = p.MinRating; i <= p.MaxRating; i++) {
+                for (int i = p.MinRating; i <= p.MaxRating; i++)
+                {
                     RadioButton r = new RadioButton();
                     r.GroupName = p.ParameterName;
                     r.Text = i.ToString();
-                    
+
                     r.Width = 50;
                     r.ID = p.ParameterName + i;
-                    
+
                     if (i == (p.MinRating + p.MaxRating) / 2)
                         r.Checked = true;
                     else
@@ -86,11 +89,11 @@ namespace EMS
                     var readTask = result.Content.ReadAsAsync<PERFORMANCEPARAMETER[]>();
                     readTask.Wait();
 
-                     var parameters= readTask.Result;
+                    var parameters = readTask.Result;
 
                     foreach (var p in parameters)
                     {
-                        
+
                         if (jobtitleId == p.JobTitleId)
                         {
                             plist.Add(p);
@@ -179,6 +182,9 @@ namespace EMS
 
         protected void Save_Click(object sender, EventArgs e)
         {
+            //code to delete the previously set reviews
+            deletereviews(g.GenerateReviewId);
+
             bool error = false;
             foreach (TableRow tr in ParametersTable.Rows)
             {
@@ -237,9 +243,50 @@ namespace EMS
                 if (result.IsSuccessStatusCode)
                 {
                     Response.Write("Review assessed successfully.");
-                    Response.Redirect("PendingReviews.aspx");
+                    Response.Redirect("CompletedReviews.aspx");
                 }
             }
+        }
+
+        private void deletereviews(int generateReviewId)
+        {
+            List<REVIEW> rlist = new List<REVIEW>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("reviews/");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<REVIEW[]>();
+                    readTask.Wait();
+
+                    var reviews = readTask.Result;
+
+                    foreach (REVIEW r in reviews)
+                    {
+                        if (r.GenerateReviewId == generateReviewId)
+                            deletereview(r.ReviewId);
+                    }
+
+                }
+            }
+
+        }
+
+        private void deletereview(int reviewId)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Global.URIstring);
+
+            var deletetask = client.DeleteAsync("Reviews/" + reviewId);
+            deletetask.Wait();
+
+            var result = deletetask.Result;
         }
     }
 }
