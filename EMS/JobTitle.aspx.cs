@@ -108,6 +108,8 @@ namespace EMS
                                 deleteTask.Wait();
 
                                 var result = deleteTask.Result;
+                                if (!result.IsSuccessStatusCode)
+                                    Label1.Visible = true;
                             }
                         }
                     }

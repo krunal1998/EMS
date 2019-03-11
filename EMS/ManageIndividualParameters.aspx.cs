@@ -18,6 +18,8 @@ namespace EMS
         {
             if (!IsPostBack)
             {
+                if (Session["JTID"]==null)
+                    Response.Redirect("ErrorPage.aspx");
                 
                 int jobtitleId =(int) Session["JTID"];
                 jt = getjobtitle(jobtitleId);

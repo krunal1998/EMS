@@ -200,8 +200,8 @@ namespace EMS
                             string leavetypename = getleaevetype(leave.LeavetypeId);
                             int jobid = getjobtitleid(leave.EmployeeId);
                             int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
-                            int consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
-                            int leavebalance = allocatedleave - consumeleave;
+                            double consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
+                            double leavebalance =(double) allocatedleave - consumeleave;
                             string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
 
                             row["LeaveId"] = leave.LeaveId;
@@ -231,8 +231,8 @@ namespace EMS
                             string leavetypename = getleaevetype(leave.LeavetypeId);
                             int jobid = getjobtitleid(leave.EmployeeId);
                             int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
-                            int consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
-                            int leavebalance = allocatedleave - consumeleave;
+                            double consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
+                            double leavebalance = (double)allocatedleave - consumeleave;
                             string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
 
                             row["LeaveId"] = leave.LeaveId;
@@ -269,8 +269,8 @@ namespace EMS
                             string leavetypename = getleaevetype(leave.LeavetypeId);
                             int jobid = getjobtitleid(leave.EmployeeId);
                             int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
-                            int consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
-                            int leavebalance = allocatedleave - consumeleave;
+                            double consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
+                            double leavebalance = (double)allocatedleave - consumeleave;
                             string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
 
                             row["LeaveId"] = leave.LeaveId;
@@ -299,8 +299,8 @@ namespace EMS
                     string leavetypename = getleaevetype(leave.LeavetypeId);
                     int jobid = getjobtitleid(leave.EmployeeId);
                     int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
-                    int consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
-                    int leavebalance = allocatedleave - consumeleave;
+                    double consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
+                    double leavebalance = (double)allocatedleave - consumeleave;
                     string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
 
                     row["LeaveId"] = leave.LeaveId;
@@ -394,9 +394,9 @@ namespace EMS
         }
 
         //get consumed leave for specific employee and leave type
-        public int getconsumedleave(string empid, int leavetypeid)
+        public double getconsumedleave(string empid, int leavetypeid)
         {
-            int days = 0;
+            double days = 0;
             foreach (var cl in employeeleaves)
             {
                 if (cl.EmployeeId.ToLower().Equals(empid.ToLower()) && cl.LeaveTypeId == leavetypeid)
@@ -507,18 +507,18 @@ namespace EMS
                         {
                             string empid = "";
                             int leavetypeid = 0;
-                            int leaveday = 0;
+                            double leaveday = 0;
                             foreach(var l in leaves)
                             {
                                 if(l.LeaveId== Convert.ToInt32( leaveid))
                                 {
                                     empid = l.EmployeeId;
                                     leavetypeid = l.LeavetypeId;
-                                    leaveday = Convert.ToInt32( l.NumberOfDays);
+                                    leaveday = l.NumberOfDays;
                                     break;
                                 }
                             }
-                            int consumedleave = getconsumedleave(empid,leavetypeid);
+                            double consumedleave = getconsumedleave(empid,leavetypeid);
                             EMPLOYEELEAVES empleave = new EMPLOYEELEAVES();
                             empleave.EmployeeId = empid;
                             empleave.LeaveTypeId = leavetypeid;

@@ -35,10 +35,9 @@
                         <asp:MenuItem Text="Dashboard" Value="Dashboard"></asp:MenuItem>
                         <asp:MenuItem Text="Employee Info" Value="Employee Info"></asp:MenuItem>
                         <asp:MenuItem Text="Tasks" Value="Tasks"></asp:MenuItem>
-                        <asp:MenuItem Text="Leaves" Value="Leaves" NavigateUrl="~/LeaveList.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Leaves" Value="Leaves" NavigateUrl="~/LeaveList.aspx"> </asp:MenuItem>
                         <asp:MenuItem Text="Performance" Value="Performance"></asp:MenuItem>
                         <asp:MenuItem Text="Attendance" Value="Attendance"></asp:MenuItem>
-                        <asp:MenuItem Text="Reports" Value="Reports"/>
                         <asp:MenuItem Text="Projects" Value="Projects"/>
                     </Items>
                     <StaticHoverStyle BackColor="#990000" ForeColor="White" />

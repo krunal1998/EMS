@@ -71,8 +71,8 @@ namespace EMS
                                 deleteTask.Wait();
 
                                 var result = deleteTask.Result;
-                               // if(!result.IsSuccessStatusCode)
-                               //     Response.Write("<script>alert('Can't delete because of it is in use')</script>");
+                                if (!result.IsSuccessStatusCode)
+                                    Label1.Visible = true;
                             }
                         }
                     }

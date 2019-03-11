@@ -15,6 +15,8 @@ namespace EMS
         static GENERATEREVIEW g;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["GRID"]== null)
+                Response.Redirect("ErrorPage.aspx");
             int grid = Convert.ToInt32(Session["GRID"]);
             g=  getgeneratedreview(grid);
             EMPLOYEE emp = getEmployee(g.EmployeeId);
