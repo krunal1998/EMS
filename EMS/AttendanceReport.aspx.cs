@@ -5,67 +5,201 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Net.Http;
 
 namespace EMS
 {
     public partial class AttendanceReport : System.Web.UI.Page
     {
+        public static PERSONALDETAILS[] pdlist;
+        public static EMPLOYEE[] employees;
+        public static ATTENDANCE[] attendances;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Table t = new Table();
-            TableHeaderRow thr = new TableHeaderRow();
-
-            TableHeaderCell thc2 = new TableHeaderCell();
-            thc2.Width = 250;
-            thc2.BorderWidth = 1;
-            thc2.Text = "Employee Name";
-            TableHeaderCell thc3 = new TableHeaderCell();
-            thc3.Width = 250;
-            thc3.BorderWidth = 1;
-            thc3.Text = "Date";
-            TableHeaderCell thc4 = new TableHeaderCell();
-            thc4.Width = 250;
-            thc4.BorderWidth = 1;
-            thc4.Text = "Attendance";
-            
-            thr.Cells.Add(thc2); thr.Cells.Add(thc3); thr.Cells.Add(thc4);
-            t.Rows.Add(thr);
-
-            PlaceHolder1.Controls.Add(t);
-
-
-            var table = new DataTable();
-
-            table.Columns.Add("State", typeof(string));
-            table.Columns.Add("Education", typeof(long));
-
-            table.Columns.Add("Lbl");
-            var row = table.NewRow();
-            row["State"] = "Gujarat";
-            row["Education"] = 791;
-
-            table.Rows.Add(row);
-            row = table.NewRow();
-            row["State"] = "Delhi";
-            row["Education"] = 978;
-            table.Rows.Add(row);
-
-            row = table.NewRow();
-            row["State"] = "Panjab";
-            row["Education"] = 1650;
-            table.Rows.Add(row);
-
-            row = table.NewRow();
-            row["State"] = "UP";
-            row["Education"] = 1500;
-            table.Rows.Add(row);
-            Chart1.Series[0].Enabled = true;
-            Chart1.DataSource = table;
-            Chart1.DataBind();
-            Chart2.DataSource = table;
-            Chart2.DataBind();
+            if(!IsPostBack)
+            {
+                loadpersonaldetails();
+                loademployee();
+            }
 
         }
+
+        //load personal details of employees
+        public void loadpersonaldetails()
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Global.URIstring);
+            //HTTP GET
+            var responseTask = client.GetAsync("PersonalDetails/");
+            responseTask.Wait();
+
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+
+                var readTask = result.Content.ReadAsAsync<PERSONALDETAILS[]>();
+                readTask.Wait();
+
+                pdlist = readTask.Result;
+
+            }
+        }
+
+        //load employee data
+        public void loademployee()
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Global.URIstring);
+            //HTTP GET
+            var responseTask = client.GetAsync("Employees/");
+            responseTask.Wait();
+
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+
+                var readTask = result.Content.ReadAsAsync<EMPLOYEE[]>();
+                readTask.Wait();
+
+                employees = readTask.Result;
+
+            }
+        }
+
+        //get personal id from employee name
+        public int getpersonalid(string name)
+        {
+            int pid = 0;
+            string ename = "";
+            foreach (var p in pdlist)
+            {
+                ename = p.FirstName + " " + p.LastName;
+                if (ename.Equals(name))
+                {
+                    pid = p.PersonalDetailId;
+                    break;
+                }
+            }
+            return pid;
+        }
+
+
+        //get employee id from personal detail id
+        public string getemployeeid(int pid)
+        {
+            string eid = "";
+            foreach (var employee in employees)
+            {
+                if (pid == employee.PersonalDetailId)
+                {
+                    eid = employee.EmployeeId;
+                    break;
+                }
+            }
+            return eid;
+        }
+
+
+
+        protected void EmployeeViewButton_Click(object sender, EventArgs e)
+        {
+            int pid = getpersonalid(EnameTextBox.Text);
+            string empid = getemployeeid(pid);
+
+            //load attendance record
+            loadattendance(EmpFromDate.Text, EmpToDate.Text);
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date");
+            dt.Columns.Add("PunchInTime");
+            dt.Columns.Add("PunchOutTime");
+            dt.Columns.Add("Status");
+
+            int fullday = 0;
+            int halfday = 0;
+            int absent = 0;
+
+            foreach (var attendance in attendances)
+            {
+                if(attendance.EmployeeId.Equals(empid))
+                {
+                    DataRow row = dt.NewRow();
+                    row["Date"] = attendance.PunchInDate.ToShortDateString();
+                    row["PunchInTime"] = attendance.PunchInTime;
+                    row["PunchOutTime"] = attendance.PunchOutTime;
+                    if(attendance.WorkingHours==8.0)
+                    {
+                        fullday++;
+                        row["Status"] = "Present(Full Day)";
+                    }
+                    else if(attendance.WorkingHours == 4.0)
+                    {
+                        halfday++;
+                        row["Status"] = "Present(Half Day)";
+                    }
+                    else if(attendance.WorkingHours == 0.0)
+                    {
+                        absent++;
+                        row["Status"] = "Absent";
+                    }
+
+                    dt.Rows.Add(row);
+                }
+            }
+
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+
+            //bind data with chart
+            DataTable dt1 = new DataTable();
+            dt1.Columns.Add("Status");
+            dt1.Columns.Add("Days");
+
+            List<string> status = new List<string>();
+            status.Add("Present(Full Day)"); status.Add("Present(Half Day)"); status.Add("Absent");
+            List<int> days = new List<int>();
+            days.Add(fullday); days.Add(halfday); days.Add(absent);
+            for (int i = 0; i < 3; i++)
+            {
+                DataRow row = dt1.NewRow();
+                row["Status"] = status[i];
+                row["Days"] = days[i];
+                dt1.Rows.Add(row);
+            }
+            Chart2.DataSource = dt1;
+            Chart2.DataBind();
+
+            PrintButton.Visible = true;
+        }
+
+
+        //load all leave data
+        public void loadattendance(string fromdate, string todate)
+        {
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("Attendance?date1=" + fromdate + "&date2=" + todate);
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<ATTENDANCE[]>();
+                    readTask.Wait();
+
+                    attendances = readTask.Result;
+
+                }
+            }
+        }
+
+
+
+
 
         [System.Web.Script.Services.ScriptMethod()]
 
@@ -74,19 +208,48 @@ namespace EMS
         public static List<string> GetListofEmployeeName(string prefixText)
 
         {
-            List<string> list = new List<string>();
-            list.Add("abc");
-            list.Add("abb");
-            list.Add("acb");
-            list.Add("bca");
-            list.Add("edfg");
+            //get all employee name 
+            List<string> namelist = GetEmployeeName();
+
             List<string> temp = new List<string>();
-            foreach (string v in list)
+            //generate employee name list based on prefix
+            foreach (string v in namelist)
             {
-                if (v.Contains(prefixText))
+                if (v.ToLower().Contains(prefixText.ToLower()))
                     temp.Add(v);
             }
             return temp;
         }
+        //return all employee name list
+        public static List<string> GetEmployeeName()
+        {
+            List<string> namelist = new List<string>();
+            foreach (PERSONALDETAILS p in pdlist)
+            {
+                namelist.Add(p.FirstName + " " + p.LastName);
+            }
+            return namelist;
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            List<string> list = GetEmployeeName();
+            if (!list.Contains(EnameTextBox.Text))
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //required to avoid the runtime error "  
+            //Control 'GridView1' of type 'GridView' must be placed inside a form tag with runat=server."  
+        }
+
     }
 }

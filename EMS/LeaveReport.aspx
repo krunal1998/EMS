@@ -25,6 +25,7 @@
 				
             }
             WinPrint.document.write(prtContent.outerHTML);
+            WinPrint.document.write("<br/><hr/><br/>");
             WinPrint.document.write(prtChart.outerHTML);
             WinPrint.document.close();
             WinPrint.focus();
@@ -154,7 +155,7 @@
                         <asp:TextBox ID="EmpFromDate" runat="server" TextMode="Date" Text="2019-01-01" ></asp:TextBox>
                     </td>
                     <td style="width:200px">
-                        <asp:TextBox ID="EmpToDate" runat="server" TextMode="Date" Text="2020-12-31" ></asp:TextBox>
+                        <asp:TextBox ID="EmpToDate" runat="server" TextMode="Date" Text="2019-12-31" ></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
