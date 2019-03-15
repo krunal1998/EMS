@@ -13,102 +13,93 @@ namespace EMS {
     public partial class ManageAllowances {
         
         /// <summary>
-        /// Table1 control.
+        /// DropDownList3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable Table1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
         
         /// <summary>
-        /// Employee control.
+        /// Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Employee;
+        protected global::System.Web.UI.WebControls.Button Search;
         
         /// <summary>
-        /// EmployeeNameValue control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmployeeNameValue;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// JobTitle control.
+        /// addallowancestable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label JobTitle;
+        protected global::System.Web.UI.WebControls.Table addallowancestable;
         
         /// <summary>
-        /// JobTitleValue control.
+        /// newallowancetextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList JobTitleValue;
+        protected global::System.Web.UI.WebControls.TextBox newallowancetextbox;
         
         /// <summary>
-        /// Allowances control.
+        /// newdefaultamounttextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Allowances;
+        protected global::System.Web.UI.WebControls.TextBox newdefaultamounttextbox;
         
         /// <summary>
-        /// AllowancesValue control.
+        /// addbutton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList AllowancesValue;
+        protected global::System.Web.UI.WebControls.Button addbutton;
         
         /// <summary>
-        /// AllowanceAmount control.
+        /// deleteerrorlabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AllowanceAmount;
+        protected global::System.Web.UI.WebControls.Label deleteerrorlabel;
         
         /// <summary>
-        /// AllowanceAmountValue control.
+        /// DeleteButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AllowanceAmountValue;
+        protected global::System.Web.UI.WebControls.Button DeleteButton;
         
         /// <summary>
-        /// Add control.
+        /// AddNewAllowanceButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Add;
-        
-        /// <summary>
-        /// Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Delete;
+        protected global::System.Web.UI.WebControls.Button AddNewAllowanceButton;
     }
 }
