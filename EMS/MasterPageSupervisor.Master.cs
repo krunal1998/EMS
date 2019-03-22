@@ -13,5 +13,12 @@ namespace EMS
         {
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Remove("userid");
+            Session.RemoveAll();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

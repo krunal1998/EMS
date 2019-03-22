@@ -17,12 +17,18 @@ namespace EMS
         public static ATTENDANCE[] attendance;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["HRId"] != null)
             {
-                loadpersonaldetails();
-                loademployee();
-                filterdata();
+                if (!IsPostBack)
+                {
+                    loadpersonaldetails();
+                    loademployee();
+                    filterdata();
+                }
             }
+            else
+                Response.Redirect("~/Login.aspx");
+            
 
         }
 
@@ -88,7 +94,8 @@ namespace EMS
 
             }
         }
-         public void loadattendance(String employeename)
+
+        public void loadattendance(String employeename)
         {
             //first check employee name in personal detail and find personal detail id
             foreach(var detail in pdlist)

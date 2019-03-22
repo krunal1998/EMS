@@ -300,7 +300,7 @@ namespace EMS
                     int jobid = getjobtitleid(leave.EmployeeId);
                     int allocatedleave = getallocatedleave(jobid, leave.LeavetypeId);
                     double consumeleave = getconsumedleave(leave.EmployeeId, leave.LeavetypeId);
-                    double leavebalance = (double)allocatedleave - consumeleave;
+                    double leavebalance = allocatedleave - consumeleave;
                     string date = leave.StartDate.ToShortDateString() + " To " + leave.LastDate.ToShortDateString();
 
                     row["LeaveId"] = leave.LeaveId;
