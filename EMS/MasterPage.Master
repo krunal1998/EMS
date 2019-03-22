@@ -14,6 +14,7 @@
 <body style="background-color:azure
     ">
     <form id="form1" runat="server">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
     <table style="height: 100px; width: 935px">
         <tr>
             <td style="width:25%">
@@ -28,7 +29,7 @@
         <tr>          
             <td style="width:100%">
             
-                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BackColor="#FFFBD6" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.0em" ForeColor="#990000" StaticSubMenuIndent="10px" BorderColor="Black"  Width="1200px">                    
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BackColor="#ff3399" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.0em" ForeColor="White" StaticSubMenuIndent="10px" BorderColor="Black"  Width="1200px" Height="30px" CssClass="nav nav-tabs">                    
                     <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
                     <DynamicMenuItemStyle HorizontalPadding="10px" VerticalPadding="5px" Height="1em" />
                     <DynamicMenuStyle BackColor="#FFFBD6" />

@@ -11,14 +11,77 @@ namespace EMS
 {
     public partial class ComplainList : System.Web.UI.Page
     {
+        public List<COMPLAINS> clist;
+        public List<COMPLAINTYPES> ctlist;
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<COMPLAINS> clist = getAllComplains();
-            List<COMPLAINTYPES> ctlist = getAllComplainTypes();
+           // if (!IsPostBack)
+            {
+                clist = getAllComplains();
+                ctlist = getAllComplainTypes();
+                filterdata();
 
+            }
+           
+        }
+
+        public void filterdata()
+        {
+            clist = getAllComplains();
+            ctlist = getAllComplainTypes();
+
+            if (ComplainTypeValue.SelectedIndex != 0)
+            {
+                clist.RemoveAll(c => c.ComplainTypeId != Convert.ToInt32(ComplainTypeValue.SelectedValue));
+            }
+            if (StatusValue.SelectedIndex != 0)
+            {
+                clist.RemoveAll(c => !c.ComplainStatus.Equals(StatusValue.SelectedValue));
+            }
+
+            Table2.Rows.Clear();
+
+            TableHeaderRow hr = new TableHeaderRow();
+            TableHeaderCell thc = new TableHeaderCell();
+            Label l = new Label();
+            l.Text = "Complain Type";
+            thc.Controls.Add(l);
+            hr.Cells.Add(thc);
+
+            TableHeaderCell thc1 = new TableHeaderCell();
+            Label l1 = new Label();
+            l1.Text = "Employee Name";
+            thc1.Controls.Add(l1);
+            hr.Cells.Add(thc1);
+
+            TableHeaderCell thc2 = new TableHeaderCell();
+            Label l2 = new Label();
+            l2.Text = "Complain Desciption";
+            thc2.Controls.Add(l2);
+            hr.Cells.Add(thc2);
+
+            TableHeaderCell thc3 = new TableHeaderCell();
+            Label l3 = new Label();
+            l3.Text = "Complain Status";
+            thc3.Controls.Add(l3);
+            hr.Cells.Add(thc3);
+
+            TableHeaderCell thc4 = new TableHeaderCell();
+            Label l4 = new Label();
+            l4.Text = "Feedback";
+            thc4.Controls.Add(l4);
+            hr.Cells.Add(thc4);
+
+            TableHeaderCell thc5= new TableHeaderCell();
+            Label l5 = new Label();
+            l5.Text = "";
+            thc5.Controls.Add(l5);
+            hr.Cells.Add(thc5);
+
+            Table2.Rows.Add(hr);
             foreach (COMPLAINS c in clist)
             {
-                String ctype = ctlist.FirstOrDefault(ct => ct.ComplaintypeId == c.ComplainTypeId).ComplainType; 
+                String ctype = ctlist.FirstOrDefault(ct => ct.ComplaintypeId == c.ComplainTypeId).ComplainType;
                 TableRow row = new TableRow();
                 row.ID = c.ComplainId.ToString();
 
@@ -190,16 +253,17 @@ namespace EMS
 
         protected void Filter_Click(object sender, EventArgs e)
         {
-            //none selected
-            //if()
-            {
-
-            }
+          
+            filterdata();
         }
 
         protected void Reset_Click(object sender, EventArgs e)
         {
-
+            clist = getAllComplains();
+            ctlist = getAllComplainTypes();
+            ComplainTypeValue.SelectedIndex = 0;
+            StatusValue.SelectedIndex = 0;
+            filterdata();
         }
         /*   protected void gvbind()
 {

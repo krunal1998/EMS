@@ -68,10 +68,10 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowEditing="GridView1_RowEditing"  OnRowUpdating="GridView1_RowUpdating" 
         OnRowCancelingEdit="GridView1_RowCancelingEdit" DataKeyNames = "AllowanceId">
         <Columns>
-            <asp:BoundField DataField="AllowanceId" ItemStyle-Width="200px"  ItemStyle-HorizontalAlign="Center" ReadOnly="true" Visible="false"/>
-            <asp:BoundField DataField="AllowanceName" HeaderText="Allowance Name" ItemStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center" />
-            <asp:BoundField DataField="AllowanceAmount" HeaderText="Allowance Amount" ItemStyle-Width="200px"                   ReadOnly="true"  ItemStyle-HorizontalAlign="Center" />
-            <asp:TemplateField HeaderText="Action">
+            <asp:BoundField DataField="AllowanceId" ItemStyle-Width="200px" ItemStyle-HorizontalAlign="Center" ReadOnly="true" Visible="false"/>
+            <asp:BoundField DataField="AllowanceName" HeaderText="Allowance Name" ItemStyle-Width="200px" HeaderStyle-Width="200px" ReadOnly="true" ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundField DataField="AllowanceAmount" HeaderText="Allowance Amount" ItemStyle-Width="200px" HeaderStyle-Width="200px" ReadOnly="true"  ItemStyle-HorizontalAlign="Center" />
+            <asp:TemplateField HeaderText="Action" Visible="false" ItemStyle-Width="100px" HeaderStyle-Width="100px">
                 <EditItemTemplate>
                     <asp:DropDownList ID="ActionDropDown" runat="server" Width="150px" >
                         <asp:ListItem Text="Increment" Value="Increment"></asp:ListItem>
@@ -79,8 +79,8 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="ChangeAmount" HeaderText="Change Amount" ItemStyle-Width="200px"  ItemStyle-HorizontalAlign="Center" />
-            <asp:CommandField  ShowEditButton="true" ControlStyle-BorderStyle="Outset" ItemStyle-Width="78px"  ControlStyle-ForeColor="#000000" ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundField Visible="false" DataField="ChangeAmount" HeaderText="Change Amount" ItemStyle-Width="200px"  ItemStyle-HorizontalAlign="Center" />
+            <asp:CommandField  ShowEditButton="true" ControlStyle-BorderStyle="Outset" EditText="change" ItemStyle-Width="150px" HeaderStyle-Width="150px"  ControlStyle-ForeColor="#000000" ItemStyle-HorizontalAlign="Center" />
            
         </Columns>
     </asp:GridView>
@@ -88,7 +88,5 @@
     <asp:Label ID ="deleteerrorlabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
     <br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Save" runat="server" Text="Save" Width="66px" />
     <br />
 </asp:Content>

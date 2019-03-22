@@ -401,7 +401,7 @@ namespace EMS
             {
                 if (cl.EmployeeId.ToLower().Equals(empid.ToLower()) && cl.LeaveTypeId == leavetypeid)
                 {
-                    days = cl.NumberOfLeaves;
+                    days = cl.NumberOfLeaves.Value;
                     break;
                 }
             }

@@ -40,24 +40,6 @@ namespace EMS {
         protected global::System.Web.UI.WebControls.DropDownList ComplainTypeValue;
         
         /// <summary>
-        /// ComplainantsName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ComplainantsName;
-        
-        /// <summary>
-        /// ComplainantsNameValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ComplainantsNameValue;
-        
-        /// <summary>
         /// Status control.
         /// </summary>
         /// <remarks>

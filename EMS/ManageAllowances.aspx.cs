@@ -13,22 +13,54 @@ namespace EMS
     {
 
         public static JOBTITLE jt;
+        public static JOBTITLE[] jobtitles;
         public static List<ALLOWANCES> allowlist;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                int jobtitleId = 2;
-                //int jobtitleId = Session["JTID"];
-                jt = getjobtitle(jobtitleId);
-                getallowances(jt.JobTitleId);
-                
-                filterdata();
+            { 
+
+              
                 deleteerrorlabel.Visible = false;
+                loadjobtitle();
 
             }
             addallowancestable.Visible = false;
 
+        }
+
+        private void loadjobtitle()
+        {
+            JobTitleValue.Items.Clear();
+
+            ListItem select = new ListItem("Select job title", "0");
+            JobTitleValue.Items.Add(select);
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+                var responseTask = client.GetAsync("JobTitle");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<JOBTITLE[]>();
+                    readTask.Wait();
+
+                    jobtitles = readTask.Result;
+
+                    foreach (var jobtitle in jobtitles)
+                    {
+                        ListItem li = new ListItem(jobtitle.JobTitleName, jobtitle.JobTitleName);
+                        li.Text = jobtitle.JobTitleName;
+                        li.Value = jobtitle.JobTitleId.ToString();
+                        JobTitleValue.Items.Add(li);
+
+                    }
+                }
+            }
         }
 
         private void filterdata()
@@ -109,16 +141,16 @@ namespace EMS
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
-            TextBox allowanceId = row.Cells[2].Controls[0] as TextBox;
-            TextBox allowanceName = row.Cells[3].Controls[0] as TextBox;
-            TextBox defaultAmount = row.Cells[4].Controls[0] as TextBox;
-            //int parameterid = Convert.ToInt32( row.Cells[1].Text);
+            
+            TextBox allowanceName = row.Cells[2].Controls[0] as TextBox;
+            TextBox defaultAmount = row.Cells[3].Controls[0] as TextBox;
+           // int allowanceid = Convert.ToInt32( row.Cells[1].Text);
 
             ALLOWANCES all = new ALLOWANCES();
             all.JobTitleId = jt.JobTitleId;
             all.DefaultPay = Convert.ToInt32(defaultAmount.Text);
             all.AllowanceName = allowanceName.Text;
-            all.AllowanceId = (int)GridView1.DataKeys[e.RowIndex].Value;
+            all.AllowanceId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);
             Response.Write(all.AllowanceId);
             GridView1.EditIndex = -1;
 
@@ -172,7 +204,15 @@ namespace EMS
 
         protected void Search_Click(object sender, EventArgs e)
         {
+            AddNewAllowanceButton.Visible = true;
+            DeleteButton.Visible = true;
+            int jtv = Convert.ToInt32(JobTitleValue.SelectedIndex);
+            jt = getjobtitle(jtv);
 
+            getallowances(jt.JobTitleId);
+
+            filterdata();
+            
         }
 
         protected void DeleteButton_Click(object sender, EventArgs e)

@@ -15,6 +15,9 @@
         .auto-style4 {
             width: 116px;
         }
+        .auto-style5 {
+            width: 500px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -39,14 +42,14 @@
         </tr>         
         <tr>
             <td class="auto-style4">
-                 <asp:Label ID="Post" runat="server" Text="Post: "></asp:Label>
+                 <asp:Label ID="Post" runat="server" Text="Job Title: "></asp:Label>
             </td>           
             <td class="auto-style3">
                
             </td>
         </tr>
     </table>
-    <table border="1">
+    <table border="1" class="auto-style5">
         <tr>
             <td>
                  <b><asp:Label ID="Earnings" runat="server" Text="Earnings"></asp:Label></b>

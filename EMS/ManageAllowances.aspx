@@ -24,7 +24,7 @@
     <hr />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:DropDownList ID="DropDownList3" runat="server" >
+    <asp:DropDownList ID="JobTitleValue" runat="server" AppendDataBoundItems="true">
                     <asp:ListItem  Value="0" Text="Select Job Title" />
                 </asp:DropDownList>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -71,9 +71,9 @@
     <asp:Label ID ="deleteerrorlabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="DeleteButton" runat="server" Text="Delete" Width="78px" OnClick="DeleteButton_Click" />
+    <asp:Button ID="DeleteButton" runat="server" Text="Delete" Width="78px" OnClick="DeleteButton_Click" Visible="false" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    <asp:Button ID="AddNewAllowanceButton" runat="server" Text="Add New" Width="78px" OnClick="AddNewAllowanceButton_Click" />
+    <asp:Button ID="AddNewAllowanceButton" runat="server" Text="Add New" Width="78px" OnClick="AddNewAllowanceButton_Click" Visible="false" />
     
 </asp:Content>
 

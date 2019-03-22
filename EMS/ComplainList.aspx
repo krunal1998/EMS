@@ -20,29 +20,19 @@
             </td>    
             <td class="auto-style1">
                 <asp:DropDownList ID="ComplainTypeValue" runat="server" Height="29px" Width="109px">
-                    <asp:ListItem Text="None" Value=""></asp:ListItem>
-                     <asp:ListItem Text="Harassment" Value="Harassment"></asp:ListItem>
-                    <asp:ListItem Text="Retaliation" Value="Retaliation"></asp:ListItem>
-                    <asp:ListItem Text="Discrimination" Value="Discrimination"></asp:ListItem>
-                    <asp:ListItem Text="Theft" Value="Theft"></asp:ListItem>
-                    <asp:ListItem Text="Bullying" Value="Bullying"></asp:ListItem>
-                    <asp:ListItem Text="Leave Issues" Value="Leave Issues"></asp:ListItem>
-                    <asp:ListItem Text="Others Issues" Value="Others Issues"></asp:ListItem>
+                    <asp:ListItem Text="None" Value="0"></asp:ListItem>
+                     <asp:ListItem Text="Harassment" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="Retaliation" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="Discrimination" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="Theft" Value="4"></asp:ListItem>
+                    <asp:ListItem Text="Bullying" Value="5"></asp:ListItem>
+                    <asp:ListItem Text="Leave Issues" Value="6"></asp:ListItem>
+                    <asp:ListItem Text="Others Issues" Value="7"></asp:ListItem>
 
                 </asp:DropDownList>
             </td>   
         </tr>
-        <tr>
-            <td>
-                 <asp:Label ID="ComplainantsName" runat="server" Text="Complainants Name: "></asp:Label>
-            </td>     
-            <td class="auto-style1">
-                <asp:DropDownList ID="ComplainantsNameValue" runat="server" Height="29px">
-                    <asp:ListItem Text="None" Value=""></asp:ListItem>
-                    <asp:ListItem Text="Pratik Chirag Joshi" Value="Pratik Chirag Joshi"></asp:ListItem>
-                </asp:DropDownList>
-            </td>
-        </tr>         
+       
         <tr>
             <td>
                  <asp:Label ID="Status" runat="server" Text="Status: "></asp:Label>

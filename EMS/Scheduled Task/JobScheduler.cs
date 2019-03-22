@@ -23,7 +23,14 @@ namespace EMS.Scheduled_Task
              .WithCronSchedule("0 0 7 ? * MON,TUE,WED,THU,FRI,SAT").Build();
 
             scheduler.ScheduleJob(job, trigger);
+
+          /*  IJobDetail Payslipjob = JobBuilder.Create<payslipgeneration>().Build();
+            ITrigger Paysliptrigger = TriggerBuilder.Create()
+               .WithCronSchedule("0 0/2 * * * ?").Build();
+            scheduler.ScheduleJob(Payslipjob, Paysliptrigger);*/
+
+
         }
-        
+
     }
 }

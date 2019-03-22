@@ -251,11 +251,15 @@ namespace EMS
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridView1.EditIndex = -1;
+            GridView1.Columns[3].Visible = false;
+            GridView1.Columns[4].Visible = false;
             filterdata();
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            GridView1.Columns[4].Visible = true;
+            GridView1.Columns[3].Visible = true;
             GridView1.EditIndex = e.NewEditIndex;
 
             filterdata();
@@ -295,7 +299,8 @@ namespace EMS
 
                 var result = putTask.Result;
             }
-
+            GridView1.Columns[3].Visible = false;
+            GridView1.Columns[4].Visible = false;
             filterdata();
 
         }

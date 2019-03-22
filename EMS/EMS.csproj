@@ -231,6 +231,7 @@
     <Content Include="PendingReviews.aspx" />
     <Content Include="PersonalDetails.aspx" />
     <Content Include="Qualifications.aspx" />
+    <Content Include="Supervisor.aspx" />
     <Content Include="SupervisorDashboard.aspx" />
     <Content Include="ViewProjects.aspx" />
     <Content Include="ViewTasks.aspx" />
@@ -499,6 +500,7 @@
     <Compile Include="Models\LEAVES.cs" />
     <Compile Include="Models\LEAVETYPE.cs" />
     <Compile Include="Models\LOGINDETAILS.cs" />
+    <Compile Include="Models\PAYMENTRECORD.cs" />
     <Compile Include="Models\PERFORMANCEPARAMETER.cs" />
     <Compile Include="Models\PERSONALDETAILS.cs" />
     <Compile Include="Models\PROJECT.cs" />
@@ -548,6 +550,14 @@
     </Compile>
     <Compile Include="Scheduled Task\Job.cs" />
     <Compile Include="Scheduled Task\JobScheduler.cs" />
+    <Compile Include="Scheduled Task\payslipgeneration.cs" />
+    <Compile Include="Supervisor.aspx.cs">
+      <DependentUpon>Supervisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supervisor.aspx.designer.cs">
+      <DependentUpon>Supervisor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SupervisorDashboard.aspx.cs">
       <DependentUpon>SupervisorDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
