@@ -33,11 +33,18 @@ namespace EMS
 
                     var logindetails = readTask.Result;
 
-
+                    if(Username.Text.ToLower().Equals("hr") && Password.Text.Equals(logindetails.Password) && logindetails != null)
+                    {
+                        Session["HRId"] = Username.Text.ToLower();
+                        Response.Redirect("~/HRDashboard.aspx");
+                    }
                     if (Password.Text.Equals(logindetails.Password) && logindetails != null)
                     {
                         if (issupervisor(logindetails.EmployeeId))
+                        {
+                            Session["userid"] = logindetails.EmployeeId;
                             Response.Redirect("SupervisorDashboard.aspx");
+                        }
                         else
                         {
                             ErrorMessage.Visible = true;

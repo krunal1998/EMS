@@ -18,7 +18,7 @@ namespace EMS
         public static EMPLOYEELEAVES[] employeeleaves;
         public static LEAVEALLOCATION[] allocatedleaves;
         public static JOBTITLE[] jobtitles;
-
+        public static ATTENDANCE[] attendances;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -581,5 +581,28 @@ namespace EMS
             //required to avoid the runtime error "  
             //Control 'GridView1' of type 'GridView' must be placed inside a form tag with runat=server."  
         }
+
+        public void demo()
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Global.URIstring);
+                //HTTP GET
+            var responseTask = client.GetAsync("Attendance");
+            responseTask.Wait();
+
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+
+                var readTask = result.Content.ReadAsAsync<ATTENDANCE[]>();
+                    readTask.Wait();
+
+                attendances = readTask.Result;
+
+            }
+
+
+         }
+        
     }
 }
