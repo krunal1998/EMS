@@ -16,11 +16,16 @@ namespace EMS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["HRId"] != null)
             {
-                loaddata();
-                filterdata();
+                if (!IsPostBack)
+                {
+                    loaddata();
+                    filterdata();
+                }
             }
+            else
+                Response.Redirect("~/Login.aspx");
         }
 
         //load data in holidays

@@ -19,15 +19,20 @@ namespace EMS
         public static LEAVEALLOCATION[] allocatedleaves;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["HRId"] != null)
             {
-                loadpersonaldetails();
-                loademployee();
-                loadleavetypes();
-                loadleaveallocation();
-                loademployeeleaves();
-                display();
+                if (!IsPostBack)
+                {
+                    loadpersonaldetails();
+                    loademployee();
+                    loadleavetypes();
+                    loadleaveallocation();
+                    loademployeeleaves();
+                    display();
+                }
             }
+            else
+                Response.Redirect("~/Login.aspx");
         }
         //load personal details of employees
         public void loadpersonaldetails()

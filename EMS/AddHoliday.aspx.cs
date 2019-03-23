@@ -13,8 +13,13 @@ namespace EMS
         public static HOLIDAYS[] holidays;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-                loadholidays();
+            if(Session["HRId"]!=null)
+            {
+                if (IsPostBack)
+                    loadholidays();
+            }
+            else
+                Response.Redirect("~/Login.aspx");
         }
 
         public void loadholidays()

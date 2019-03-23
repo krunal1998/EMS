@@ -14,8 +14,14 @@ namespace EMS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-                displayrecord();
+            if (Session["HRId"] != null)
+            {
+
+                if (!IsPostBack)
+                    displayrecord();
+            }
+            else
+                Response.Redirect("~/Login.aspx");
         }
 
         public void displayrecord()

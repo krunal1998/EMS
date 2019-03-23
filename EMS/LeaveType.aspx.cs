@@ -14,10 +14,15 @@ namespace EMS
         static LEAVETYPE[] leavetypes;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["HRId"] != null)
             {
-                displayrecord();
+                if (!IsPostBack)
+                {
+                    displayrecord();
+                }
             }
+            else
+                Response.Redirect("~/Login.aspx");
         }
 
         public void displayrecord()
