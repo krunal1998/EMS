@@ -33,16 +33,23 @@ namespace EMS
 
                     var logindetails = readTask.Result;
 
+                    //HR
                     if(Username.Text.ToLower().Equals("hr") && Password.Text.Equals(logindetails.Password) && logindetails != null)
                     {
                         Session["HRId"] = Username.Text.ToLower();
                         Response.Redirect("~/HRDashboard.aspx");
                     }
+                    //correct supervisor
                     if (Password.Text.Equals(logindetails.Password) && logindetails != null)
                     {
                         if (issupervisor(logindetails.EmployeeId))
                         {
                             Session["userid"] = logindetails.EmployeeId;
+                            
+                            string name = getEmployeeName(logindetails.EmployeeId);
+
+                            Session["username"] = name;
+
                             Response.Redirect("SupervisorDashboard.aspx");
                         }
                         else
@@ -64,6 +71,37 @@ namespace EMS
                     ErrorMessage.Text = "Username not found. Please try again";
                 }
             }
+        }
+
+        private string getEmployeeName(string employeeId)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Global.URIstring);
+            var responseTask = client.GetAsync("Employees/" + Username.Text.ToLower());
+            responseTask.Wait();
+            var result = responseTask.Result;
+            EMPLOYEE emp=null;
+            if (result.IsSuccessStatusCode)
+            {
+
+                var readTask = result.Content.ReadAsAsync<EMPLOYEE>();
+                readTask.Wait();
+
+                emp = readTask.Result;
+            }
+            responseTask = client.GetAsync("PersonalDetails/" + emp.PersonalDetailId.ToString());
+            responseTask.Wait();
+            result = responseTask.Result;
+            PERSONALDETAILS per=null;
+                if (result.IsSuccessStatusCode)
+            {
+
+                var readTask = result.Content.ReadAsAsync<PERSONALDETAILS>();
+                readTask.Wait();
+
+                per = readTask.Result;
+            }
+            return per.FirstName;
         }
 
         private bool issupervisor(string employeeId)
