@@ -20,7 +20,6 @@
         <tr>
             <td>
                 <asp:Label ID="FullName" runat="server" Text="Full Name: "></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>    
             <td>
                 <asp:TextBox ID="FirstName" runat="server" placeholder="First Name"></asp:TextBox>
@@ -96,9 +95,13 @@
     </div> 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
     <div class="container">
-    &nbsp;<br />
+    &nbsp;&nbsp;&nbsp;
+        <br />
+        <asp:Label ID="EmployeeId" runat="server" Visible="false"></asp:Label>
+        <br />
+        <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="Save" runat="server" Text="Save" Width="94px" OnClick="Save_Click" CssClass="btn btn-success" />
            </div>

@@ -124,7 +124,7 @@ namespace EMS
                         li.Text = jobtitle.JobTitleName;
                         li.Value = jobtitle.JobTitleId.ToString();
                         JobTitleValue.Items.Add(li);
-                    
+                        
                     }
                 }
             }
@@ -142,6 +142,46 @@ namespace EMS
             pd.DateOfBirth = Convert.ToDateTime(DOBValue.Text);
             emp.JobtitleId = Convert.ToInt32(JobTitleValue.SelectedValue);
             emp.SupervisorId = Convert.ToInt32(SupervisorValue.SelectedValue);
+
+            string JoinYear = DateTime.Now.ToString("yy");
+            
+            string firstname = FirstName.Text.ToLower();
+            char finitial = firstname[0];
+
+            string middlename = MiddleName.Text.ToLower();
+            char minitial = middlename[0];
+
+            string lastname = LastName.Text.ToLower();
+            char linitial = lastname[0];
+
+            DateTime birthday = Convert.ToDateTime(DOBValue.Text);
+            string bday = birthday.ToString("dd");
+
+            emp.EmployeeId = JoinYear + "" + finitial + "" + minitial + "" + linitial + "" + bday;
+            EmployeeId.Visible = true;
+            EmployeeId.Text = "Employee ID:" + emp.EmployeeId;
+
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Global.URIstring);
+
+            var postTask1 = client.PostAsJsonAsync<PERSONALDETAILS>("personaldetails", pd);
+            postTask1.Wait();
+
+            var result1 = postTask1.Result;
+
+            string url = result1.Headers.Location.ToString();
+            int pdid = Convert.ToInt32(url.Split('/').Last());
+
+            emp.PersonalDetailId = pd.PersonalDetailId;
+
+            var postTask = client.PostAsJsonAsync<EMPLOYEE>("employees", emp);
+            postTask.Wait();
+
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode && result1.IsSuccessStatusCode)
+            {
+                Response.Write("Add successfull!");
+            }
         }
 
         /*
