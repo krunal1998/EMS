@@ -22,15 +22,20 @@ namespace EMS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if(Session["HRId"] != null)
             {
-                loadpersonaldetails();
-                loademployee();
-                loadleavetypes();
-                loadjobtitle();
-                loadleaveallocation();
-                loademployeeleaves();
+                if (!IsPostBack)
+                {
+                    loadpersonaldetails();
+                    loademployee();
+                    loadleavetypes();
+                    loadjobtitle();
+                    loadleaveallocation();
+                    loademployeeleaves();
+                }
             }
+            else
+                Response.Redirect("~/Login.aspx");
         }
 
         //load personal details of employees

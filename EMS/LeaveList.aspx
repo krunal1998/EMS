@@ -33,7 +33,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="color:deeppink;">Leave List</h1>
+    <h1 style="color:deeppink;">Requested Leave</h1>
     <hr />
     <br />
     <table>

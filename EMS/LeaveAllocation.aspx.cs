@@ -17,14 +17,19 @@ namespace EMS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["HRId"] != null)
             {
-                loadjobtitle();
-                loadleavetype();
-                loadleaveallocation();
-                filterdata();
-                //gvbind();
+                if (!IsPostBack)
+                {
+                    loadjobtitle();
+                    loadleavetype();
+                    loadleaveallocation();
+                    filterdata();
+                    //gvbind();
+                }
             }
+            else
+                Response.Redirect("~/Login.aspx");
         }
 
         //load job tiles in dropdownlist 

@@ -16,11 +16,19 @@ namespace EMS
         public static ATTENDANCE[] attendances;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["HRId"] != null)
             {
-                loadpersonaldetails();
-                loademployee();
+
+                if (!IsPostBack)
+                {
+                    loadpersonaldetails();
+                    loademployee();
+                }
+
             }
+            else
+                Response.Redirect("~/Login.aspx");
+
 
         }
 

@@ -14,11 +14,16 @@ namespace EMS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["HRId"] != null)
             {
-                load_data();
-                SetSelectIndex();
+                if (!IsPostBack)
+                {
+                    load_data();
+                    SetSelectIndex();
+                }
             }
+            else
+                Response.Redirect("~/Login.aspx");
 
         }
 
